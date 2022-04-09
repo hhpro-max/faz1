@@ -14,14 +14,15 @@ public class MainFrame extends JFrame {
     int width=800;
     int height = 800;
 
-
+    SafheVorod safheVorod;
 
     public MainFrame(){
         PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
         logger.info("enter in constructor of Mainframe");
         initframe();
-        SafheVorod safheVorod = new SafheVorod();
+        safheVorod = new SafheVorod(this);
         this.add(safheVorod);
+
 
         update();
 
@@ -45,6 +46,7 @@ public class MainFrame extends JFrame {
 
 
     public void update(){
+        logger.info("vorood be update");
         this.repaint();
         this.revalidate();
     }

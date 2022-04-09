@@ -1,6 +1,7 @@
 package GUI;
 
 import EDUFILES.Emtehan;
+import LOGIC.Controller;
 import RESOURCES.ImageResource;
 import RESOURCES.ResourceManager;
 import org.apache.log4j.LogManager;
@@ -8,11 +9,17 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SafheVorod extends JPanel {
     static final Logger logger = LogManager.getLogger(Emtehan.class);
 
+    public static int capchacounter = 0;
+    public static JLabel thiscapcha;
+
+    SendLoginIngo sendLoginIngo;
     ArrayList<JLabel> capchas = new ArrayList<>();
     public JLabel capcha1;
     public JLabel capcha2;
@@ -25,6 +32,8 @@ public class SafheVorod extends JPanel {
     int height = 800;
 
     public JButton vorood;
+    public JButton refreshcapcha;
+    public JTextField capchafield;
     public JPasswordField passwordField;
     public JTextField usernameField;
 
@@ -32,15 +41,21 @@ public class SafheVorod extends JPanel {
     public JLabel passLabel;
     public JLabel showpass;
 
+    public JOptionPane jOptionPane;
+
     public JCheckBox checkpassBox;
 
-    public SafheVorod() {
+    MainFrame frame;
+
+    public SafheVorod(MainFrame frame) {
+        this.frame = frame;
         PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
         logger.info("enter to the constructor");
 
         initpanel();
         initcom();
         align();
+        setListener();
 
         logger.info("exit from constructor");
     }
@@ -64,30 +79,45 @@ public class SafheVorod extends JPanel {
         passLabel = new JLabel("ramzOboor  :");
         checkpassBox = new JCheckBox();
         showpass = new JLabel("show");
+        refreshcapcha = new JButton("next");
+        capchafield = new JTextField();
+
 
 
         capcha1 = new JLabel();
-        capcha1.setIcon(new ImageIcon(ResourceManager.get(ImageResource.CAPCHA1)));
+        ImageIcon imageIcon = new ImageIcon(ResourceManager.get(ImageResource.CAPCHA1));
+        imageIcon.getImage().flush();
+        capcha1.setIcon(imageIcon);
         capcha1.setName("3a4d");
 
         capcha2 = new JLabel();
-        capcha2.setIcon(new ImageIcon(ResourceManager.get(ImageResource.CAPCHA2)));
+        ImageIcon imageIcon1 = new ImageIcon(ResourceManager.get(ImageResource.CAPCHA2));
+        imageIcon1.getImage().flush();
+        capcha2.setIcon(imageIcon1);
         capcha2.setName("xoe");
 
         capcha3 = new JLabel();
-        capcha3.setIcon(new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)));
+        ImageIcon imageIcon2 = new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3));
+        imageIcon2.getImage().flush();
+        capcha3.setIcon(imageIcon2);
         capcha3.setName("pls");
 
         capcha4 = new JLabel();
-        capcha4.setIcon(new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4)));
+        ImageIcon imageIcon3 = new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4));
+        imageIcon3.getImage().flush();
+        capcha4.setIcon(imageIcon3);
         capcha4.setName("help");
 
         capcha5 = new JLabel();
-        capcha5.setIcon(new ImageIcon(ResourceManager.get(ImageResource.CAPCHA5)));
+        ImageIcon imageIcon4 = new ImageIcon(ResourceManager.get(ImageResource.CAPCHA5));
+        imageIcon4.getImage().flush();
+        capcha5.setIcon(imageIcon4);
         capcha5.setName("me");
 
         capcha6 = new JLabel();
-        capcha6.setIcon(new ImageIcon(ResourceManager.get(ImageResource.CAPCHA6)));
+        ImageIcon imageIcon5 = new ImageIcon(ResourceManager.get(ImageResource.CAPCHA6));
+        imageIcon5.getImage().flush();
+        capcha6.setIcon(imageIcon5);
         capcha6.setName("sos");
 
         capchas.add(capcha1);
@@ -96,6 +126,10 @@ public class SafheVorod extends JPanel {
         capchas.add(capcha4);
         capchas.add(capcha5);
         capchas.add(capcha6);
+
+
+
+
 
         logger.info("exit from initcom()");
     }
@@ -111,19 +145,97 @@ public class SafheVorod extends JPanel {
         this.add(passLabel);
         passwordField.setBounds(230, 350, 150, 30);
         this.add(passwordField);
-        vorood.setBounds(350, 450, 150, 60);
+        vorood.setBounds(550, 650, 150, 60);
         this.add(vorood);
         showpass.setBounds(400, 350, 50, 30);
         this.add(showpass);
         checkpassBox.setBounds(450, 350, 30, 30);
         this.add(checkpassBox);
+        thiscapcha = new JLabel();
+        thiscapcha.setIcon(capchas.get(0).getIcon());
+        thiscapcha.setName(capchas.get(0).getName());
+        thiscapcha.setBounds(200, 420,100,80);
+        this.add(thiscapcha);
+        refreshcapcha.setBounds(240,510,80,50);
+        this.add(refreshcapcha);
+        capchafield.setBounds(200,590,100,30);
+        this.add(capchafield);
+        jOptionPane = new JOptionPane();
+        this.add(jOptionPane);
+
 
 
         logger.info("khoroj az align()");
     }
 
-    public void initcapcha() {
 
+
+
+    public void setListener(){
+        checkpassBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (checkpassBox.isSelected()){
+                    passwordField.setEchoChar((char)0);
+                }else {
+                    passwordField.setEchoChar('*');
+                }
+            }
+        });
+
+        refreshcapcha.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    capchacounter++;
+
+                    capcharesetcheck();
+
+                    thiscapcha.setIcon(capchas.get(capchacounter).getIcon());
+                    thiscapcha.setName(capchas.get(capchacounter).getName());
+                    update();
+                    frame.update();
+
+
+                    logger.info("new capcha is :" + thiscapcha.getName() + "and counter is"+capchacounter);
+
+
+            }
+        });
+
+        vorood.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String capcha = capchafield.getText();
+                String name = usernameField.getText();
+                String pass = passwordField.getText();
+                if (capcha.equals(thiscapcha.getName())){
+                    if (!name.isEmpty() && !pass.isEmpty()){
+
+                        sendLoginIngo = new SendLoginIngo(name,pass);
+                        Controller.getInstance().login(sendLoginIngo);
+                    }else {
+                        jOptionPane.showMessageDialog(frame,"hich fieldy ra khali nagozarid");
+                    }
+
+
+                }else {
+                    jOptionPane.showMessageDialog(frame,"captcha is wrong");
+                }
+            }
+        });
+    }
+    void capcharesetcheck(){
+        if (capchacounter > 5){
+            capchacounter = 0;
+        }
+    }
+
+    public void update(){
+
+        this.repaint();
+        this.revalidate();
 
     }
+
+
 }
