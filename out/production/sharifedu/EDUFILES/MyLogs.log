@@ -1,0 +1,14 @@
+2022-04-10 02:03:13,064 [INFO|EDUFILES.Emtehan|MainFrame] enter in constructor of Mainframe 
+%2022-04-10 02:03:13,065 [INFO|EDUFILES.Emtehan|MainFrame] enter to the initframe() 
+%2022-04-10 02:03:13,111 [INFO|EDUFILES.Emtehan|MainFrame] exit of the initframe() 
+%2022-04-10 02:03:13,115 [INFO|EDUFILES.Emtehan|SafheVorod] enter to the constructor 
+%2022-04-10 02:03:13,115 [INFO|EDUFILES.Emtehan|SafheVorod] enter to the initpanel() 
+%2022-04-10 02:03:13,116 [INFO|EDUFILES.Emtehan|SafheVorod] exit from initpanel() 
+%2022-04-10 02:03:13,116 [INFO|EDUFILES.Emtehan|SafheVorod] enter to the initcom() 
+%2022-04-10 02:03:13,165 [INFO|EDUFILES.Emtehan|SafheVorod] exit from initcom() 
+%2022-04-10 02:03:13,165 [INFO|EDUFILES.Emtehan|SafheVorod] vorood be align() 
+%2022-04-10 02:03:13,183 [INFO|EDUFILES.Emtehan|SafheVorod] khoroj az align() 
+%2022-04-10 02:03:13,184 [INFO|EDUFILES.Emtehan|SafheVorod] exit from constructor 
+%2022-04-10 02:03:13,198 [INFO|EDUFILES.Emtehan|MainFrame] vorood be update 
+%2022-04-10 02:03:13,203 [INFO|EDUFILES.Emtehan|MainFrame] exit of constructor 
+%
