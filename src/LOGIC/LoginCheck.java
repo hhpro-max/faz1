@@ -1,10 +1,20 @@
 package LOGIC;
 
 public class LoginCheck {
-    public boolean isvalidname;
-    public boolean isvalidpass;
+    public static boolean isvalidLogin = false;
 
-    public void check(String name,String pass){
+    public static String name;
+    public static String pass;
 
+    public void check(){
+        this.name = Controller.getInstance().getName();
+        this.pass = Controller.getInstance().getPass();
+
+        for (AzayeDaneshgah i:
+             AzayeDaneshgah.getAzayeDaneshgahs()) {
+            if (name.equals(i.getId()) && pass.equals(i.getPass())){
+                isvalidLogin = true;
+            }
+        }
     }
 }

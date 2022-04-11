@@ -213,6 +213,14 @@ public class SafheVorod extends JPanel {
 
                         sendLoginIngo = new SendLoginIngo(name,pass);
                         Controller.getInstance().login(sendLoginIngo);
+                        if (Controller.getInstance().chekvalidlogin()){
+
+
+                            setVisible(false);
+                            logger.info("vorood karbar "+ Controller.getInstance().getName() + "movafaghiat amiz bood");
+                        }else {
+                            jOptionPane.showMessageDialog(frame,"name karbary ya ramz oboor eshtebah ast");
+                        }
                     }else {
                         jOptionPane.showMessageDialog(frame,"hich fieldy ra khali nagozarid");
                     }

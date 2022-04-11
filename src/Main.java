@@ -18,7 +18,7 @@ public class Main {
         System.out.println(emtehan1.name);
 
          */
-        Ostad ostad = new Ostad("2139","iani","hossein");
+
         for (AzayeDaneshgah i:
                 AzayeDaneshgah.azayeDaneshgahs) {
             System.out.println(i.name + i.getId());
