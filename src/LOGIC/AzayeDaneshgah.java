@@ -1,5 +1,6 @@
 package LOGIC;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class AzayeDaneshgah {
@@ -8,6 +9,9 @@ public class AzayeDaneshgah {
     public String id;
     public String pass;
     public String name;
+    public String akharinzamanvorood;
+    public ImageIcon akskarbar;
+    public String email;
 
     public AzayeDaneshgah(String id,String pass,String name){
         this.id=id;
@@ -22,12 +26,37 @@ public class AzayeDaneshgah {
 
 
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public static ArrayList<AzayeDaneshgah> getAzayeDaneshgahs() {
         return azayeDaneshgahs;
     }
 
     public static void setAzayeDaneshgahs(ArrayList<AzayeDaneshgah> azayeDaneshgahs) {
         AzayeDaneshgah.azayeDaneshgahs = azayeDaneshgahs;
+    }
+
+
+    public ImageIcon getAkskarbar() {
+        return akskarbar;
+    }
+
+    public void setAkskarbar(ImageIcon akskarbar) {
+        this.akskarbar = akskarbar;
+    }
+
+    public String getAkharinzamanvorood() {
+        return akharinzamanvorood;
+    }
+
+    public void setAkharinzamanvorood(String akharinzamanvorood) {
+        this.akharinzamanvorood = akharinzamanvorood;
     }
 
     public String getId() {

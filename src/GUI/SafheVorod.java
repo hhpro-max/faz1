@@ -9,12 +9,14 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SafheVorod extends JPanel {
-    static final Logger logger = LogManager.getLogger(Emtehan.class);
+    static final Logger logger = LogManager.getLogger(SafheVorod.class);
 
     public static int capchacounter = 0;
     public static JLabel thiscapcha;
@@ -40,6 +42,11 @@ public class SafheVorod extends JPanel {
     public JLabel nameLabel;
     public JLabel passLabel;
     public JLabel showpass;
+
+
+    //timer
+    public Timer timer;
+    public JLabel showTime;
 
     public JOptionPane jOptionPane;
 
@@ -81,6 +88,21 @@ public class SafheVorod extends JPanel {
         showpass = new JLabel("show");
         refreshcapcha = new JButton("next");
         capchafield = new JTextField();
+
+
+        //timer
+        showTime = new JLabel();
+
+        timer = new Timer(100, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showTime.setText(new Date().toString());
+            }
+        });
+        timer.start();
+
+
+
+
 
 
 
@@ -162,6 +184,9 @@ public class SafheVorod extends JPanel {
         this.add(capchafield);
         jOptionPane = new JOptionPane();
         this.add(jOptionPane);
+        //timer
+        showTime.setBounds(100,200,200,30);
+        this.add(showTime);
 
 
 
@@ -210,14 +235,15 @@ public class SafheVorod extends JPanel {
                 String pass = passwordField.getText();
                 if (capcha.equals(thiscapcha.getName())){
                     if (!name.isEmpty() && !pass.isEmpty()){
-
-                        sendLoginIngo = new SendLoginIngo(name,pass);
+                        String zamanvorood = showTime.getText();
+                        sendLoginIngo = new SendLoginIngo(name,pass,zamanvorood);
                         Controller.getInstance().login(sendLoginIngo);
                         if (Controller.getInstance().chekvalidlogin()){
 
-
+                            SafheAsli safheAsli = new SafheAsli();
+                            frame.add(safheAsli);
                             setVisible(false);
-                            logger.info("vorood karbar "+ Controller.getInstance().getName() + "movafaghiat amiz bood");
+                            logger.info("vorood karbar "+ Controller.getInstance().getName() +"dar zaman"+ showTime.getText() +"movafaghiat amiz bood");
                         }else {
                             jOptionPane.showMessageDialog(frame,"name karbary ya ramz oboor eshtebah ast");
                         }
@@ -244,6 +270,8 @@ public class SafheVorod extends JPanel {
         this.revalidate();
 
     }
+
+
 
 
 }

@@ -9,7 +9,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    static final Logger logger = LogManager.getLogger(Emtehan.class);
+    static final Logger logger = LogManager.getLogger(MainFrame.class);
+
+
+
 
     int width=800;
     int height = 800;
@@ -49,6 +52,9 @@ public class MainFrame extends JFrame {
         logger.info("vorood be update");
         this.repaint();
         this.revalidate();
+    }
+    public Frame getFrame(){
+        return this;
     }
 
 }

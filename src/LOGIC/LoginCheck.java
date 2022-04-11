@@ -5,14 +5,18 @@ public class LoginCheck {
 
     public static String name;
     public static String pass;
+    public static AzayeDaneshgah azayeDaneshgah;
 
     public void check(){
-        this.name = Controller.getInstance().getName();
-        this.pass = Controller.getInstance().getPass();
+        name = Controller.getInstance().getName();
+        pass = Controller.getInstance().getPass();
 
         for (AzayeDaneshgah i:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
             if (name.equals(i.getId()) && pass.equals(i.getPass())){
+                i.setAkharinzamanvorood(Controller.controller.getZamanvorood());
+
+                azayeDaneshgah = i;
                 isvalidLogin = true;
             }
         }
