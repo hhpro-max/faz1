@@ -13,10 +13,12 @@ public class AzayeDaneshgah {
     public ImageIcon akskarbar;
     public String email;
 
-    public AzayeDaneshgah(String id,String pass,String name){
+    public AzayeDaneshgah(String id,String pass,String name,ImageIcon akskarbar,String email){
         this.id=id;
         this.pass=pass;
         this.name=name;
+        this.akskarbar = akskarbar;
+        this.email = email;
         azayeDaneshgahs.add(this);
     }
 

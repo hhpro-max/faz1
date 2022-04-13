@@ -1,5 +1,6 @@
 package LOGIC;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Daneshjoo extends AzayeDaneshgah{
@@ -10,21 +11,13 @@ public class Daneshjoo extends AzayeDaneshgah{
     boolean mojavezSabtnam;
     String saatSabtnam;
 
-
-
-
-
-    public Daneshjoo(String id, String pass, String name) {
-        super(id, pass, name);
+    public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email,Vazittahsily vazittahsily,Ostad ostadRahnama,boolean mojavezSabtnam,String saatSabtnam) {
+        super(id, pass, name, akskarbar, email);
+        this.vazittahsily = vazittahsily;
+        this.ostadRahnama = ostadRahnama;
+        this.mojavezSabtnam = mojavezSabtnam;
+        this.saatSabtnam=saatSabtnam;
     }
-
-
-
-
-
-
-
-
 
 
 

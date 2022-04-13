@@ -1,6 +1,5 @@
 package GUI;
 
-import EDUFILES.Emtehan;
 import LOGIC.Controller;
 import RESOURCES.ImageResource;
 import RESOURCES.ResourceManager;
@@ -9,7 +8,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ public class SafheVorod extends JPanel {
     public static int capchacounter = 0;
     public static JLabel thiscapcha;
 
-    SendLoginIngo sendLoginIngo;
+    SendLoginInfo sendLoginInfo;
     ArrayList<JLabel> capchas = new ArrayList<>();
     public JLabel capcha1;
     public JLabel capcha2;
@@ -236,8 +234,8 @@ public class SafheVorod extends JPanel {
                 if (capcha.equals(thiscapcha.getName())){
                     if (!name.isEmpty() && !pass.isEmpty()){
                         String zamanvorood = showTime.getText();
-                        sendLoginIngo = new SendLoginIngo(name,pass,zamanvorood);
-                        Controller.getInstance().login(sendLoginIngo);
+                        sendLoginInfo = new SendLoginInfo(name,pass,zamanvorood);
+                        Controller.getInstance().login(sendLoginInfo);
                         if (Controller.getInstance().chekvalidlogin()){
 
                             SafheAsli safheAsli = new SafheMoaven();

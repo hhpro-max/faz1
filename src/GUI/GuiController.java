@@ -2,11 +2,14 @@ package GUI;
 
 
 
+import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GuiController {
     public static Frame frame;
 
+    public static ArrayList<JPanel> jPanels = new ArrayList<>();
 
 
     public static GuiController guiController;
@@ -21,7 +24,9 @@ public class GuiController {
     }
 
 
-
+    public void addJpannel(JPanel jPanel){
+        jPanels.add(jPanel);
+    }
 
 
     public static Frame getFrame() {

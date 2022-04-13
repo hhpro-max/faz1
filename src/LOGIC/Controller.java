@@ -1,7 +1,6 @@
 package LOGIC;
 
-import EDUFILES.Emtehan;
-import GUI.SendLoginIngo;
+import GUI.SendLoginInfo;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -27,10 +26,10 @@ public class Controller {
 
 
 
-    public void login(SendLoginIngo sendLoginIngo){
-         this.name = sendLoginIngo.getName();
-         this.pass = sendLoginIngo.getPass();
-         this.zamanvorood = sendLoginIngo.getZamanvorood();
+    public void login(SendLoginInfo sendLoginInfo){
+         this.name = sendLoginInfo.getName();
+         this.pass = sendLoginInfo.getPass();
+         this.zamanvorood = sendLoginInfo.getZamanvorood();
     }
     public boolean chekvalidlogin(){
         LoginCheck loginCheck = new LoginCheck();

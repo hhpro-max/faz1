@@ -69,7 +69,7 @@ public class SafheAsli extends JPanel {
 
     }
     public void align(){
-        showTime.setBounds(0,175,200,30);
+        showTime.setBounds(0,35,200,30);
         this.add(showTime);
         khoroj.setBounds(0,0,80,30);
         this.add(khoroj);
