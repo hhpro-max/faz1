@@ -240,7 +240,7 @@ public class SafheVorod extends JPanel {
                         Controller.getInstance().login(sendLoginIngo);
                         if (Controller.getInstance().chekvalidlogin()){
 
-                            SafheAsli safheAsli = new SafheDaneshjoo();
+                            SafheAsli safheAsli = new SafheMoaven();
                             frame.add(safheAsli);
                             setVisible(false);
                             logger.info("vorood karbar "+ Controller.getInstance().getName() +"dar zaman"+ showTime.getText() +"movafaghiat amiz bood");

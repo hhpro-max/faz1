@@ -19,6 +19,7 @@ public class GuiMain {
         daneshjoo.setOstadRahnama(ostad);
         daneshjoo.setMojavezSabtnam(true);
         daneshjoo.setSaatSabtnam("9:00");
+
         MainFrame mainFrame = new MainFrame();
         GuiController.setFrame(mainFrame);
     }

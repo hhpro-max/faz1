@@ -14,6 +14,14 @@ public class SafheDaneshjoo extends SafheAsli {
 
     public JTable vaZiatAmoozeshi;
     public JLabel showVaziat;
+    public JMenuBar jMenuBar;
+
+
+    public JMenu omoorSabtnam;
+    public JMenu khadamatAmoozeshi;
+    public JMenu omoorKarname;
+    public JMenu profileKarbar;
+    public JMenu bazgasht;
 
 
     public SafheDaneshjoo() {
@@ -22,6 +30,7 @@ public class SafheDaneshjoo extends SafheAsli {
         PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
 
         initTable();
+        initmenubar();
     }
 
     public void initTable() {
@@ -55,6 +64,23 @@ public class SafheDaneshjoo extends SafheAsli {
 
 
         logger.info("initializing table has finished");
+    }
+    public void initmenubar(){
+
+        jMenuBar = new JMenuBar();
+        jMenuBar.setBounds(80,0,720,30);
+        omoorSabtnam = new JMenu("OMOOR SABTNAM");
+        omoorKarname = new JMenu("OMOOR KARNAME");
+        khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
+        profileKarbar = new JMenu("PROFILE");
+        bazgasht = new JMenu("SAFHE ASLI");
+        jMenuBar.add(bazgasht);
+        jMenuBar.add(omoorKarname);
+        jMenuBar.add(khadamatAmoozeshi);
+        jMenuBar.add(profileKarbar);
+        jMenuBar.add(omoorSabtnam);
+        this.add(jMenuBar);
+
     }
 
 }
