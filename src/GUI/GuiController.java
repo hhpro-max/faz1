@@ -24,6 +24,15 @@ public class GuiController {
     }
 
 
+    public void resetJpanels(){
+        for (JPanel i:
+             jPanels) {
+            i.setVisible(false);
+        }
+
+    }
+
+
     public void addJpannel(JPanel jPanel){
         jPanels.add(jPanel);
     }

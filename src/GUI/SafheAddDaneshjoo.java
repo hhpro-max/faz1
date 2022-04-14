@@ -53,7 +53,7 @@ public class SafheAddDaneshjoo extends JPanel{
 
 
 
-        logger.info("safhe adduser sakhte shod");
+        logger.info("safhe addDaneshjoo sakhte shod");
 
     }
 
@@ -187,7 +187,7 @@ public class SafheAddDaneshjoo extends JPanel{
                         ostad2 = (Ostad) i;
                     }
                 }
-                if (!(ostad2 == null) && !(pass.getText() == null) && !(id.getText() == null)){
+                if (!(ostad2 == null) && !(pass.getText().isEmpty()) && !(id.getText().isEmpty())){
                     try {
                         moavenAmoozeshi.addDaneshjoo(id.getText(),
                                 pass.getText(),
@@ -199,7 +199,8 @@ public class SafheAddDaneshjoo extends JPanel{
                                 mojavez,
                                 saatSabtnam.getText()
                         );
-                        logger.info("Karbar ba id : " + id.getText() + " va pasword : " + pass.getText() + " sakhte shod.");
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"SAKHTE SHOD");
+                        logger.info("Daneshjoo ba id : " + id.getText() + " va pasword : " + pass.getText() + " sakhte shod.");
 
                     } catch (Exception e1) {
                         jOptionPane.showMessageDialog(GuiController.getFrame(), "s.th wnt wrong");
