@@ -9,7 +9,7 @@ public class MoavenAmoozeshi extends Ostad{
         super(id, pass, name, akskarbar, email);
     }
 
-    public void addDaneshjoo(String id, String pass, String name,  ImageIcon aksKarbar,String email , Vazittahsily vazittahsily, Ostad ostadrahnama, boolean mojavezSabtnam, String saatSabtnam ){
+    public void addDaneshjoo(String id, String pass, String name,  ImageIcon aksKarbar,String email , Vazittahsily vazittahsily, AzayeDaneshgah ostadrahnama, boolean mojavezSabtnam, String saatSabtnam ){
         AzayeDaneshgah azayeDaneshgah = new Daneshjoo(id,pass,name,aksKarbar,email,vazittahsily,ostadrahnama,mojavezSabtnam,saatSabtnam);
     }
     public void addOstad(String id, String pass, String name, ImageIcon akskarbar, String email){

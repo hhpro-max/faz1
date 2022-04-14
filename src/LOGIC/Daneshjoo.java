@@ -7,11 +7,11 @@ public class Daneshjoo extends AzayeDaneshgah{
     ArrayList<Dars> dars = new ArrayList<>();
 
     Vazittahsily vazittahsily;
-    Ostad ostadRahnama;
+    AzayeDaneshgah ostadRahnama;
     boolean mojavezSabtnam;
     String saatSabtnam;
 
-    public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email,Vazittahsily vazittahsily,Ostad ostadRahnama,boolean mojavezSabtnam,String saatSabtnam) {
+    public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email,Vazittahsily vazittahsily,AzayeDaneshgah ostadRahnama,boolean mojavezSabtnam,String saatSabtnam) {
         super(id, pass, name, akskarbar, email);
         this.vazittahsily = vazittahsily;
         this.ostadRahnama = ostadRahnama;
@@ -39,7 +39,7 @@ public class Daneshjoo extends AzayeDaneshgah{
         this.vazittahsily = vazittahsily;
     }
 
-    public Ostad getOstadRahnama() {
+    public AzayeDaneshgah getOstadRahnama() {
         return ostadRahnama;
     }
 
