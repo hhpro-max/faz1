@@ -5,6 +5,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SafheOstad extends SafheAsli{
     static final Logger logger = LogManager.getLogger(SafheOstad.class);
@@ -16,7 +18,7 @@ public class SafheOstad extends SafheAsli{
     public JMenu khadamatAmoozeshi;
     public JMenu omoorKarname;
     public JMenu profileKarbar;
-    public JMenu bazgasht;
+    public JButton safheAsli;
 
 
     public SafheOstad(){
@@ -25,6 +27,7 @@ public class SafheOstad extends SafheAsli{
 
 
         initmenubar();
+        setActionListener3();
     }
     public void initmenubar(){
 
@@ -34,14 +37,24 @@ public class SafheOstad extends SafheAsli{
         omoorKarname = new JMenu("OMOOR KARNAME");
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         profileKarbar = new JMenu("PROFILE");
-        bazgasht = new JMenu("SAFHE ASLI");
-        jMenuBar.add(bazgasht);
+        safheAsli = new JButton("SAFHE ASLI");
+
         jMenuBar.add(omoorKarname);
         jMenuBar.add(khadamatAmoozeshi);
         jMenuBar.add(profileKarbar);
         jMenuBar.add(omoorSabtnam);
+        safheAsli.setBounds(680,0,100,30);
+        this.add(safheAsli);
         this.add(jMenuBar);
 
+    }
+    public void setActionListener3(){
+        safheAsli.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+            }
+        });
     }
 
 

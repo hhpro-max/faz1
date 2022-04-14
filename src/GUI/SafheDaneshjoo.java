@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SafheDaneshjoo extends SafheAsli {
     static final Logger logger = LogManager.getLogger(SafheDaneshjoo.class);
@@ -21,7 +23,9 @@ public class SafheDaneshjoo extends SafheAsli {
     public JMenu khadamatAmoozeshi;
     public JMenu omoorKarname;
     public JMenu profileKarbar;
-    public JMenu bazgasht;
+    public JButton safheAsli;
+    public JMenuItem listDoros;
+    public JMenuItem listAsatid;
 
 
     public SafheDaneshjoo() {
@@ -31,6 +35,7 @@ public class SafheDaneshjoo extends SafheAsli {
 
         initTable();
         initmenubar();
+        setActionListener4();
     }
 
     public void initTable() {
@@ -70,16 +75,30 @@ public class SafheDaneshjoo extends SafheAsli {
         jMenuBar = new JMenuBar();
         jMenuBar.setBounds(80,0,720,30);
         omoorSabtnam = new JMenu("OMOOR SABTNAM");
+        listAsatid = new JMenuItem("Asatid");
+        listDoros=new JMenuItem("Doros");
+        omoorSabtnam.add(listDoros);
+        omoorSabtnam.add(listAsatid);
         omoorKarname = new JMenu("OMOOR KARNAME");
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         profileKarbar = new JMenu("PROFILE");
-        bazgasht = new JMenu("SAFHE ASLI");
-        jMenuBar.add(bazgasht);
+        safheAsli = new JButton("SAFHE ASLI");
+        safheAsli.setBounds(680,0,100,30);
+        this.add(safheAsli);
         jMenuBar.add(omoorKarname);
         jMenuBar.add(khadamatAmoozeshi);
         jMenuBar.add(profileKarbar);
         jMenuBar.add(omoorSabtnam);
         this.add(jMenuBar);
+
+    }
+    public void setActionListener4(){
+        safheAsli.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+            }
+        });
 
     }
 

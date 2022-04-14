@@ -29,7 +29,7 @@ public class SafheMoaven extends SafheOstad{
         addDaneshjoo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //GuiController.getInstance().resetJpanels();
+                GuiController.getInstance().resetJpanels();
                 safheAddDaneshjoo = new SafheAddDaneshjoo();
                 add(safheAddDaneshjoo,1);
 
@@ -42,7 +42,7 @@ public class SafheMoaven extends SafheOstad{
         addOstad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //GuiController.getInstance().resetJpanels();
+                GuiController.getInstance().resetJpanels();
                 safheAddOstad = new SafheAddOstad();
                 add(safheAddOstad,1);
                 logger.info("enter to the addOstad");

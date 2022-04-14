@@ -1,6 +1,7 @@
 package GUI;
 
 import LOGIC.Controller;
+import LOGIC.Daneshjoo;
 import RESOURCES.ImageResource;
 import RESOURCES.ResourceManager;
 import org.apache.log4j.LogManager;

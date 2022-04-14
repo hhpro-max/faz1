@@ -28,6 +28,8 @@ public class SafheAddOstad extends JPanel {
        initcomps();
        align();
        setActionListener1();
+
+       GuiController.getInstance().addJpannel(this);
    }
     public void initAdduserpanel(){
 
