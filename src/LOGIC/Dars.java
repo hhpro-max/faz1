@@ -9,19 +9,29 @@ public class Dars {
     String name;
     String pishniaz;
     AzayeDaneshgah ostad;
-    String daneshkade;
+    DaneshKade daneshkade;
+    String tedadVahed;
+    MaghtaDars maghtaDars;
+    int zarfiat;
+
 
     public Dars(String id,
     String name,
     String pishniaz,
     AzayeDaneshgah ostad,
-    String daneshkade){
+    DaneshKade daneshkade,
+                String tedadVahed,
+                MaghtaDars maghtaDars,
+                int zarfiat){
 
         this.id=id;
         this.pishniaz=pishniaz;
         this.name=name;
         this.ostad=ostad;
         this.daneshkade=daneshkade;
+        this.tedadVahed=tedadVahed;
+        this.maghtaDars=maghtaDars;
+        this.zarfiat=zarfiat;
 
 
 
@@ -29,12 +39,29 @@ public class Dars {
     }
 
 
+    public MaghtaDars getMaghtaDars() {
+        return maghtaDars;
+    }
 
+    public void setMaghtaDars(MaghtaDars maghtaDars) {
+        this.maghtaDars = maghtaDars;
+    }
 
+    public int getZarfiat() {
+        return zarfiat;
+    }
 
+    public void setZarfiat(int zarfiat) {
+        this.zarfiat = zarfiat;
+    }
 
+    public String getTedadVahed() {
+        return tedadVahed;
+    }
 
-
+    public void setTedadVahed(String tedadVahed) {
+        this.tedadVahed = tedadVahed;
+    }
 
     public static ArrayList<Dars> getDoros() {
         return doros;
@@ -76,11 +103,11 @@ public class Dars {
         this.ostad = ostad;
     }
 
-    public String getDaneshkade() {
+    public DaneshKade getDaneshkade() {
         return daneshkade;
     }
 
-    public void setDaneshkade(String daneshkade) {
+    public void setDaneshkade(DaneshKade daneshkade) {
         this.daneshkade = daneshkade;
     }
 }

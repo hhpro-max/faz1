@@ -27,6 +27,8 @@ public class SafheDaneshjoo extends SafheAsli {
     public JMenuItem listDoros;
     public JMenuItem listAsatid;
 
+    public SafheDoros safheDoros;
+
 
     public SafheDaneshjoo() {
 
@@ -61,6 +63,7 @@ public class SafheDaneshjoo extends SafheAsli {
                 {"Mojavez sabnam :",mojavezSabtnam},
                 {"Saat Sabtnam :",saatSabtnam}
         };
+        
         String column[] = {"VAZIAT AMOOZESHI","_"};
         vaZiatAmoozeshi = new JTable(data,column);
         vaZiatAmoozeshi.setBounds(200,200,500,70);
@@ -97,6 +100,19 @@ public class SafheDaneshjoo extends SafheAsli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiController.getInstance().resetJpanels();
+            }
+        });
+
+
+        listDoros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheDoros=new SafheDoros();
+                add(safheDoros,1);
+                logger.info("enter to the listdoros");
+                repaint();
+                revalidate();
             }
         });
 
