@@ -116,6 +116,7 @@ public class SafheDoros extends JPanel {
                 if (!(sp==null)){
                     remove(sp);
                 }
+
                 repaint();
                 revalidate();
                 daneshKadeDars = daneshKadeha.getItemAt(daneshKadeha.getSelectedIndex());
@@ -130,18 +131,43 @@ public class SafheDoros extends JPanel {
                 else {
                     ostadName=null;
                 }
+                int j = 0;
                 if (ostadName == null && maghtaInDars == null){
                     ArrayList<ArrayList<String>> etelat = new ArrayList<>();
                     for (Dars i:
                          Dars.getDoros()) {
                         if (i.getDaneshkade().equals(daneshKadeDars)){
                             etelat.add(new ArrayList<>());
-                            etelat.get(Dars.getDoros().indexOf(i)).add(i.getId());
-                            etelat.get(Dars.getDoros().indexOf(i)).add(i.getName());
-                            etelat.get(Dars.getDoros().indexOf(i)).add(i.getPishniaz());
-                            etelat.get(Dars.getDoros().indexOf(i)).add(i.getOstad().getName());
-                            etelat.get(Dars.getDoros().indexOf(i)).add(i.getTedadVahed());
-                            etelat.get(Dars.getDoros().indexOf(i)).add(String.valueOf(i.getZarfiat()));
+                            etelat.get(j).add(i.getId());
+                            etelat.get(j).add(i.getName());
+                            etelat.get(j).add(i.getPishniaz());
+                            etelat.get(j).add(i.getOstad().getName());
+                            etelat.get(j).add(i.getTedadVahed());
+                            etelat.get(j).add(String.valueOf(i.getZarfiat()));
+                            j++;
+                        }
+
+                    }
+                    String colomns[] = {"ID","NAME","PISHNIAZ","OSTAD","VAHED","ZARFIAT"};
+                    String rows[][] = etelat.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+
+                    dorosTable = new JTable(rows,colomns);
+
+
+                }
+                else if (!(ostadName == null) && maghtaInDars == null){
+                    ArrayList<ArrayList<String>> etelat = new ArrayList<>();
+                    for (Dars i:
+                            Dars.getDoros()) {
+                        if (i.getDaneshkade().equals(daneshKadeDars) && i.getOstad().getName().equals(ostadName)){
+                            etelat.add(new ArrayList<>());
+                            etelat.get(j).add(i.getId());
+                            etelat.get(j).add(i.getName());
+                            etelat.get(j).add(i.getPishniaz());
+                            etelat.get(j).add(i.getOstad().getName());
+                            etelat.get(j).add(i.getTedadVahed());
+                            etelat.get(j).add(String.valueOf(i.getZarfiat()));
+                            j++;
                         }
 
 
@@ -152,6 +178,51 @@ public class SafheDoros extends JPanel {
 
                     dorosTable = new JTable(rows,colomns);
 
+                }else if (ostadName == null && !(maghtaInDars == null)){
+                    ArrayList<ArrayList<String>> etelat = new ArrayList<>();
+                    for (Dars i:
+                            Dars.getDoros()) {
+                        if (i.getDaneshkade().equals(daneshKadeDars) && i.getMaghtaDars().equals(maghtaInDars)){
+                            etelat.add(new ArrayList<>());
+                            etelat.get(j).add(i.getId());
+                            etelat.get(j).add(i.getName());
+                            etelat.get(j).add(i.getPishniaz());
+                            etelat.get(j).add(i.getOstad().getName());
+                            etelat.get(j).add(i.getTedadVahed());
+                            etelat.get(j).add(String.valueOf(i.getZarfiat()));
+                            j++;
+                        }
+
+
+
+                    }
+                    String colomns[] = {"ID","NAME","PISHNIAZ","OSTAD","VAHED","ZARFIAT"};
+                    String rows[][] = etelat.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+
+                    dorosTable = new JTable(rows,colomns);
+
+                }else if (!(ostadName == null) && !(maghtaInDars == null)){
+                    ArrayList<ArrayList<String>> etelat = new ArrayList<>();
+                    for (Dars i:
+                            Dars.getDoros()) {
+                        if (i.getDaneshkade().equals(daneshKadeDars) && i.getOstad().getName().equals(ostadName) && i.getMaghtaDars().equals(maghtaInDars)){
+                            etelat.add(new ArrayList<>());
+                            etelat.get(j).add(i.getId());
+                            etelat.get(j).add(i.getName());
+                            etelat.get(j).add(i.getPishniaz());
+                            etelat.get(j).add(i.getOstad().getName());
+                            etelat.get(j).add(i.getTedadVahed());
+                            etelat.get(j).add(String.valueOf(i.getZarfiat()));
+                            j++;
+                        }
+
+
+
+                    }
+                    String colomns[] = {"ID","NAME","PISHNIAZ","OSTAD","VAHED","ZARFIAT"};
+                    String rows[][] = etelat.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+
+                    dorosTable = new JTable(rows,colomns);
 
                 }
                 sp = new JScrollPane(dorosTable);
@@ -166,3 +237,4 @@ public class SafheDoros extends JPanel {
         });
     }
 }
+

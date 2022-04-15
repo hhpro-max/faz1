@@ -29,6 +29,7 @@ public class SafheDaneshjoo extends SafheAsli {
 
     public SafheDoros safheDoros;
 
+    SafheListAsatid safheListAsatid;
 
     public SafheDaneshjoo() {
 
@@ -111,6 +112,17 @@ public class SafheDaneshjoo extends SafheAsli {
                 safheDoros=new SafheDoros();
                 add(safheDoros,1);
                 logger.info("enter to the listdoros");
+                repaint();
+                revalidate();
+            }
+        });
+        listAsatid.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheListAsatid=new SafheListAsatid();
+                add(safheListAsatid,1);
+                logger.info("enter to the listAsatid");
                 repaint();
                 revalidate();
             }
