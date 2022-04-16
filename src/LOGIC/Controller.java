@@ -5,9 +5,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import java.util.ArrayList;
+
 public class Controller {
     static final Logger logger = LogManager.getLogger(Controller.class);
-
+    ArrayList<AzayeDaneshgah> azayeDaneshgahs = AzayeDaneshgah.getAzayeDaneshgahs();
     String name;
     String pass;
     String zamanvorood;
@@ -15,7 +17,7 @@ public class Controller {
     public static Controller controller;
     private Controller(){
         PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
-
+        azayeDaneshgahs = AzayeDaneshgah.getAzayeDaneshgahs();
     }
     public static Controller getInstance(){
         if (controller==null){

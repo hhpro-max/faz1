@@ -19,7 +19,11 @@ public class SafheOstad extends SafheAsli{
     public JMenu omoorKarname;
     public JMenu profileKarbar;
     public JButton safheAsli;
+    public JMenuItem listDoros;
+    public JMenuItem listAsatid;
 
+    SafheDoros safheDoros;
+    SafheListAsatid safheListAsatid;
 
     public SafheOstad(){
         super();
@@ -38,6 +42,10 @@ public class SafheOstad extends SafheAsli{
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         profileKarbar = new JMenu("PROFILE");
         safheAsli = new JButton("SAFHE ASLI");
+        listAsatid = new JMenuItem("Asatid");
+        listDoros=new JMenuItem("Doros");
+        omoorSabtnam.add(listDoros);
+        omoorSabtnam.add(listAsatid);
 
         jMenuBar.add(omoorKarname);
         jMenuBar.add(khadamatAmoozeshi);
@@ -53,6 +61,28 @@ public class SafheOstad extends SafheAsli{
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiController.getInstance().resetJpanels();
+            }
+        });
+        listDoros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheDoros=new SafheDoros();
+                add(safheDoros,1);
+                logger.info("enter to the listdoros");
+                repaint();
+                revalidate();
+            }
+        });
+        listAsatid.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheListAsatid=new SafheListAsatid();
+                add(safheListAsatid,1);
+                logger.info("enter to the listAsatid");
+                repaint();
+                revalidate();
             }
         });
     }

@@ -11,6 +11,7 @@ public class SafheMoaven extends SafheOstad{
     JMenuItem addDaneshjoo;
     JMenuItem addOstad;
 
+
     public SafheMoaven(){
         super();
         initEzafi();
@@ -23,6 +24,7 @@ public class SafheMoaven extends SafheOstad{
         sabtkarbar.add(addOstad);
         sabtkarbar.add(addDaneshjoo);
         jMenuBar.add(sabtkarbar);
+
 
     }
     public void setAction(){

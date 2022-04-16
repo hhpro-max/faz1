@@ -15,8 +15,8 @@ public class GuiMain {
         Dars chom3 = new Dars("112","riazi3","111",ostad,DaneshKade.RIAZI,"4",MaghtaDars.KARSHENASI,40);
         Daneshjoo daneshjoo = new Daneshjoo("0","0","sehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA2)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         MoavenAmoozeshi moavenAmoozeshi = new MoavenAmoozeshi("00","00","ali",null,"felanale@rrr.com");
-
-        moavenAmoozeshi.addDaneshjoo("1","1","nasehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
+        RaiisDaneshkade raiisDaneshkade = new RaiisDaneshkade("1","1","raiisjoon",null,"wth@grail.com");
+        moavenAmoozeshi.addDaneshjoo("3","3","nasehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         moavenAmoozeshi.addDaneshjoo("2","2","bisehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
 
 

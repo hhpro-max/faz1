@@ -15,11 +15,14 @@ import java.io.File;
 public class SafheAddOstad extends JPanel {
     static final Logger logger = LogManager.getLogger(SafheAddOstad.class);
 
+    boolean edit = false;
 
     JTextField id, pass, name, email;
     JLabel id1, pass1, name1, email1,chooseFIle ,aksKarbar1;
-    JButton fileChooser,sabtNam;
+    JButton fileChooser,sabtNam,virayesh;
     JOptionPane jOptionPane;
+    MoavenAmoozeshi moavenAmoozeshi;
+    RaiisDaneshkade raiisDaneshkade;
 
 
    public SafheAddOstad(){
@@ -54,9 +57,12 @@ public class SafheAddOstad extends JPanel {
         email1= new JLabel("EMAIL :");
 
         chooseFIle = new JLabel("ENTEKHAB AKS KARBAR :");
+        virayesh = new JButton("VIRAYESH");
         sabtNam=new JButton("SABT KARBAR");
         fileChooser = new JButton("CHOOSE FILE");
         jOptionPane = new JOptionPane();
+        moavenAmoozeshi=null;
+        raiisDaneshkade=null;
     }
     public void align(){
         id1.setBounds(0,70,50,30);
@@ -89,6 +95,8 @@ public class SafheAddOstad extends JPanel {
         this.add(sabtNam);
         aksKarbar1 = null;
 
+        virayesh.setBounds(300,500,150,30);
+        this.add(virayesh);
 
     }
     public void setActionListener1(){
@@ -127,18 +135,31 @@ public class SafheAddOstad extends JPanel {
                 if (!(aksKarbar1 == null) && !(aksKarbar1.getIcon() == null)){
                     aksKarbar2 = (ImageIcon) aksKarbar1.getIcon();
                 }
-                MoavenAmoozeshi moavenAmoozeshi = (MoavenAmoozeshi) Controller.getInstance().getAzayeDaneshgah();
-
+                if (Controller.getInstance().getAzayeDaneshgah() instanceof MoavenAmoozeshi) {
+                    moavenAmoozeshi = (MoavenAmoozeshi) Controller.getInstance().getAzayeDaneshgah();
+                }else if(Controller.getInstance().getAzayeDaneshgah() instanceof RaiisDaneshkade){
+                    raiisDaneshkade = (RaiisDaneshkade) Controller.getInstance().getAzayeDaneshgah();
+                }
 
                 if (!(pass.getText().isEmpty()) && !(id.getText().isEmpty())){
                     try {
-                        moavenAmoozeshi.addOstad(
-                                id.getText(),
-                                pass.getText(),
-                                name.getText(),
-                                aksKarbar2,
-                                email.getText()
-                        );
+                        if (!(moavenAmoozeshi == null)) {
+                            moavenAmoozeshi.addOstad(
+                                    id.getText(),
+                                    pass.getText(),
+                                    name.getText(),
+                                    aksKarbar2,
+                                    email.getText()
+                            );
+                        }else if (!(raiisDaneshkade == null)){
+                            raiisDaneshkade.addOstad(
+                                    id.getText(),
+                                    pass.getText(),
+                                    name.getText(),
+                                    aksKarbar2,
+                                    email.getText()
+                            );
+                        }
                         jOptionPane.showMessageDialog(GuiController.getFrame(),"SAKHTE SHOD");
                         logger.info("Ostad ba id : " + id.getText() + " va pasword : " + pass.getText() + " sakhte shod.");
 
@@ -150,6 +171,40 @@ public class SafheAddOstad extends JPanel {
                     jOptionPane.showMessageDialog(GuiController.getFrame(),"fieldhaye id va pass ejbary hastand");
                 }
 
+            }
+        });
+        virayesh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon aksKarbar2 = null;
+                if (!(aksKarbar1 == null) && !(aksKarbar1.getIcon() == null)){
+                    aksKarbar2 = (ImageIcon) aksKarbar1.getIcon();
+                }
+                if (Controller.getInstance().getAzayeDaneshgah() instanceof MoavenAmoozeshi) {
+                    moavenAmoozeshi = (MoavenAmoozeshi) Controller.getInstance().getAzayeDaneshgah();
+                }else if(Controller.getInstance().getAzayeDaneshgah() instanceof RaiisDaneshkade){
+                    raiisDaneshkade = (RaiisDaneshkade) Controller.getInstance().getAzayeDaneshgah();
+                }
+                try {
+                    if (!(moavenAmoozeshi == null)) {
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"MOJAZ NISTID");
+                    }else if (!(raiisDaneshkade == null)){
+                       edit = raiisDaneshkade.virayeshOstad(id.getText(),
+                                pass.getText(),
+                                name.getText(),
+                                aksKarbar2,
+                                email.getText());
+                    }
+                    if (edit) {
+                        jOptionPane.showMessageDialog(GuiController.getFrame(), "Virayesh shod");
+                        logger.info("Ostad ba id : " + id.getText() + " va pasword : " + pass.getText() + " Virayesh shod.");
+                    }else {
+                        jOptionPane.showMessageDialog(GuiController.getFrame(), "id morede nazar yaft nashod");
+                    }
+                } catch (Exception e1) {
+                    jOptionPane.showMessageDialog(GuiController.getFrame(), "s.th wnt wrong");
+                    logger.warn("error is :" + e1.getMessage());
+                }
             }
         });
     }
