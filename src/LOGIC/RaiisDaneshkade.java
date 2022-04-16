@@ -9,21 +9,22 @@ public class RaiisDaneshkade extends Ostad{
         super(id, pass, name, akskarbar, email);
     }
 
-    public void deleteOstad(String id){
+    public boolean deleteOstad(String id){//todo if(this.daneshkade == i.getdaneshkade)
         for (AzayeDaneshgah i:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
             if (i.getId().equals(id) && i instanceof Ostad){
                 AzayeDaneshgah.getAzayeDaneshgahs().remove(i);
-                break;
+                return true;
             }
         }
+        return false;
     }
     public void addOstad(String id, String pass, String name, ImageIcon akskarbar, String email){
         AzayeDaneshgah ostad= new Ostad(id, pass, name, akskarbar, email);
     }
 
     public boolean upGradetoMoaven(String id){
-
+        MoavenAmoozeshi moavenAmoozeshi;
         for (AzayeDaneshgah i:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
             if (i instanceof MoavenAmoozeshi){
@@ -32,8 +33,9 @@ public class RaiisDaneshkade extends Ostad{
         }
         for (AzayeDaneshgah j:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
-            if (j.getId().equals(id) && j instanceof Ostad){
-                j = new MoavenAmoozeshi(j.getId(),j.getPass(),j.getName(),j.getAkskarbar(),j.getEmail());
+            if (j.getId().equals(id) && j instanceof Ostad && !(j instanceof RaiisDaneshkade)){
+                moavenAmoozeshi = new MoavenAmoozeshi(j.getId(),j.getPass(),j.getName(),j.getAkskarbar(),j.getEmail());
+                AzayeDaneshgah.getAzayeDaneshgahs().remove(j);
                 return true;
             }
         }

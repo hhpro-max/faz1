@@ -43,6 +43,17 @@ public class Controller {
         return LoginCheck.isvalidLogin;
 
     }
+    public boolean removeOstad(String id){
+       RaiisDaneshkade raiisDaneshkade =  (RaiisDaneshkade) azayeDaneshgah;
+       boolean a = raiisDaneshkade.deleteOstad(id);
+       return a;
+    }
+    public boolean upGradeOstad(String id){
+        RaiisDaneshkade raiisDaneshkade =  (RaiisDaneshkade) azayeDaneshgah;
+        boolean a = raiisDaneshkade.upGradetoMoaven(id);
+        return a;
+    }
+
 
 
 
