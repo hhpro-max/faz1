@@ -82,7 +82,7 @@ public class RaiisDaneshkade extends Ostad{
         }
         azayeDaneshgah.setName(esm);
         azayeDaneshgah.setAkskarbar(aks);
-        azayeDaneshgah.setEmail(email);
+        azayeDaneshgah.setEmail(gmail);
         azayeDaneshgah.setPass(password);
         return true;
     }

@@ -1,5 +1,7 @@
 package GUI;
 
+import LOGIC.AzayeDaneshgah;
+import LOGIC.Controller;
 import LOGIC.DaneshKade;
 import LOGIC.MaghtaDars;
 import org.apache.log4j.LogManager;
@@ -7,6 +9,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SafheAddDars extends JPanel {
     static final Logger logger = LogManager.getLogger(SafheAddDars.class);
@@ -17,13 +21,14 @@ public class SafheAddDars extends JPanel {
         JComboBox<MaghtaDars> maghtaDars;
         JButton virayesh,sabt;
         JLabel id1,name1,pishniaz1,ostad1,daneshkade1,tedadVahed1,maghtaDars1,zarfiat1;
+        JOptionPane jOptionPane;
 
         public SafheAddDars(){
             PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
             initAddDarsPanel();
             initComps();
             align();
-
+            setActionListener();
             GuiController.getInstance().addJpannel(this);
         }
 
@@ -55,10 +60,11 @@ public class SafheAddDars extends JPanel {
             maghtaDars1 = new JLabel("MAGHTA DARS :");
             virayesh = new JButton("VIRAYESH");
             sabt = new JButton("SABT");
+            jOptionPane = new JOptionPane();
 
         }
         public void align(){
-            id1.setBounds(0,70,50,30);
+            id1.setBounds(0,70,100,30);
             this.add(id1);
             id.setBounds(150,70,150,30);
             this.add(id);
@@ -81,8 +87,8 @@ public class SafheAddDars extends JPanel {
             zarfiat1.setBounds(0,320,100,30);
             this.add(zarfiat1);
             zarfiat.setBounds(150,320,150,30);
-            this.add(zarfiat1);
-            daneshkade1.setBounds(0,370,100,30);
+            this.add(zarfiat);
+            daneshkade1.setBounds(0,370,150,30);
             this.add(daneshkade1);
             daneshkade.setBounds(150,370,150,30);
             this.add(daneshkade);
@@ -98,5 +104,84 @@ public class SafheAddDars extends JPanel {
             virayesh.setBounds(300,500,150,30);
             this.add(virayesh);
 
+        }
+        public void setActionListener(){
+            sabt.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (id.getText().isEmpty() || name.getText().isEmpty() || ostad.getText().isEmpty()){
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"FIELD HAYE ID , NAME VA OSTAD EJBARY HASTAND");
+                    }
+                    else {
+                        String idDars = id.getText();
+                        String nameDars = name.getText();
+                        String pishNiazDars = pishniaz.getText();
+                        AzayeDaneshgah ostadDars = null;
+                        boolean a = Controller.getInstance().checkOstad(ostad.getText());
+                        if (a){
+                            ostadDars = Controller.controller.getOstad(ostad.getText());
+                        }
+                        else {
+                            jOptionPane.showMessageDialog(GuiController.getFrame(),"OSTAD DARS MOJOOD NIST");
+                            return;
+                        }
+                        DaneshKade daneshKadeDars = daneshkade.getItemAt(daneshkade.getSelectedIndex());
+                        String tedadVahedDars = tedadVahed.getText();
+                        MaghtaDars maghtaInDars = maghtaDars.getItemAt(maghtaDars.getSelectedIndex());
+                        String zarfiatDars = "NADARAD";
+                        if (!zarfiat.getText().isEmpty()) {
+                            zarfiatDars =zarfiat.getText();
+                        }
+                        try {
+                            boolean b = Controller.getInstance().addDars(idDars,nameDars,pishNiazDars,ostadDars,daneshKadeDars,tedadVahedDars,maghtaInDars,zarfiatDars);
+                            if (b) {
+                                JOptionPane.showMessageDialog(GuiController.getFrame(), "Dars Sakhte SHod");
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(GuiController.getFrame(), "NASHOD KE BESHE");
+                            }
+                        }catch (Exception e1){
+                            logger.error("Khata dar AddDars : " + e1.getMessage() );
+                        }
+                    }
+                }
+            });
+            virayesh.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (id.getText().isEmpty()){
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"FIELD ID EJBARIST");
+                    }
+                    else {
+                        String idDars = id.getText();
+                        String nameDars = name.getText();
+                        String pishNiazDars = pishniaz.getText();
+                        AzayeDaneshgah ostadDars = null;
+                        boolean a = Controller.getInstance().checkOstad(ostad.getText());
+                        if (a){
+                            ostadDars = Controller.controller.getOstad(ostad.getText());
+                        }
+                        DaneshKade daneshKadeDars = daneshkade.getItemAt(daneshkade.getSelectedIndex());
+                        String tedadVahedDars = tedadVahed.getText();
+                        MaghtaDars maghtaInDars = maghtaDars.getItemAt(maghtaDars.getSelectedIndex());
+                        String zarfiatDars = "";
+                        if (!zarfiat.getText().isEmpty()) {
+                            zarfiatDars =zarfiat.getText();
+                        }
+                        try {
+                            boolean b = Controller.getInstance().virayeshDars(idDars,nameDars,pishNiazDars,ostadDars,daneshKadeDars,tedadVahedDars,maghtaInDars,zarfiatDars);
+                            if(b) {
+                                JOptionPane.showMessageDialog(GuiController.getFrame(), "Dars VIRAYESH SHod");
+                            }
+                            else {
+                                jOptionPane.showMessageDialog(GuiController.getFrame(),"NASHOD KE BESHE");
+                            }
+                        }catch (Exception e1){
+                            logger.error("Khata dar VirayeshDars : " + e1.getMessage() );
+                        }
+                    }
+                }
+
+            });
         }
 }

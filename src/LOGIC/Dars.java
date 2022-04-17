@@ -12,7 +12,7 @@ public class Dars {
     DaneshKade daneshkade;
     String tedadVahed;
     MaghtaDars maghtaDars;
-    int zarfiat;
+    String zarfiat;
 
 
     public Dars(String id,
@@ -22,7 +22,7 @@ public class Dars {
     DaneshKade daneshkade,
                 String tedadVahed,
                 MaghtaDars maghtaDars,
-                int zarfiat){
+                String zarfiat){
 
         this.id=id;
         this.pishniaz=pishniaz;
@@ -47,11 +47,11 @@ public class Dars {
         this.maghtaDars = maghtaDars;
     }
 
-    public int getZarfiat() {
+    public String getZarfiat() {
         return zarfiat;
     }
 
-    public void setZarfiat(int zarfiat) {
+    public void setZarfiat(String zarfiat) {
         this.zarfiat = zarfiat;
     }
 

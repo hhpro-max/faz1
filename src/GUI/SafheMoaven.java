@@ -1,5 +1,7 @@
 package GUI;
 
+import LOGIC.Controller;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +15,8 @@ public class SafheMoaven extends SafheOstad{
     SafheDoros safheDoros;
     JButton sabtVavirayesh,deleteDars;
     JTextField deleteDars1;
-
+    JOptionPane jOptionPane;
+    SafheAddDars safheAddDars;
 
     public SafheMoaven(){
         super();
@@ -27,6 +30,7 @@ public class SafheMoaven extends SafheOstad{
         sabtVavirayesh = new JButton("SABT VA VIRAYESH");
         deleteDars = new JButton("HAZF DARS");
         deleteDars1 = new JTextField();
+        jOptionPane = new JOptionPane();
 
         sabtkarbar.add(addOstad);
         sabtkarbar.add(addDaneshjoo);
@@ -39,6 +43,33 @@ public class SafheMoaven extends SafheOstad{
              listDoros.getActionListeners()) {
             listDoros.removeActionListener(i);
         }
+        deleteDars.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!deleteDars1.getText().isEmpty()) {
+                    String id = deleteDars1.getText();
+                    boolean a = Controller.getInstance().hazfDars(id);
+                    if (a){
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"DARS BA ID :"+id+" HAZF SHOD");
+                    }else {
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"ID IS WRONG or NOT EXIST");
+                    }
+                }else {
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"ID RA VARED KONID");
+                }
+            }
+        });
+        sabtVavirayesh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheAddDars = new SafheAddDars();
+                add(safheAddDars,1);
+                logger.info("VOROOD BE ADDDARSPAGE");
+                repaint();
+                revalidate();
+            }
+        });
         listDoros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
