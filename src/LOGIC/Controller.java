@@ -53,6 +53,23 @@ public class Controller {
         boolean a = raiisDaneshkade.upGradetoMoaven(id);
         return a;
     }
+    public boolean addDars(String id,
+                           String name,
+                           String pishniaz,
+                           AzayeDaneshgah ostad,
+                           DaneshKade daneshkade,
+                           String tedadVahed,
+                           MaghtaDars maghtaDars,
+                           int zarfiat){
+        try {
+            Dars dars = new Dars(id,name,pishniaz,ostad,daneshkade,tedadVahed,maghtaDars,zarfiat);
+            return true;
+        }catch (Exception e){
+            logger.info("error is :"+ e.getMessage());
+            return false;
+        }
+
+    }
 
 
 

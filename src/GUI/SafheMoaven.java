@@ -10,24 +10,53 @@ public class SafheMoaven extends SafheOstad{
     JMenu sabtkarbar;
     JMenuItem addDaneshjoo;
     JMenuItem addOstad;
+    SafheDoros safheDoros;
+    JButton sabtVavirayesh,deleteDars;
+    JTextField deleteDars1;
 
 
     public SafheMoaven(){
         super();
         initEzafi();
-        this.setAction();
+        this.setActionListenerr4();
     }
     public void initEzafi(){
         sabtkarbar = new JMenu("SABT KARBAR");
         addDaneshjoo = new JMenuItem("Daneshjoo");
         addOstad = new JMenuItem("Ostad");
+        sabtVavirayesh = new JButton("SABT VA VIRAYESH");
+        deleteDars = new JButton("HAZF DARS");
+        deleteDars1 = new JTextField();
+
         sabtkarbar.add(addOstad);
         sabtkarbar.add(addDaneshjoo);
         jMenuBar.add(sabtkarbar);
 
 
     }
-    public void setAction(){
+    public void setActionListenerr4(){
+        for (ActionListener i:
+             listDoros.getActionListeners()) {
+            listDoros.removeActionListener(i);
+        }
+        listDoros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheDoros = new SafheDoros();
+                deleteDars1.setBounds(50,150,150,30);
+                safheDoros.add(deleteDars1);
+                deleteDars.setBounds(250,150,150,30);
+                safheDoros.add(deleteDars);
+                sabtVavirayesh.setBounds(450,150,200,30);
+                safheDoros.add(sabtVavirayesh);
+
+                add(safheDoros,1);
+                logger.info("enter to the safheDoros");
+                repaint();
+                revalidate();
+            }
+        });
         addDaneshjoo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
