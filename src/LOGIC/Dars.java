@@ -1,6 +1,7 @@
 package LOGIC;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Dars {
     public static ArrayList<Dars> doros = new ArrayList<>();
@@ -13,6 +14,8 @@ public class Dars {
     String tedadVahed;
     MaghtaDars maghtaDars;
     String zarfiat;
+    ArrayList<RoozayeHafte> roozClassDars = new ArrayList<>();
+    String saatClass;
 
 
     public Dars(String id,
@@ -38,6 +41,25 @@ public class Dars {
         doros.add(this);
     }
 
+
+
+
+
+    public String getSaatClass() {
+        return saatClass;
+    }
+
+    public void setSaatClass(String saatClass) {
+        this.saatClass = saatClass;
+    }
+
+    public ArrayList<RoozayeHafte> getRoozClassDars() {
+        return roozClassDars;
+    }
+
+    public void setRoozClassDars(ArrayList<RoozayeHafte> roozClassDars) {
+        this.roozClassDars = roozClassDars;
+    }
 
     public MaghtaDars getMaghtaDars() {
         return maghtaDars;

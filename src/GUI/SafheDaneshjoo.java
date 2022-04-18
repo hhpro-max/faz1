@@ -26,8 +26,15 @@ public class SafheDaneshjoo extends SafheAsli {
     public JButton safheAsli;
     public JMenuItem listDoros;
     public JMenuItem listAsatid;
+    public JMenuItem barnameHaftegi;
+    public JMenuItem listEmtehnat;
+    public JMenu darKhastha;
+    public JMenuItem darkhastGobahiEshteghal;
+    public JMenuItem darkhastMinor;
+    public JMenuItem darkhastenseraf;
 
     public SafheDoros safheDoros;
+    public  SafheBarnameHaftegi safheBarnameHaftegi;
 
     SafheListAsatid safheListAsatid;
 
@@ -79,6 +86,15 @@ public class SafheDaneshjoo extends SafheAsli {
         jMenuBar = new JMenuBar();
         jMenuBar.setBounds(80,0,720,30);
         omoorSabtnam = new JMenu("OMOOR SABTNAM");
+        barnameHaftegi = new JMenuItem("BARNAME HAFTEGI");
+        listEmtehnat = new JMenuItem("LIST EMTEHANAT");
+        darKhastha = new JMenu("DARKHAT HA");
+        darkhastenseraf = new JMenuItem("ENSERAF");
+        darkhastMinor = new JMenuItem("MINOR");
+        darkhastGobahiEshteghal = new JMenuItem("GOVAHI ESHTEGHAL");
+        darKhastha.add(darkhastenseraf);
+        darKhastha.add(darkhastMinor);
+        darKhastha.add(darkhastGobahiEshteghal);
         listAsatid = new JMenuItem("Asatid");
         listDoros=new JMenuItem("Doros");
         omoorSabtnam.add(listDoros);
@@ -87,6 +103,9 @@ public class SafheDaneshjoo extends SafheAsli {
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         profileKarbar = new JMenu("PROFILE");
         safheAsli = new JButton("SAFHE ASLI");
+        khadamatAmoozeshi.add(barnameHaftegi);
+        khadamatAmoozeshi.add(listEmtehnat);
+        khadamatAmoozeshi.add(darKhastha);
         safheAsli.setBounds(680,0,100,30);
         this.add(safheAsli);
         jMenuBar.add(omoorKarname);
@@ -123,6 +142,16 @@ public class SafheDaneshjoo extends SafheAsli {
                 safheListAsatid=new SafheListAsatid();
                 add(safheListAsatid,1);
                 logger.info("enter to the listAsatid");
+                repaint();
+                revalidate();
+            }
+        });
+        barnameHaftegi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheBarnameHaftegi = new SafheBarnameHaftegi();
+                add(safheBarnameHaftegi,1);
                 repaint();
                 revalidate();
             }

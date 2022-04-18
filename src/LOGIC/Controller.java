@@ -119,7 +119,43 @@ public class Controller {
         }
         return false;
     }
-
+    public ArrayList<Dars> getDarsDaneshjoo(){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            Daneshjoo daneshjoo = (Daneshjoo) azayeDaneshgah;
+            ArrayList<Dars> dars = new ArrayList<>();
+            for (Dars i:
+                 daneshjoo.getDars()) {
+                dars.add(i);
+            }
+            return dars;
+        }
+       return null;
+    }
+    public int roozHafte(RoozayeHafte roozayeHafte){
+        switch (roozayeHafte){
+            case SHANBE: return 0;
+            case YEKSHANBE: return 1;
+            case DOSHANBE:return 2;
+            case SESHANBE:return 3;
+            case CHARSHANBE:return 4;
+            case PANJSHANBE:return 5;
+            case JOME:return 6;
+        }
+        return 0;
+    }
+    public int saatClass(String saat){
+        switch (saat){
+            case "9":return 0;
+            case "10.5":return 1;
+            case "12":return 2;
+            case "1.5":return 3;
+            case  "3":return 4;
+            case   "4.5":return 5;
+            case "6":return 6;
+            case "7.5":return 7;
+        }
+        return 0;
+    }
 
 
 

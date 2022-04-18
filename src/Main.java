@@ -1,6 +1,7 @@
 import EDUFILES.Emtehan;
 import LOGIC.AzayeDaneshgah;
 import LOGIC.Ostad;
+import LOGIC.RoozayeHafte;
 import com.google.gson.Gson;
 
 import java.util.logging.Logger;
@@ -19,10 +20,8 @@ public class Main {
 
          */
 
-        for (AzayeDaneshgah i:
-                AzayeDaneshgah.azayeDaneshgahs) {
-            System.out.println(i.name + i.getId());
-        }
+
+
     }
 }
 
