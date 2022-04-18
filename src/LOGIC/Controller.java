@@ -156,6 +156,63 @@ public class Controller {
         }
         return 0;
     }
+    public ArrayList<Dars> tartibBnadiTarikhEmt(){
+        ArrayList<Dars> dars = getDarsDaneshjoo();
+        Dars a = null;
+        Dars b = null;
+        int key = dars.size() + 1;
+        while (true) {
+            try {
+                loop:
+                for (Dars i :
+                        dars) {
+                    b = a;
+                    a = i;
+                    int indexb = 0 ;
+                    int indexa = 0 ;
+                    if (!(b==null && a==null)){
+                        indexb = dars.indexOf(b);
+                        indexa = dars.indexOf(a);
+                    }
+
+                    if (!(b == null) && a.getDateEmtehan().getYear() > b.getDateEmtehan().getYear() && dars.indexOf(a) < dars.indexOf(b)) {
+                        dars.remove(b);
+                        dars.add(indexb, a);
+                        dars.remove(a);
+                        dars.add(indexa, b);
+                        break loop;
+                    }
+                    else if (!(b == null) && a.getDateEmtehan().getMonth() > b.getDateEmtehan().getMonth() && dars.indexOf(a) < dars.indexOf(b)) {
+                        dars.remove(b);
+                        dars.add(indexb, a);
+                        dars.remove(a);
+                        dars.add(indexa, b);
+                        break loop;
+                    }
+                    else if (!(b == null) && a.getDateEmtehan().getDate() > b.getDateEmtehan().getDate() && dars.indexOf(a) < dars.indexOf(b)) {
+                        dars.remove(b);
+                        dars.add(indexb, a);
+                        dars.remove(a);
+                        dars.add(indexa, b);
+                        break loop;
+                    }
+
+                }
+
+            }catch (Exception e){
+                logger.error("error is " + e.getMessage());
+                break;
+            }
+            key--;
+            if (key <= 0){
+                break;
+            }
+
+        }
+        logger.info("moratabShod");
+        return dars;
+
+    }
 
 
 

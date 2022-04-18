@@ -16,6 +16,11 @@ public class Dars {
     String zarfiat;
     ArrayList<RoozayeHafte> roozClassDars = new ArrayList<>();
     String saatClass;
+    int month;
+    int day;
+    int year;
+    String zamanEmtehanPayanterm = "";
+    Date dateEmtehan;
 
 
     public Dars(String id,
@@ -26,6 +31,7 @@ public class Dars {
                 String tedadVahed,
                 MaghtaDars maghtaDars,
                 String zarfiat){
+
 
         this.id=id;
         this.pishniaz=pishniaz;
@@ -40,10 +46,44 @@ public class Dars {
 
         doros.add(this);
     }
+    public boolean setTarikhEmtehan(){
+        if (!zamanEmtehanPayanterm.isEmpty()){
+            String[] tarikh = zamanEmtehanPayanterm.split(" ");
+            try {
+                year = Integer.parseInt(tarikh[0]);
+                month =Integer.parseInt(tarikh[1]);
+                day = Integer.parseInt(tarikh[2]);
+                dateEmtehan = new Date(year,month,day);
+                return true;
+            }catch (Exception e){
+                return false;
+            }
+
+        }
+        return false;
+    }
 
 
 
+    public Date getDateEmtehan() {
+        setTarikhEmtehan();
+        return dateEmtehan;
+    }
 
+    public void setDateEmtehan(Date dateEmtehan) {
+        this.dateEmtehan = dateEmtehan;
+        setTarikhEmtehan();
+    }
+
+    public String getZamanEmtehanPayanterm() {
+        setTarikhEmtehan();
+        return "PAYANTERM"+" "+ zamanEmtehanPayanterm;
+    }
+
+    public void setZamanEmtehanPayanterm(String zamanEmtehanPayanterm) {
+        this.zamanEmtehanPayanterm = zamanEmtehanPayanterm;
+        setTarikhEmtehan();
+    }
 
     public String getSaatClass() {
         return saatClass;

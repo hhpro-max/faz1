@@ -35,6 +35,7 @@ public class SafheDaneshjoo extends SafheAsli {
 
     public SafheDoros safheDoros;
     public  SafheBarnameHaftegi safheBarnameHaftegi;
+    public SafheListEmtehanat safheListEmtehanat;
 
     SafheListAsatid safheListAsatid;
 
@@ -152,6 +153,16 @@ public class SafheDaneshjoo extends SafheAsli {
                 GuiController.getInstance().resetJpanels();
                 safheBarnameHaftegi = new SafheBarnameHaftegi();
                 add(safheBarnameHaftegi,1);
+                repaint();
+                revalidate();
+            }
+        });
+        listEmtehnat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheListEmtehanat = new SafheListEmtehanat();
+                add(safheListEmtehanat,1);
                 repaint();
                 revalidate();
             }

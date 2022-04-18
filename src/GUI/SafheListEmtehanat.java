@@ -9,16 +9,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class SafheBarnameHaftegi extends JPanel {
+
+public class SafheListEmtehanat extends JPanel {
     JTable jTable;
     JScrollPane jScrollPane;
     JButton namyesh;
     ArrayList<String> colomns;
     ArrayList<ArrayList<String>> data;
     String data1[][];
-    String colomns1[] = {"SHANBE","YEKSHANBE","DOSHANBE","SESHANBE","CHARSHANBE","PANJSHANBE","JOME"};
+    String colomns1[] = {"NAMEDARS","TARIKH EMTEHAN"};
 
-    public SafheBarnameHaftegi(){
+    public SafheListEmtehanat(){
         initSafheBarnamePanel();
         initCopms();
         align();
@@ -42,29 +43,17 @@ public class SafheBarnameHaftegi extends JPanel {
         colomns = new ArrayList<>();
         data = new ArrayList<>();
         namyesh = new JButton("namayesh");
-        for (RoozayeHafte i:
-             RoozayeHafte.values()) {
-            colomns.add(i.name());
-        }
-        for (int q = 0;q < 8;q++){
+        ArrayList<Dars> dars = Controller.getInstance().tartibBnadiTarikhEmt();
+        int k = 0;
+        for (Dars i:
+             dars) {
             data.add(new ArrayList<>());
-            for (int w = 0; w < colomns.size();w++){
-                data.get(q).add(null);
-            }
+            data.get(k).add(i.getName());
+            data.get(k).add( String.valueOf(i.getDateEmtehan().getYear())+" "+ String.valueOf(i.getDateEmtehan().getMonth())+" "+ String.valueOf(i.getDateEmtehan().getDate()));
+            k++;
         }
         jTable = null;
         jScrollPane = null;
-        for (Dars i:
-                Controller.getInstance().getDarsDaneshjoo()) {
-            int rh = 0;
-            int sd = 0;
-            for (RoozayeHafte j:
-                 i.getRoozClassDars()) {
-                rh = Controller.getInstance().roozHafte(j);
-                sd = Controller.getInstance().saatClass(i.getSaatClass());
-                data.get(sd).set(rh,i.getName());
-            }
-        }
         data1 = data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
 
     }
@@ -77,15 +66,16 @@ public class SafheBarnameHaftegi extends JPanel {
         namyesh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 jTable = new JTable(data1,colomns1);
                 jScrollPane = new JScrollPane(jTable);
-                jScrollPane.setBounds(50,150,700,200);
+                jScrollPane.setBounds(150,150,500,500);
                 add(jScrollPane);
                 repaint();
                 revalidate();
             }
         });
     }
+
+
 
 }
