@@ -32,10 +32,12 @@ public class SafheDaneshjoo extends SafheAsli {
     public JMenuItem darkhastGobahiEshteghal;
     public JMenuItem darkhastMinor;
     public JMenuItem darkhastenseraf;
+    public JMenuItem darkhastTosiename;
 
     public SafheDoros safheDoros;
     public  SafheBarnameHaftegi safheBarnameHaftegi;
     public SafheListEmtehanat safheListEmtehanat;
+    public SafheDarkhastTosieName safheDarkhastTosieName;
 
     SafheListAsatid safheListAsatid;
 
@@ -93,7 +95,9 @@ public class SafheDaneshjoo extends SafheAsli {
         darkhastenseraf = new JMenuItem("ENSERAF");
         darkhastMinor = new JMenuItem("MINOR");
         darkhastGobahiEshteghal = new JMenuItem("GOVAHI ESHTEGHAL");
+        darkhastTosiename = new JMenuItem("DARKHAST TOSIENAME");
         darKhastha.add(darkhastenseraf);
+        darKhastha.add(darkhastTosiename);
         darKhastha.add(darkhastMinor);
         darKhastha.add(darkhastGobahiEshteghal);
         listAsatid = new JMenuItem("Asatid");
@@ -163,6 +167,16 @@ public class SafheDaneshjoo extends SafheAsli {
                 GuiController.getInstance().resetJpanels();
                 safheListEmtehanat = new SafheListEmtehanat();
                 add(safheListEmtehanat,1);
+                repaint();
+                revalidate();
+            }
+        });
+        darkhastTosiename.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheDarkhastTosieName = new SafheDarkhastTosieName();
+                add(safheDarkhastTosieName,1);
                 repaint();
                 revalidate();
             }

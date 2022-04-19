@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Controller {
     static final Logger logger = LogManager.getLogger(Controller.class);
@@ -212,6 +213,38 @@ public class Controller {
         logger.info("moratabShod");
         return dars;
 
+    }
+    public ArrayList<Ostad> getAsatidDaneshjoo(){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            Daneshjoo daneshjoo =(Daneshjoo) azayeDaneshgah;
+            ArrayList<Ostad> asatid = new ArrayList<>();
+            for (Dars i:
+                 daneshjoo.getDars()) {
+                loop:
+                for (Ostad j : asatid){
+                    if (j.getId().equals(i.getOstad().getId())){
+                        asatid.remove(j);
+                        break loop;
+                    }
+                }
+                asatid.add((Ostad) i.getOstad());
+
+            }
+            return asatid;
+        }
+        return null;
+    }
+    public Daneshjoo getDaneshjoo(){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            return (Daneshjoo) azayeDaneshgah;
+        }
+        return null;
+    }
+    public void addDarkhastTosieName(String id){
+        Ostad ostad = (Ostad) getOstad(id);
+        if (azayeDaneshgah instanceof Daneshjoo){
+            ostad.getDarkhastTosieName().add((Daneshjoo) azayeDaneshgah);
+        }
     }
 
 
