@@ -4,8 +4,10 @@ import LOGIC.Dars;
 import LOGIC.Ostad;
 import LOGIC.RoozayeHafte;
 import com.google.gson.Gson;
+import com.sun.deploy.util.StringUtils;
 import com.sun.deploy.util.Waiter;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Logger;
@@ -23,7 +25,9 @@ public class Main {
         System.out.println(emtehan1.name);
 
          */
-
+        String string = "nasjnj & anajksnk %";
+        String ali = string.replace("&","ali");
+        System.out.println(ali);
 
     }
 }

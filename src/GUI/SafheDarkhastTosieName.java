@@ -89,7 +89,7 @@ public class SafheDarkhastTosieName extends JPanel {
                         if (i.isEmpty()){
                             i.add(asatid1.get(asatid.getSelectedIndex()).getId());
                             i.add(asatid1.get(asatid.getSelectedIndex()).getName());
-                            i.add("*");
+                            i.add("MOSHAHEDE NATIJE");
                         }
                     }
                     String data1[][]= data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);

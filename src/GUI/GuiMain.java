@@ -29,6 +29,8 @@ public class GuiMain {
         chom3.setZamanEmtehanPayanterm("1401 10 10");
         Daneshjoo daneshjoo = new Daneshjoo("0","0","sehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA2)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         MoavenAmoozeshi moavenAmoozeshi = new MoavenAmoozeshi("00","00","ali",null,"felanale@rrr.com");
+        daneshjoo.setDaneshKade(DaneshKade.OMRAN);
+        daneshjoo.setMoadel("15.5");
         daneshjoo.getDars().add(chom1);
         daneshjoo.getDars().add(chom2);
         daneshjoo.getDars().add(chom3);
@@ -36,7 +38,7 @@ public class GuiMain {
         moavenAmoozeshi.addDaneshjoo("3","3","nasehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         moavenAmoozeshi.addDaneshjoo("2","2","bisehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
 
-
+        moavenAmoozeshi.setDaneshKade(DaneshKade.OMRAN);
         MainFrame mainFrame = new MainFrame();
         GuiController.setFrame(mainFrame);
     }

@@ -246,6 +246,55 @@ public class Controller {
             ostad.getDarkhastTosieName().add((Daneshjoo) azayeDaneshgah);
         }
     }
+    public boolean checkShartMinor(){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            try {
+                Daneshjoo daneshjoo = (Daneshjoo) azayeDaneshgah;
+                double moadel = Double.parseDouble(daneshjoo.getMoadel());
+                if (moadel >= 15.0){
+                    return true;
+                }
+            }catch (Exception e4){
+                logger.warn("error is : " + e4.getMessage());
+            }
+
+        }
+        return false;
+    }
+    public boolean sendDarkhastMinor(DaneshKade daneshKade){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            DaneshKade daneshKadeMabda = ((Daneshjoo) azayeDaneshgah).getDaneshKade();
+            DaneshKade daneshKadeMaghsad = daneshKade;
+            for (AzayeDaneshgah i:
+                    AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))){
+                    ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
+                    break;
+                }
+            }
+            for (AzayeDaneshgah i:
+                 AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof MoavenAmoozeshi && daneshKadeMaghsad.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))){
+                    ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean sendDarkhastEnseraf(){
+        if (azayeDaneshgah instanceof Daneshjoo) {
+            DaneshKade daneshKadeMabda = ((Daneshjoo) azayeDaneshgah).getDaneshKade();
+            for (AzayeDaneshgah i :
+                    AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(((MoavenAmoozeshi) i).getDaneshKade())) {
+                    ((MoavenAmoozeshi) i).getDaneshjooDarkhastEnseraf().add((Daneshjoo) azayeDaneshgah);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
 
@@ -284,4 +333,5 @@ public class Controller {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
 }

@@ -38,6 +38,9 @@ public class SafheDaneshjoo extends SafheAsli {
     public  SafheBarnameHaftegi safheBarnameHaftegi;
     public SafheListEmtehanat safheListEmtehanat;
     public SafheDarkhastTosieName safheDarkhastTosieName;
+    public SafheGovahiEshteghalBetahsil safheGovahiEshteghalBetahsil;
+    public SafheDarkhastMinor safheDarkhastMinor;
+    public SafheEnserafAzTahsil safheEnserafAzTahsil;
 
     SafheListAsatid safheListAsatid;
 
@@ -175,12 +178,57 @@ public class SafheDaneshjoo extends SafheAsli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiController.getInstance().resetJpanels();
-                safheDarkhastTosieName = new SafheDarkhastTosieName();
+                if (safheDarkhastTosieName == null) {
+                    safheDarkhastTosieName = new SafheDarkhastTosieName();
+                }
+                else {
+                    safheDarkhastTosieName.setVisible(true);
+                }
                 add(safheDarkhastTosieName,1);
                 repaint();
                 revalidate();
             }
         });
+        darkhastGobahiEshteghal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheGovahiEshteghalBetahsil = new SafheGovahiEshteghalBetahsil();
+                add(safheGovahiEshteghalBetahsil,1);
+                repaint();
+                revalidate();
+            }
+        });
+        darkhastMinor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                if (safheDarkhastMinor == null) {
+                    safheDarkhastMinor = new SafheDarkhastMinor();
+                }else {
+                    safheDarkhastMinor.setVisible(true);
+                }
+                add(safheDarkhastMinor,1);
+                repaint();
+                revalidate();
+            }
+        });
+        darkhastenseraf.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                if (safheEnserafAzTahsil == null) {
+                    safheEnserafAzTahsil = new SafheEnserafAzTahsil();
+                }else {
+                    safheEnserafAzTahsil.setVisible(true);
+                }
+                add(safheEnserafAzTahsil,1);
+                repaint();
+                revalidate();
+
+            }
+        });
+
 
     }
 

@@ -10,6 +10,9 @@ public class Daneshjoo extends AzayeDaneshgah{
     AzayeDaneshgah ostadRahnama;
     boolean mojavezSabtnam;
     String saatSabtnam;
+    DaneshKade daneshKade;
+    String moadel;
+
 
     public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email,Vazittahsily vazittahsily,AzayeDaneshgah ostadRahnama,boolean mojavezSabtnam,String saatSabtnam) {
         super(id, pass, name, akskarbar, email);
@@ -17,11 +20,28 @@ public class Daneshjoo extends AzayeDaneshgah{
         this.ostadRahnama = ostadRahnama;
         this.mojavezSabtnam = mojavezSabtnam;
         this.saatSabtnam=saatSabtnam;
+
     }
 
+    public String getMoadel() {
+        return moadel;
+    }
 
+    public void setMoadel(String moadel) {
+        this.moadel = moadel;
+    }
 
+    public void setOstadRahnama(AzayeDaneshgah ostadRahnama) {
+        this.ostadRahnama = ostadRahnama;
+    }
 
+    public DaneshKade getDaneshKade() {
+        return daneshKade;
+    }
+
+    public void setDaneshKade(DaneshKade daneshKade) {
+        this.daneshKade = daneshKade;
+    }
 
     public ArrayList<Dars> getDars() {
         return dars;

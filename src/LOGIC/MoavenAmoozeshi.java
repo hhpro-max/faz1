@@ -1,9 +1,11 @@
 package LOGIC;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class MoavenAmoozeshi extends Ostad{
-
+    ArrayList<Daneshjoo> daneshjooDarkhastMinor = new ArrayList<>();
+    ArrayList<Daneshjoo> daneshjooDarkhastEnseraf = new ArrayList<>();
 
     public MoavenAmoozeshi(String id, String pass, String name, ImageIcon akskarbar, String email) {
         super(id, pass, name, akskarbar, email);
@@ -122,5 +124,21 @@ public class MoavenAmoozeshi extends Ostad{
         return true;
 
 
+    }
+
+    public ArrayList<Daneshjoo> getDaneshjooDarkhastEnseraf() {
+        return daneshjooDarkhastEnseraf;
+    }
+
+    public void setDaneshjooDarkhastEnseraf(ArrayList<Daneshjoo> daneshjooDarkhastEnseraf) {
+        this.daneshjooDarkhastEnseraf = daneshjooDarkhastEnseraf;
+    }
+
+    public ArrayList<Daneshjoo> getDaneshjooDarkhastMinor() {
+        return daneshjooDarkhastMinor;
+    }
+
+    public void setDaneshjooDarkhastMinor(ArrayList<Daneshjoo> daneshjooDarkhastMinor) {
+        this.daneshjooDarkhastMinor = daneshjooDarkhastMinor;
     }
 }
