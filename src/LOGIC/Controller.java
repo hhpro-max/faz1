@@ -7,6 +7,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Controller {
     static final Logger logger = LogManager.getLogger(Controller.class);
@@ -294,6 +295,19 @@ public class Controller {
             }
         }
         return false;
+    }
+    public boolean checkKhabgah(){
+        Double a = Math.random() * 20;
+        Double b = Math.random() * 20;
+
+        if (azayeDaneshgah instanceof DaneshjooArshad){
+            DaneshjooArshad daneshjooArshad =(DaneshjooArshad) azayeDaneshgah;
+            if (daneshjooArshad.isDarkhastKhabgah()){
+                return daneshjooArshad.isDarkhastKhabgah();
+            }
+            daneshjooArshad.setDarkhastKhabgah(a > b);
+        }
+        return a > b;
     }
 
 

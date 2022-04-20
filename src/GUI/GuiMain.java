@@ -37,6 +37,10 @@ public class GuiMain {
         RaiisDaneshkade raiisDaneshkade = new RaiisDaneshkade("1","1","raiisjoon",null,"wth@grail.com");
         moavenAmoozeshi.addDaneshjoo("3","3","nasehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         moavenAmoozeshi.addDaneshjoo("2","2","bisehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
+        DaneshjooArshad daneshjooArshad = new DaneshjooArshad("4","4","ali arshad",null,"chemidonalvala@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,true,"10:00");
+        daneshjooArshad.getDars().add(chom1);
+        daneshjooArshad.getDars().add(chom2);
+        daneshjooArshad.getDars().add(chom3);
 
         moavenAmoozeshi.setDaneshKade(DaneshKade.OMRAN);
         MainFrame mainFrame = new MainFrame();
