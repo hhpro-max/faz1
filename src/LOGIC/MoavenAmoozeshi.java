@@ -125,6 +125,17 @@ public class MoavenAmoozeshi extends Ostad{
 
 
     }
+    public boolean hazfDaneshjooEnserafi(String id){
+        for (Daneshjoo i:
+             daneshjooDarkhastEnseraf) {
+            if (i.getId().equals(id)){
+                daneshjooDarkhastEnseraf.remove(i);
+                AzayeDaneshgah.getAzayeDaneshgahs().remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public ArrayList<Daneshjoo> getDaneshjooDarkhastEnseraf() {
         return daneshjooDarkhastEnseraf;

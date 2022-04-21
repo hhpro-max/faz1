@@ -330,6 +330,28 @@ public class Controller {
         }
         return false;
     }
+    public ArrayList<ArrayList<String>> getListEnserafia(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+            for (Daneshjoo i : ((MoavenAmoozeshi) azayeDaneshgah).getDaneshjooDarkhastEnseraf()){
+                arrayLists.add(new ArrayList<>());
+                for (ArrayList<String> j: arrayLists){
+                    if (j.isEmpty()){
+                        j.add(i.getId());
+                        j.add(i.getName());
+                    }
+                }
+
+            }
+        }
+        return arrayLists;
+    }
+    public boolean removeDaneshjoo(String id){
+        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+          return   ((MoavenAmoozeshi) azayeDaneshgah).hazfDaneshjooEnserafi(id);
+        }
+        return false;
+    }
     public ArrayList<ArrayList<String>> getMinorListMoaven(){
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
         if (azayeDaneshgah instanceof MoavenAmoozeshi){
