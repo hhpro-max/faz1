@@ -11,12 +11,20 @@ public class Ostad extends AzayeDaneshgah{
     String shomareTamas;
     public Map<Daneshjoo,Vaziat> DarkhastTosieName = new HashMap<>();
     public ArrayList<Dars> darsha = new ArrayList<>();
+    public ArrayList<String> eterazat = new ArrayList<>();
 
     public Ostad(String id, String pass, String name, ImageIcon akskarbar, String email) {
         super(id, pass, name, akskarbar, email);
 
     }
 
+    public ArrayList<String> getEterazat() {
+        return eterazat;
+    }
+
+    public void setEterazat(ArrayList<String> eterazat) {
+        this.eterazat = eterazat;
+    }
 
     public ArrayList<Dars> getDarsha() {
         return darsha;

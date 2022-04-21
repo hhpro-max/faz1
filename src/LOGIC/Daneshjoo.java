@@ -16,6 +16,7 @@ public class Daneshjoo extends AzayeDaneshgah{
     String moadel;
     ArrayList<ArrayList<String>> DarkhastTosieName = new ArrayList<>();
     Map<DaneshKade,ArrayList<Vaziat>> darkhastMinor = new HashMap<>();
+    Map<Dars,String> listNomaratMovaghat = new HashMap<>();
 
 
 
@@ -28,6 +29,14 @@ public class Daneshjoo extends AzayeDaneshgah{
 
     }
 
+
+    public Map<Dars, String> getListNomaratMovaghat() {
+        return listNomaratMovaghat;
+    }
+
+    public void setListNomaratMovaghat(Map<Dars, String> listNomaratMovaghat) {
+        this.listNomaratMovaghat = listNomaratMovaghat;
+    }
 
     public Map<DaneshKade, ArrayList<Vaziat>> getDarkhastMinor() {
         return darkhastMinor;

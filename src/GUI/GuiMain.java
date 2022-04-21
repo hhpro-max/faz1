@@ -35,6 +35,9 @@ public class GuiMain {
         daneshjoo.getDars().add(chom1);
         daneshjoo.getDars().add(chom2);
         daneshjoo.getDars().add(chom3);
+        daneshjoo.getListNomaratMovaghat().put(chom1,"15");
+        daneshjoo.getListNomaratMovaghat().put(chom2,"12");
+        daneshjoo.getListNomaratMovaghat().put(chom3,"RIDI");
         RaiisDaneshkade raiisDaneshkade = new RaiisDaneshkade("1","1","raiisjoon",null,"wth@grail.com");
         moavenAmoozeshi.addDaneshjoo("3","3","nasehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         moavenAmoozeshi.addDaneshjoo("2","2","bisehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );

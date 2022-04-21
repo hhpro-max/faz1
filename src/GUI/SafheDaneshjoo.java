@@ -33,6 +33,7 @@ public class SafheDaneshjoo extends SafheAsli {
     public JMenuItem darkhastMinor;
     public JMenuItem darkhastenseraf;
     public JMenuItem darkhastTosiename;
+    public JMenuItem nomaratMovaghat;
 
     public SafheDoros safheDoros;
     public  SafheBarnameHaftegi safheBarnameHaftegi;
@@ -41,6 +42,7 @@ public class SafheDaneshjoo extends SafheAsli {
     public SafheGovahiEshteghalBetahsil safheGovahiEshteghalBetahsil;
     public SafheDarkhastMinor safheDarkhastMinor;
     public SafheEnserafAzTahsil safheEnserafAzTahsil;
+    public SafheNomaratMovaghatDaneshjoo safheNomaratMovaghatDaneshjoo;
 
     SafheListAsatid safheListAsatid;
 
@@ -94,6 +96,7 @@ public class SafheDaneshjoo extends SafheAsli {
         omoorSabtnam = new JMenu("OMOOR SABTNAM");
         barnameHaftegi = new JMenuItem("BARNAME HAFTEGI");
         listEmtehnat = new JMenuItem("LIST EMTEHANAT");
+        nomaratMovaghat = new JMenuItem("LIST NOMARAT MOVAGHAT");
         darKhastha = new JMenu("DARKHAT HA");
         darkhastenseraf = new JMenuItem("ENSERAF");
         darkhastMinor = new JMenuItem("MINOR");
@@ -108,6 +111,7 @@ public class SafheDaneshjoo extends SafheAsli {
         omoorSabtnam.add(listDoros);
         omoorSabtnam.add(listAsatid);
         omoorKarname = new JMenu("OMOOR KARNAME");
+        omoorKarname.add(nomaratMovaghat);
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         profileKarbar = new JMenu("PROFILE");
         safheAsli = new JButton("SAFHE ASLI");
@@ -226,6 +230,16 @@ public class SafheDaneshjoo extends SafheAsli {
                 repaint();
                 revalidate();
 
+            }
+        });
+        nomaratMovaghat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheNomaratMovaghatDaneshjoo = new SafheNomaratMovaghatDaneshjoo();
+                add(safheNomaratMovaghatDaneshjoo,1);
+                repaint();
+                revalidate();
             }
         });
 
