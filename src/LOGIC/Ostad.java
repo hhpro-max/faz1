@@ -8,11 +8,20 @@ public class Ostad extends AzayeDaneshgah{
     DarajeOstadi darajeOstadi;
     String shomareTamas;
     public ArrayList<Daneshjoo> DarkhastTosieName = new ArrayList<>();
+    public ArrayList<Dars> darsha = new ArrayList<>();
 
     public Ostad(String id, String pass, String name, ImageIcon akskarbar, String email) {
         super(id, pass, name, akskarbar, email);
     }
 
+
+    public ArrayList<Dars> getDarsha() {
+        return darsha;
+    }
+
+    public void setDarsha(ArrayList<Dars> darsha) {
+        this.darsha = darsha;
+    }
 
     public ArrayList<Daneshjoo> getDarkhastTosieName() {
         return DarkhastTosieName;

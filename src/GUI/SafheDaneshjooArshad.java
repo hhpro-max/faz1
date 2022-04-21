@@ -15,8 +15,8 @@ public class SafheDaneshjooArshad extends SafheDaneshjoo{
     }
     public void initezafia1(){
         darkhastKhabGah=new JMenuItem("DARKHAST KHAB GAH");
-        khadamatAmoozeshi.remove(darkhastMinor);
-        khadamatAmoozeshi.add(darkhastKhabGah);
+        darKhastha.remove(darkhastMinor);
+        darKhastha.add(darkhastKhabGah);
 
     }
     public void setActionListener6(){

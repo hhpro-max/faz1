@@ -11,6 +11,7 @@ public class GuiMain {
     public static void main(String[] args) {
         Ostad ostad = new Ostad("000","000","hossein",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA1)),"freakthisLife@gmail.com");
 
+
         Dars chom1 = new Dars("110","riazi1",null,ostad,DaneshKade.RIAZI,"2",MaghtaDars.KARSHENASI,"20");
 
         chom1.getRoozClassDars().add(RoozayeHafte.DOSHANBE);
@@ -41,6 +42,10 @@ public class GuiMain {
         daneshjooArshad.getDars().add(chom1);
         daneshjooArshad.getDars().add(chom2);
         daneshjooArshad.getDars().add(chom3);
+        ostad.getDarsha().add(chom1);
+        ostad.getDarsha().add(chom2);
+        ostad.getDarsha().add(chom3);
+
 
         moavenAmoozeshi.setDaneshKade(DaneshKade.OMRAN);
         MainFrame mainFrame = new MainFrame();

@@ -130,6 +130,14 @@ public class Controller {
                 dars.add(i);
             }
             return dars;
+        }else if (azayeDaneshgah instanceof Ostad){
+            Ostad ostad =(Ostad) azayeDaneshgah;
+            ArrayList<Dars> dars = new ArrayList<>();
+            for (Dars i:
+                 ostad.getDarsha()) {
+                dars.add(i);
+            }
+            return dars;
         }
        return null;
     }

@@ -3,6 +3,9 @@ package GUI;
 import LOGIC.Controller;
 import LOGIC.Dars;
 import LOGIC.RoozayeHafte;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +14,7 @@ import java.util.ArrayList;
 
 
 public class SafheListEmtehanat extends JPanel {
+    static final Logger logger = LogManager.getLogger(SafheListEmtehanat.class);
     JTable jTable;
     JScrollPane jScrollPane;
     JButton namyesh;
@@ -20,6 +24,7 @@ public class SafheListEmtehanat extends JPanel {
     String colomns1[] = {"NAMEDARS","TARIKH EMTEHAN"};
 
     public SafheListEmtehanat(){
+        PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
         initSafheBarnamePanel();
         initCopms();
         align();
@@ -40,21 +45,25 @@ public class SafheListEmtehanat extends JPanel {
 
     }
     public void initCopms(){
-        colomns = new ArrayList<>();
-        data = new ArrayList<>();
-        namyesh = new JButton("namayesh");
-        ArrayList<Dars> dars = Controller.getInstance().tartibBnadiTarikhEmt();
-        int k = 0;
-        for (Dars i:
-             dars) {
-            data.add(new ArrayList<>());
-            data.get(k).add(i.getName());
-            data.get(k).add( String.valueOf(i.getDateEmtehan().getYear())+" "+ String.valueOf(i.getDateEmtehan().getMonth())+" "+ String.valueOf(i.getDateEmtehan().getDate()));
-            k++;
+        try {
+            colomns = new ArrayList<>();
+            data = new ArrayList<>();
+            namyesh = new JButton("namayesh");
+            ArrayList<Dars> dars = Controller.getInstance().tartibBnadiTarikhEmt();
+            int k = 0;
+            for (Dars i:
+                    dars) {
+                data.add(new ArrayList<>());
+                data.get(k).add(i.getName());
+                data.get(k).add( String.valueOf(i.getDateEmtehan().getYear())+" "+ String.valueOf(i.getDateEmtehan().getMonth())+" "+ String.valueOf(i.getDateEmtehan().getDate()));
+                k++;
+            }
+            jTable = null;
+            jScrollPane = null;
+            data1 = data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+        }catch (Exception ex){
+            logger.warn("SOME THING WENT WRONG :"+ex.getMessage());
         }
-        jTable = null;
-        jScrollPane = null;
-        data1 = data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
 
     }
     public void align(){
@@ -66,12 +75,17 @@ public class SafheListEmtehanat extends JPanel {
         namyesh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jTable = new JTable(data1,colomns1);
-                jScrollPane = new JScrollPane(jTable);
-                jScrollPane.setBounds(150,150,500,500);
-                add(jScrollPane);
-                repaint();
-                revalidate();
+
+                try {
+                    jTable = new JTable(data1,colomns1);
+                    jScrollPane = new JScrollPane(jTable);
+                    jScrollPane.setBounds(150,150,500,500);
+                    add(jScrollPane);
+                    repaint();
+                    revalidate();
+                }catch (Exception e1){
+                    logger.error("the error messega is : "+e1.getMessage());
+                }
             }
         });
     }

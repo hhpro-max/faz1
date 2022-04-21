@@ -21,9 +21,14 @@ public class SafheOstad extends SafheAsli{
     public JButton safheAsli;
     public JMenuItem listDoros;
     public JMenuItem listAsatid;
+    public JMenuItem barnameHaftegi;
+    public JMenuItem listEmtehanat;
+    public JMenu darkhastha;
 
     SafheDoros safheDoros;
     SafheListAsatid safheListAsatid;
+    public SafheBarnameHaftegi safheBarnameHaftegi;
+    public SafheListEmtehanat safheListEmtehanat;
 
     public SafheOstad(){
         super();
@@ -40,6 +45,12 @@ public class SafheOstad extends SafheAsli{
         omoorSabtnam = new JMenu("OMOOR SABTNAM");
         omoorKarname = new JMenu("OMOOR KARNAME");
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
+        barnameHaftegi = new JMenuItem("BARNAME HAFTEGI");
+        khadamatAmoozeshi.add(barnameHaftegi);
+        listEmtehanat = new JMenuItem("EMTEHANAT");
+        khadamatAmoozeshi.add(listEmtehanat);
+        darkhastha = new JMenu("DARKHASTHA");
+        khadamatAmoozeshi.add(darkhastha);
         profileKarbar = new JMenu("PROFILE");
         safheAsli = new JButton("SAFHE ASLI");
         listAsatid = new JMenuItem("Asatid");
@@ -81,6 +92,26 @@ public class SafheOstad extends SafheAsli{
                 safheListAsatid=new SafheListAsatid();
                 add(safheListAsatid,1);
                 logger.info("enter to the listAsatid");
+                repaint();
+                revalidate();
+            }
+        });
+        barnameHaftegi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheBarnameHaftegi = new SafheBarnameHaftegi();
+                add(safheBarnameHaftegi ,1);
+                repaint();
+                revalidate();
+            }
+        });
+        listEmtehanat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheListEmtehanat = new SafheListEmtehanat();
+                add(safheListEmtehanat , 1);
                 repaint();
                 revalidate();
             }
