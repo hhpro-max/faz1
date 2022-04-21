@@ -2,6 +2,8 @@ package LOGIC;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Daneshjoo extends AzayeDaneshgah{
     ArrayList<Dars> dars = new ArrayList<>();
@@ -12,6 +14,9 @@ public class Daneshjoo extends AzayeDaneshgah{
     String saatSabtnam;
     DaneshKade daneshKade;
     String moadel;
+    ArrayList<ArrayList<String>> DarkhastTosieName = new ArrayList<>();
+    Map<DaneshKade,ArrayList<Vaziat>> darkhastMinor = new HashMap<>();
+
 
 
     public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email,Vazittahsily vazittahsily,AzayeDaneshgah ostadRahnama,boolean mojavezSabtnam,String saatSabtnam) {
@@ -21,6 +26,23 @@ public class Daneshjoo extends AzayeDaneshgah{
         this.mojavezSabtnam = mojavezSabtnam;
         this.saatSabtnam=saatSabtnam;
 
+    }
+
+
+    public Map<DaneshKade, ArrayList<Vaziat>> getDarkhastMinor() {
+        return darkhastMinor;
+    }
+
+    public void setDarkhastMinor(Map<DaneshKade, ArrayList<Vaziat>> darkhastMinor) {
+        this.darkhastMinor = darkhastMinor;
+    }
+
+    public ArrayList<ArrayList<String>> getDarkhastTosieName() {
+        return DarkhastTosieName;
+    }
+
+    public void setDarkhastTosieName(ArrayList<ArrayList<String>> darkhastTosieName) {
+        DarkhastTosieName = darkhastTosieName;
     }
 
     public String getMoadel() {

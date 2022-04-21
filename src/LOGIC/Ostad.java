@@ -2,16 +2,19 @@ package LOGIC;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Ostad extends AzayeDaneshgah{
     DaneshKade daneshKade;
     DarajeOstadi darajeOstadi;
     String shomareTamas;
-    public ArrayList<Daneshjoo> DarkhastTosieName = new ArrayList<>();
+    public Map<Daneshjoo,Vaziat> DarkhastTosieName = new HashMap<>();
     public ArrayList<Dars> darsha = new ArrayList<>();
 
     public Ostad(String id, String pass, String name, ImageIcon akskarbar, String email) {
         super(id, pass, name, akskarbar, email);
+
     }
 
 
@@ -23,11 +26,11 @@ public class Ostad extends AzayeDaneshgah{
         this.darsha = darsha;
     }
 
-    public ArrayList<Daneshjoo> getDarkhastTosieName() {
+    public Map<Daneshjoo, Vaziat> getDarkhastTosieName() {
         return DarkhastTosieName;
     }
 
-    public void setDarkhastTosieName(ArrayList<Daneshjoo> darkhastTosieName) {
+    public void setDarkhastTosieName(Map<Daneshjoo, Vaziat> darkhastTosieName) {
         DarkhastTosieName = darkhastTosieName;
     }
 

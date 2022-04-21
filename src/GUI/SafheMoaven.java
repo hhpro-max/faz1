@@ -12,11 +12,13 @@ public class SafheMoaven extends SafheOstad{
     JMenu sabtkarbar;
     JMenuItem addDaneshjoo;
     JMenuItem addOstad;
+    JMenuItem checkMinor;
     SafheDoros safheDoros;
     JButton sabtVavirayesh,deleteDars;
     JTextField deleteDars1;
     JOptionPane jOptionPane;
     SafheAddDars safheAddDars;
+    SafheCheckMinor safheCheckMinor;
 
     public SafheMoaven(){
         super();
@@ -26,12 +28,13 @@ public class SafheMoaven extends SafheOstad{
     public void initEzafi(){
         sabtkarbar = new JMenu("SABT KARBAR");
         addDaneshjoo = new JMenuItem("Daneshjoo");
+        checkMinor = new JMenuItem("DARKHASTHAYE MINOR");
         addOstad = new JMenuItem("Ostad");
         sabtVavirayesh = new JButton("SABT VA VIRAYESH");
         deleteDars = new JButton("HAZF DARS");
         deleteDars1 = new JTextField();
         jOptionPane = new JOptionPane();
-
+darkhastha.add(checkMinor);
         sabtkarbar.add(addOstad);
         sabtkarbar.add(addDaneshjoo);
         jMenuBar.add(sabtkarbar);
@@ -108,6 +111,16 @@ public class SafheMoaven extends SafheOstad{
                 safheAddOstad = new SafheAddOstad();
                 add(safheAddOstad,1);
                 logger.info("enter to the addOstad");
+                repaint();
+                revalidate();
+            }
+        });
+        checkMinor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheCheckMinor = new SafheCheckMinor();
+                add(safheCheckMinor,1);
                 repaint();
                 revalidate();
             }

@@ -7,6 +7,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 public class Controller {
@@ -252,9 +253,109 @@ public class Controller {
     public void addDarkhastTosieName(String id){
         Ostad ostad = (Ostad) getOstad(id);
         if (azayeDaneshgah instanceof Daneshjoo){
-            ostad.getDarkhastTosieName().add((Daneshjoo) azayeDaneshgah);
+            ostad.getDarkhastTosieName().put((Daneshjoo) azayeDaneshgah,Vaziat.SABTSHODE);
         }
     }
+    public void addDarkhastToseiNameDaneshjoo(ArrayList<String> i){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            ((Daneshjoo) azayeDaneshgah).getDarkhastTosieName().add(i);
+        }
+    }
+    public ArrayList<ArrayList<String>> getDarkhatTosieNameDaneshjoo(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo){
+            if(!((Daneshjoo) azayeDaneshgah).getDarkhastTosieName().isEmpty()){
+                return ((Daneshjoo) azayeDaneshgah).getDarkhastTosieName();
+            }
+        }
+        return arrayLists;
+    }
+    public ArrayList<ArrayList<String>> getOstadTosieNameList(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof Ostad) {
+            for (Map.Entry<Daneshjoo, Vaziat> i :
+                    ((Ostad) azayeDaneshgah).getDarkhastTosieName().entrySet()) {
+                arrayLists.add(new ArrayList<>());
+                for (ArrayList<String> j :
+                        arrayLists) {
+                    if (j.isEmpty()) {
+                        j.add(i.getKey().getId());
+                        j.add(i.getKey().getName());
+                        j.add(i.getValue().toString());
+                    }
+                }
+            }
+            return arrayLists;
+        }
+
+
+        return arrayLists;
+    }
+    public boolean setVaziatDarkhastDaneshjoo(String id,Vaziat vaziat){
+        for (AzayeDaneshgah i:
+             azayeDaneshgahs) {
+            if (i instanceof Daneshjoo && i.getId().equals(id)){
+                for (ArrayList<String> j:
+                     ((Daneshjoo) i).getDarkhastTosieName()) {
+                    if (j.get(0).equals(azayeDaneshgah.getId())){
+                        j.set(2,vaziat.toString());
+                        if (azayeDaneshgah instanceof Ostad){
+                            ((Ostad) azayeDaneshgah).getDarkhastTosieName().replace((Daneshjoo) i,vaziat);
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean setVaziatDarkhastMinorDaneshjoo(String id,DaneshKade daneshKade,Vaziat vaziat){
+        for (AzayeDaneshgah i:
+                azayeDaneshgahs) {
+            if (i instanceof Daneshjoo && i.getId().equals(id) && azayeDaneshgah instanceof MoavenAmoozeshi){
+                if (((Daneshjoo) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())){
+                    ArrayList<Vaziat> vaziats=new ArrayList<>();
+                    vaziats.addAll(((Daneshjoo) i).getDarkhastMinor().get(daneshKade));
+                    vaziats.set(0,vaziat);
+                    ((Daneshjoo) i).getDarkhastMinor().replace(daneshKade,vaziats);
+                    return true;
+                }else {
+                    ArrayList<Vaziat> vaziats=new ArrayList<>();
+                    vaziats.addAll(((Daneshjoo) i).getDarkhastMinor().get(daneshKade));
+                    vaziats.set(1,vaziat);
+                    ((Daneshjoo) i).getDarkhastMinor().replace(daneshKade,vaziats);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public ArrayList<ArrayList<String>> getMinorListMoaven(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+            for (Daneshjoo i : ((MoavenAmoozeshi) azayeDaneshgah).getDaneshjooDarkhastMinor()){
+                for (Map.Entry<DaneshKade, ArrayList<Vaziat>> j :
+                        i.getDarkhastMinor().entrySet()) {
+                    arrayLists.add(new ArrayList<>());
+                    for (ArrayList<String> k :
+                            arrayLists) {
+                        if (k.isEmpty()) {
+                            k.add(i.getDaneshKade().toString());
+                            k.add(j.getKey().toString());
+                            k.add(i.getId());
+                            k.add(i.getName());
+                            k.add(j.getValue().get(0).toString());
+                            k.add(j.getValue().get(1).toString());
+
+                        }
+                    }
+                }
+            }
+            return arrayLists;
+        }
+        return arrayLists;
+    }
+
     public boolean checkShartMinor(){
         if (azayeDaneshgah instanceof Daneshjoo){
             try {
@@ -274,6 +375,10 @@ public class Controller {
         if (azayeDaneshgah instanceof Daneshjoo){
             DaneshKade daneshKadeMabda = ((Daneshjoo) azayeDaneshgah).getDaneshKade();
             DaneshKade daneshKadeMaghsad = daneshKade;
+            ArrayList<Vaziat> vaziats = new ArrayList<>();
+            vaziats.add(Vaziat.SABTSHODE);
+            vaziats.add(Vaziat.SABTSHODE);
+
             for (AzayeDaneshgah i:
                     AzayeDaneshgah.getAzayeDaneshgahs()) {
                 if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))){
@@ -285,6 +390,7 @@ public class Controller {
                  AzayeDaneshgah.getAzayeDaneshgahs()) {
                 if (i instanceof MoavenAmoozeshi && daneshKadeMaghsad.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))){
                     ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
+                    ((Daneshjoo) azayeDaneshgah).getDarkhastMinor().put(daneshKadeMaghsad,vaziats);
                     return true;
                 }
             }

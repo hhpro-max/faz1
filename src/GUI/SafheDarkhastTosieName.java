@@ -2,6 +2,7 @@ package GUI;
 
 import LOGIC.Controller;
 import LOGIC.Ostad;
+import LOGIC.Vaziat;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -19,9 +20,10 @@ public class SafheDarkhastTosieName extends JPanel {
     JComboBox<String> asatid;
     ArrayList<Ostad> asatid1;
     JButton sabtDarkhast;
-    String columns[] = {"ID","OSTAD","MOSHAHEDE NATIJE"};
+    String columns[] = {"ID","OSTAD","NATIJE"};
     public ArrayList<ArrayList<String>> data = new ArrayList<>();
     JOptionPane jOptionPane;
+    JButton jButton;
 
 
 
@@ -64,33 +66,55 @@ public class SafheDarkhastTosieName extends JPanel {
         jTable = null;
         jScrollPane = null;
         jOptionPane = new JOptionPane();
+        jButton = new JButton("REFRESH TABLE");
     }
     public void align(){
         sabtDarkhast.setBounds(10,50,150,30);
         this.add(sabtDarkhast);
         asatid.setBounds(200,50,150,30);
         this.add(asatid);
+        jButton.setBounds(400,50,150,30);
+        this.add(jButton);
     }
     public void setActionListener(){
         sabtDarkhast.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                    ArrayList<String> checkTekrary = new ArrayList<>();
                     if (!(jScrollPane==null)){
                         remove(jScrollPane);
                     }
                     repaint();
                     revalidate();
 
-                    Controller.getInstance().addDarkhastTosieName(asatid1.get(asatid.getSelectedIndex()).getId());
+
                     data.add(new ArrayList<>());
                     for (ArrayList<String> i:
                             data) {
                         if (i.isEmpty()){
                             i.add(asatid1.get(asatid.getSelectedIndex()).getId());
                             i.add(asatid1.get(asatid.getSelectedIndex()).getName());
-                            i.add("MOSHAHEDE NATIJE");
+                            i.add(Vaziat.SABTSHODE.toString());
+                            checkTekrary.addAll(i);
+                            break;
                         }
+                    }
+                    int counter = 0;
+                    boolean check1 = true;
+                    for (ArrayList<String> i:
+                            data    )   {
+                        if (i.equals(checkTekrary)){
+                            counter++;
+                            if (counter == 2){
+                                check1 = false;
+                                data.remove(i);
+                                break;
+                            }
+                        }
+                    }
+                    if (check1){
+                        Controller.getInstance().addDarkhastTosieName(asatid1.get(asatid.getSelectedIndex()).getId());
+                        Controller.getInstance().addDarkhastToseiNameDaneshjoo(checkTekrary);
                     }
                     String data1[][]= data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
                     jTable = new JTable(data1,columns);
@@ -103,6 +127,30 @@ public class SafheDarkhastTosieName extends JPanel {
                     revalidate();
 
 
+            }
+        });
+        jButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!Controller.getInstance().getDarkhatTosieNameDaneshjoo().isEmpty()){
+                    if (!(jScrollPane==null)){
+                        remove(jScrollPane);
+                    }
+                    repaint();
+                    revalidate();
+                    String data1[][] = Controller.getInstance().getDarkhatTosieNameDaneshjoo().stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+                    jTable = new JTable(data1,columns);
+                    jScrollPane = new JScrollPane(jTable);
+                    jScrollPane.setBounds(50,200,600,400);
+                    jScrollPane.repaint();
+                    jScrollPane.revalidate();
+                    add(jScrollPane);
+                    repaint();
+                    revalidate();
+                }
+                else {
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"TARIKHCHE NADARID");
+                }
             }
         });
     }
