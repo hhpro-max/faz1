@@ -25,12 +25,14 @@ public class SafheOstad extends SafheAsli{
     public JMenuItem listEmtehanat;
     public JMenu darkhastha;
     public JMenuItem darkhastHayeTosieName;
+    public JMenuItem nomaratMovaghat;
 
     SafheDoros safheDoros;
     SafheListAsatid safheListAsatid;
     public SafheBarnameHaftegi safheBarnameHaftegi;
     public SafheListEmtehanat safheListEmtehanat;
     public SafheCheckTosieNameOstad safheCheckTosieNameOstad;
+    public SafheNomaratMovaghatOstad safheNomaratMovaghatOstad;
 
     public SafheOstad(){
         super();
@@ -46,6 +48,7 @@ public class SafheOstad extends SafheAsli{
         jMenuBar.setBounds(80,0,720,30);
         omoorSabtnam = new JMenu("OMOOR SABTNAM");
         omoorKarname = new JMenu("OMOOR KARNAME");
+        nomaratMovaghat = new JMenuItem("NOMARAT");
         darkhastHayeTosieName = new JMenuItem("DARKHASTHAYE TOSIENAME");
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         barnameHaftegi = new JMenuItem("BARNAME HAFTEGI");
@@ -61,6 +64,7 @@ public class SafheOstad extends SafheAsli{
         listDoros=new JMenuItem("Doros");
         omoorSabtnam.add(listDoros);
         omoorSabtnam.add(listAsatid);
+        omoorKarname.add(nomaratMovaghat);
 
         jMenuBar.add(omoorKarname);
         jMenuBar.add(khadamatAmoozeshi);
@@ -126,6 +130,16 @@ public class SafheOstad extends SafheAsli{
                 GuiController.getInstance().resetJpanels();
                 safheCheckTosieNameOstad = new SafheCheckTosieNameOstad();
                 add(safheCheckTosieNameOstad,1);
+                repaint();
+                revalidate();
+            }
+        });
+        nomaratMovaghat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheNomaratMovaghatOstad = new SafheNomaratMovaghatOstad();
+                add(safheNomaratMovaghatOstad,1);
                 repaint();
                 revalidate();
             }

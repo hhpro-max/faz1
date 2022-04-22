@@ -387,6 +387,13 @@ public class Controller {
         }
         return false;
     }
+    public ArrayList<ArrayList<String>> getListDaneshjooOstad(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof Ostad){
+            arrayLists =  ((Ostad) azayeDaneshgah).getListDaneshjoo()  ;
+        }
+        return arrayLists;
+    }
     public Dars getDars1(String id){
         Dars dars = null;
         for (Dars i:

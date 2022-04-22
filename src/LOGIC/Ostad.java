@@ -18,6 +18,35 @@ public class Ostad extends AzayeDaneshgah{
 
     }
 
+    public ArrayList<ArrayList<String>> getListDaneshjoo(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        for (Dars i:
+             darsha) {
+            for (AzayeDaneshgah j:
+                 AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (j instanceof Daneshjoo){
+                    for (Dars k:
+                         ((Daneshjoo) j).getDars()) {
+                        if (i.getId().equals(k.getId())){
+                            arrayLists.add(new ArrayList<>());
+                            for (ArrayList<String> l:
+                                 arrayLists) {
+                                if (l.isEmpty()){
+                                    l.add(j.getId());
+                                    l.add(j.getName());
+                                    l.add(i.getId());
+                                    l.add(i.getName());
+                                    l.add(((Daneshjoo) j).getListNomaratMovaghat().get(i));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return arrayLists;
+    }
+
     public ArrayList<String> getEterazat() {
         return eterazat;
     }
