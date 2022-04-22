@@ -1,8 +1,11 @@
 package GUI;
 
 import LOGIC.Controller;
+import LOGIC.Dars;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
@@ -14,17 +17,21 @@ public class SafheNomaratMovaghatOstad extends JPanel {
     JButton jButton1;
     JButton jButton2;
     JTextField jTextField;
+    JTextField jTextField1;
     JTextArea jTextArea;
     JLabel jLabel;
     JLabel jLabel1;
+    JLabel jLabel2;
     String columns[] = {"ID DANESHJOO","NAME DANESHJOO","ID DARS","DARS","NOMRE"};
     public ArrayList<ArrayList<String>> data = new ArrayList<>();
     JOptionPane jOptionPane;
+    boolean sabtnahayy = false;
 
     public SafheNomaratMovaghatOstad(){
         initPanle();
         initComps();
         align1();
+        setActionListener1();
 
         GuiController.getInstance().addJpannel(this);
 
@@ -40,6 +47,8 @@ public class SafheNomaratMovaghatOstad extends JPanel {
         jButton = new JButton("SABT PASOKH");
         jButton1 = new JButton("SABT NOMARAT");
         jButton2 = new JButton("SABT NAHAYY");
+        jTextField1 = new JTextField();
+        jLabel2 = new JLabel("ID DARS");
         jTextArea = new JTextArea();
         jTextField = new JTextField();
         jLabel = new JLabel("ID DANESHJOO :");
@@ -67,5 +76,126 @@ public class SafheNomaratMovaghatOstad extends JPanel {
         this.add(jButton1);
         jButton2.setBounds(400,600,150,30);
         this.add(jButton2);
+        jLabel2.setBounds(10,100,100,30);
+        this.add(jLabel2);
+        jTextField1.setBounds(150,100,100,30);
+        this.add(jTextField1);
+    }
+    public void setActionListener1(){
+        jButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!jTextField1.getText().isEmpty() && !jTextArea.getText().isEmpty() && !jTextField.getText().isEmpty()){
+                    String id = jTextField1.getText();
+                    String idDaneshjoo = jTextField.getText();
+                    Dars dars = Controller.getInstance().getDars1(id);
+                    if (!(dars==null)){
+                        String matn = "NAME DARS : " +  dars.getName() + " ID OSTAD : " + Controller.getInstance().getName() + " \n MATN ETERAZ :  "+ jTextArea.getText();
+                        boolean a = Controller.getInstance().sabtNatijeEteraz(idDaneshjoo,matn);
+                        if (a){
+                            jOptionPane.showMessageDialog(GuiController.getFrame(),"SABT SHOD");
+                        }
+                        else {
+                            jOptionPane.showMessageDialog(GuiController.getFrame(),"S.TH went WRONG");
+                        }
+                    }
+                    else {
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"ID IS WRONG");
+                    }
+                }
+                else {
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"HICH FIELDIO KHALI NAZAR");
+                }
+            }
+
+        });
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try {
+                    int row = jTable.getRowCount();
+                    int column = jTable.getColumnCount();
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    for (int j = 0; j  < row; j++) {
+                        for (int i = 0; i  < column; i++) {
+
+                            if (jTable.getValueAt(j,i) == null){
+                                jOptionPane.showMessageDialog(GuiController.getFrame(),"TAMAM NOMARAT RA VARED KONID");
+                                return;
+                            }else{
+                                if (i == column -1){
+                                    if (Double.parseDouble(jTable.getValueAt(j,i).toString()) >20 || Double.parseDouble(jTable.getValueAt(j,i).toString())<0){
+                                        jOptionPane.showMessageDialog(GuiController.getFrame(),"NOMRE SABT SHODE NAMOTABAR AST");
+                                        return;
+                                    }
+                                }
+                                arrayList.add(jTable.getValueAt(j,i).toString());
+                                if (arrayList.size() == 5){
+                                    boolean b = Controller.getInstance().sabtNomaratMovaghat(arrayList);
+                                    if (b){
+                                        arrayList.clear();
+                                    }
+                                    else {
+                                        jOptionPane.showMessageDialog(GuiController.getFrame(),"SOMETHING WENT WRONG");
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"MOVAFAGHIAT AMIZ BOOD");
+                    sabtnahayy = true;
+                }catch (Exception exception){
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"MOSHKEL BOZORG TAR AZ IN HARFAS");
+                }
+            }
+        });
+        jButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    if (!sabtnahayy){
+                        jOptionPane.showMessageDialog(GuiController.getFrame(),"AVAL SABT MOVAGHAT KON PLS");
+                        return;
+                    }
+                    int row = jTable.getRowCount();
+                    int column = jTable.getColumnCount();
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    for (int j = 0; j  < row; j++) {
+                        for (int i = 0; i  < column; i++) {
+
+                            if (jTable.getValueAt(j,i) == null){
+                                jOptionPane.showMessageDialog(GuiController.getFrame(),"TAMAM NOMARAT RA VARED KONID");
+                                return;
+                            }else{
+                                if (i == column -1){
+                                    if (Double.parseDouble(jTable.getValueAt(j,i).toString()) >20 || Double.parseDouble(jTable.getValueAt(j,i).toString())<0){
+                                        jOptionPane.showMessageDialog(GuiController.getFrame(),"NOMRE SABT SHODE NAMOTABAR AST");
+                                        return;
+                                    }
+                                }
+                                arrayList.add(jTable.getValueAt(j,i).toString());
+                                if (arrayList.size() == 5){
+                                    boolean b = Controller.getInstance().sabtNomaratNahayy(arrayList);
+                                    if (b){
+                                        arrayList.clear();
+                                    }
+                                    else {
+                                        jOptionPane.showMessageDialog(GuiController.getFrame(),"SOMETHING WENT WRONG");
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"MOVAFAGHIAT AMIZ BOOD");
+                }catch (Exception exception){
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"MOSHKEL BOZORG TAR AZ IN HARFAS");
+                }
+            }
+        });
     }
 }

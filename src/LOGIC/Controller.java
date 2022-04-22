@@ -387,6 +387,21 @@ public class Controller {
         }
         return false;
     }
+    public boolean sabtNatijeEteraz(String id,String matn){
+        Daneshjoo daneshjoo = null;
+        if (azayeDaneshgah instanceof Ostad){
+            for (AzayeDaneshgah i:azayeDaneshgahs){
+                if (i.getId().equals(id)){
+                    daneshjoo =(Daneshjoo) i;
+                }
+            }
+        }
+        if (!(daneshjoo == null)){
+            daneshjoo.getNatijeEteraz().add(matn);
+            return true;
+        }
+        return false;
+    }
     public ArrayList<ArrayList<String>> getListDaneshjooOstad(){
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
         if (azayeDaneshgah instanceof Ostad){
@@ -499,6 +514,83 @@ public class Controller {
     }
 
 
+    public boolean sabtNomaratMovaghat(ArrayList<String> arrayList){
+        try {
+            String idDaneshjoo = arrayList.get(0);
+            String idDars = arrayList.get(2);
+            String nomre = arrayList.get(4);
+            Daneshjoo daneshjoo = null;
+            Dars dars = null;
+            for (AzayeDaneshgah i:AzayeDaneshgah.getAzayeDaneshgahs()){
+                if (i instanceof Daneshjoo && i.getId().equals(idDaneshjoo)){
+                    daneshjoo = (Daneshjoo) i;
+                }
+            }
+            for (Dars i:
+                 Dars.getDoros()) {
+                if (i.getId().equals(idDars)){
+                    dars = i;
+                }
+            }
+            if (!(dars == null) && !(daneshjoo == null)){
+                boolean a = true;
+                for (Map.Entry<Dars,String> j:
+                     daneshjoo.getListNomaratMovaghat().entrySet()) {
+                    if (j.getKey() == dars){
+                        daneshjoo.getListNomaratMovaghat().replace(dars,nomre);
+                        a = false;
+                    }
+                }
+                if (a){
+                    daneshjoo.getListNomaratMovaghat().put(dars,nomre);
+                }
+                return true;
+            }
+        }catch (Exception e){
+            logger.error("error da tabe sabt nomarat movaghat" + e.getMessage());
+            return false;
+        }
+        return false;
+    }
+
+    public boolean sabtNomaratNahayy(ArrayList<String> arrayList){
+        try {
+            String idDaneshjoo = arrayList.get(0);
+            String idDars = arrayList.get(2);
+            String nomre = arrayList.get(4);
+            Daneshjoo daneshjoo = null;
+            Dars dars = null;
+            for (AzayeDaneshgah i:AzayeDaneshgah.getAzayeDaneshgahs()){
+                if (i instanceof Daneshjoo && i.getId().equals(idDaneshjoo)){
+                    daneshjoo = (Daneshjoo) i;
+                }
+            }
+            for (Dars i:
+                    Dars.getDoros()) {
+                if (i.getId().equals(idDars)){
+                    dars = i;
+                }
+            }
+            if (!(dars == null) && !(daneshjoo == null)){
+                boolean a = true;
+                for (Map.Entry<Dars,String> j:
+                        daneshjoo.getListNomaratNahayy().entrySet()) {
+                    if (j.getKey() == dars){
+                        daneshjoo.getListNomaratNahayy().replace(dars,nomre);
+                        a = false;
+                    }
+                }
+                if (a){
+                    daneshjoo.getListNomaratNahayy().put(dars,nomre);
+                }
+                return true;
+            }
+        }catch (Exception e){
+            logger.error("error da tabe sabt nomarat Nahayy" + e.getMessage());
+            return false;
+        }
+        return false;
+    }
 
 
 
