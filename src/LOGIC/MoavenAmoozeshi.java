@@ -192,7 +192,7 @@ public class MoavenAmoozeshi extends Ostad{
                     try {
                       nomarat.add(((Daneshjoo) i).getListNomaratMovaghat().get(dars));
                     }catch (Exception e){
-                        continue;
+
                     }
 
                 }
@@ -223,8 +223,37 @@ public class MoavenAmoozeshi extends Ostad{
             passshodeha = String.valueOf(passed);
             failshodeha = String.valueOf(failed);
         }
-        return "MODEL KOL DARS : "+moadelkol1+" TEDAD GHABOOLI HA :"+ passshodeha + "\n TEDAD MARDOODIA : "+ failshodeha+" MOADEL BEDOON DARNAZAR GRFTN MARDOODI : " + modelbeddonfail1;
+        return "MODEL KOL DARS : "+moadelkol1+" TEDAD GHABOOLI HA : "+ passshodeha + "\n TEDAD MARDOODIA : "+ failshodeha+" MOADEL BEDOON DARNAZAR GRFTN MARDOODI : " + modelbeddonfail1;
     }
+    public ArrayList<ArrayList<String>> getVaziatTahsiliList(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        for (AzayeDaneshgah i:
+             AzayeDaneshgah.getAzayeDaneshgahs()) {
+            if (i instanceof Daneshjoo && ((Daneshjoo) i).getDaneshKade().equals(this.daneshKade)){
+                for (Dars j:
+                     Dars.getDoros()) {
+                    arrayLists.add(new ArrayList<>());
+                    for (ArrayList<String> k:
+                         arrayLists) {
+                        if (k.isEmpty()){
+                            k.add(i.getId());
+                            k.add(i.getName());
+                            k.add(j.getId());
+                            k.add(j.getName());
+                            k.add(j.getTedadVahed());
+                            if (!(((Daneshjoo) i).getListNomaratNahayy().get(j) == null) ){
+                                k.add(((Daneshjoo) i).getListNomaratNahayy().get(j));
+                            }else {
+                                k.add("N/R");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return arrayLists;
+    }
+
 
     public ArrayList<Daneshjoo> getDaneshjooDarkhastEnseraf() {
         return daneshjooDarkhastEnseraf;

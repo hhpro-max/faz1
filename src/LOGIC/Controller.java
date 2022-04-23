@@ -634,6 +634,20 @@ public class Controller {
         }
         return a;
     }
+    public ArrayList<ArrayList<String>> getListDorosGerefteshodeDaneshjoo(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo){
+          arrayLists =  ((Daneshjoo) azayeDaneshgah).getListDorosGozarande();
+        }
+        return arrayLists;
+    }
+    public ArrayList<ArrayList<String>> getVaziatTahsilyList(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+            arrayLists = ((MoavenAmoozeshi) azayeDaneshgah).getVaziatTahsiliList();
+        }
+        return arrayLists;
+    }
 
 
 

@@ -14,6 +14,7 @@ public class SafheMoaven extends SafheOstad {
     JMenuItem addOstad;
     JMenuItem checkMinor;
     JMenuItem checkEnserafi;
+    JMenuItem vaziatTahsily;
     JMenuItem checkNomarat;
     SafheDoros safheDoros;
     JButton sabtVavirayesh, deleteDars;
@@ -23,6 +24,7 @@ public class SafheMoaven extends SafheOstad {
     SafheCheckMinor safheCheckMinor;
     SafheCheckEnserafia safheCheckEnserafia;
     SafheNomaratMovaghatMoaven safheNomaratMovaghatMoaven;
+    SafheVaziatTahsiliMoaven safheVaziatTahsiliMoaven;
 
 
     public SafheMoaven() {
@@ -38,12 +40,15 @@ public class SafheMoaven extends SafheOstad {
         checkEnserafi = new JMenuItem("DARKHASTHAYE ENSERAF");
         addOstad = new JMenuItem("Ostad");
         sabtVavirayesh = new JButton("SABT VA VIRAYESH");
+        vaziatTahsily = new JMenuItem("VAZIAT TAHSILI");
         checkNomarat = new JMenuItem("CHECK NOMARAT");
         deleteDars = new JButton("HAZF DARS");
         deleteDars1 = new JTextField();
         jOptionPane = new JOptionPane();
+
         darkhastha.add(checkMinor);
         omoorKarname.add(checkNomarat);
+        omoorKarname.add(vaziatTahsily);
         darkhastha.add(checkEnserafi);
         sabtkarbar.add(addOstad);
         sabtkarbar.add(addDaneshjoo);
@@ -152,6 +157,16 @@ public class SafheMoaven extends SafheOstad {
                 GuiController.getInstance().resetJpanels();
                 safheNomaratMovaghatMoaven = new SafheNomaratMovaghatMoaven();
                 add(safheNomaratMovaghatMoaven,1);
+                repaint();
+                revalidate();
+            }
+        });
+        vaziatTahsily.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheVaziatTahsiliMoaven = new SafheVaziatTahsiliMoaven();
+                add(safheVaziatTahsiliMoaven,1);
                 repaint();
                 revalidate();
             }

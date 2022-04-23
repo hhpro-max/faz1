@@ -30,6 +30,32 @@ public class Daneshjoo extends AzayeDaneshgah{
         this.saatSabtnam=saatSabtnam;
 
     }
+    public ArrayList<ArrayList<String>> getListDorosGozarande(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        for (Dars i:
+             dars) {
+            arrayLists.add(new ArrayList<>());
+            for (ArrayList<String> j:
+                 arrayLists) {
+                if (j.isEmpty()){
+                    j.add(i.getId());
+                    j.add(i.getName());
+                    j.add(i.getTedadVahed());
+                    try {
+                        if (!(listNomaratNahayy.get(i) == null)) {
+                            j.add(listNomaratNahayy.get(i));
+                        }else {
+                            j.add("N/A");
+                        }
+                    }catch (Exception e){
+
+                    }
+
+                }
+            }
+        }
+        return arrayLists;
+    }
 
     public Map<Dars, String> getListNomaratNahayy() {
         return listNomaratNahayy;

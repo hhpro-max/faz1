@@ -34,6 +34,7 @@ public class SafheDaneshjoo extends SafheAsli {
     public JMenuItem darkhastenseraf;
     public JMenuItem darkhastTosiename;
     public JMenuItem nomaratMovaghat;
+    public JMenuItem vaziatTahsily;
 
     public SafheDoros safheDoros;
     public  SafheBarnameHaftegi safheBarnameHaftegi;
@@ -43,6 +44,7 @@ public class SafheDaneshjoo extends SafheAsli {
     public SafheDarkhastMinor safheDarkhastMinor;
     public SafheEnserafAzTahsil safheEnserafAzTahsil;
     public SafheNomaratMovaghatDaneshjoo safheNomaratMovaghatDaneshjoo;
+    public SafheVaziatTahsiliDaneshjoo safheVaziatTahsiliDaneshjoo;
 
     SafheListAsatid safheListAsatid;
 
@@ -95,6 +97,7 @@ public class SafheDaneshjoo extends SafheAsli {
         jMenuBar.setBounds(80,0,720,30);
         omoorSabtnam = new JMenu("OMOOR SABTNAM");
         barnameHaftegi = new JMenuItem("BARNAME HAFTEGI");
+        vaziatTahsily = new JMenuItem("VAZIAT TAHSILI");
         listEmtehnat = new JMenuItem("LIST EMTEHANAT");
         nomaratMovaghat = new JMenuItem("LIST NOMARAT MOVAGHAT");
         darKhastha = new JMenu("DARKHAT HA");
@@ -112,6 +115,7 @@ public class SafheDaneshjoo extends SafheAsli {
         omoorSabtnam.add(listAsatid);
         omoorKarname = new JMenu("OMOOR KARNAME");
         omoorKarname.add(nomaratMovaghat);
+        omoorKarname.add(vaziatTahsily);
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
         profileKarbar = new JMenu("PROFILE");
         safheAsli = new JButton("SAFHE ASLI");
@@ -238,6 +242,16 @@ public class SafheDaneshjoo extends SafheAsli {
                 GuiController.getInstance().resetJpanels();
                 safheNomaratMovaghatDaneshjoo = new SafheNomaratMovaghatDaneshjoo();
                 add(safheNomaratMovaghatDaneshjoo,1);
+                repaint();
+                revalidate();
+            }
+        });
+        vaziatTahsily.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheVaziatTahsiliDaneshjoo = new SafheVaziatTahsiliDaneshjoo();
+                add(safheVaziatTahsiliDaneshjoo,1);
                 repaint();
                 revalidate();
             }
