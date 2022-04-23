@@ -409,6 +409,13 @@ public class Controller {
         }
         return arrayLists;
     }
+    public ArrayList<ArrayList<String>> getListDaneshjooMoaven(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+            arrayLists =  ((MoavenAmoozeshi) azayeDaneshgah).checkDaneshjooha()  ;
+        }
+        return arrayLists;
+    }
     public Dars getDars1(String id){
         Dars dars = null;
         for (Dars i:
@@ -590,6 +597,42 @@ public class Controller {
             return false;
         }
         return false;
+    }
+    public ArrayList<String> getEterazDaneshjoo(){
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (azayeDaneshgah instanceof Ostad && !(azayeDaneshgah instanceof MoavenAmoozeshi)){
+            arrayList = ((Ostad) azayeDaneshgah).getEterazat();
+        }else if (azayeDaneshgah instanceof MoavenAmoozeshi){
+            for (AzayeDaneshgah i:
+                 AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof Ostad && ((Ostad) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())){
+                    for (String j : ((Ostad) i).getEterazat()){
+                        arrayList.add("ETERAZ :" + j);
+                    }
+                }
+                if (i instanceof Daneshjoo && ((Daneshjoo) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())){
+                    for (String k:
+                         ((Daneshjoo) i).getNatijeEteraz()) {
+                        arrayList.add("PASOKH : " + k);
+                    }
+                }
+            }
+        }
+        return arrayList;
+    }
+    public ArrayList<String> getPasokhOstad(){
+        ArrayList<String> arrayList= new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo){
+            arrayList = ((Daneshjoo) azayeDaneshgah).getNatijeEteraz();
+        }
+        return arrayList;
+    }
+    public String getKholaseDars(String id){
+        String a = "KHOLASE MOJOOD NIST";
+        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+          a =  ((MoavenAmoozeshi) azayeDaneshgah).getKholaseDars(id);
+        }
+        return a;
     }
 
 

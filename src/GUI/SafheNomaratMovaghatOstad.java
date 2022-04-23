@@ -26,6 +26,8 @@ public class SafheNomaratMovaghatOstad extends JPanel {
     public ArrayList<ArrayList<String>> data = new ArrayList<>();
     JOptionPane jOptionPane;
     boolean sabtnahayy = false;
+    JTextArea jTextArea1;
+    JScrollPane jScrollPane1;
 
     public SafheNomaratMovaghatOstad(){
         initPanle();
@@ -58,6 +60,13 @@ public class SafheNomaratMovaghatOstad extends JPanel {
         jTable = new JTable(data1,columns);
         jScrollPane = new JScrollPane(jTable);
         jOptionPane = new JOptionPane();
+        jTextArea1 = new JTextArea();
+        ArrayList<String> arrayList = Controller.getInstance().getEterazDaneshjoo();
+        for (String i:
+                arrayList) {
+            jTextArea1.append(i + "\n");
+        }
+        jScrollPane1 = new JScrollPane(jTextArea1);
     }
     public void align1(){
         jLabel.setBounds(10,50,100,30);
@@ -80,6 +89,8 @@ public class SafheNomaratMovaghatOstad extends JPanel {
         this.add(jLabel2);
         jTextField1.setBounds(150,100,100,30);
         this.add(jTextField1);
+        jScrollPane1.setBounds(520,200,260,300);
+        this.add(jScrollPane1);
     }
     public void setActionListener1(){
         jButton.addActionListener(new ActionListener() {

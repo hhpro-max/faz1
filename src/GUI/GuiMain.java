@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class GuiMain {
     public static void main(String[] args) {
         Ostad ostad = new Ostad("000","000","hossein",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA1)),"freakthisLife@gmail.com");
-
+        ostad.setDaneshKade(DaneshKade.OMRAN);
 
         Dars chom1 = new Dars("110","riazi1",null,ostad,DaneshKade.RIAZI,"2",MaghtaDars.KARSHENASI,"20");
 
@@ -37,14 +37,14 @@ public class GuiMain {
         daneshjoo.getDars().add(chom3);
         daneshjoo.getListNomaratMovaghat().put(chom1,"15");
         daneshjoo.getListNomaratMovaghat().put(chom2,"12");
-        daneshjoo.getListNomaratMovaghat().put(chom3,"RIDI");
+        daneshjoo.getListNomaratMovaghat().put(chom3,"9.5");
         RaiisDaneshkade raiisDaneshkade = new RaiisDaneshkade("1","1","raiisjoon",null,"wth@grail.com");
-        moavenAmoozeshi.addDaneshjoo("3","3","nasehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA3)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
-        moavenAmoozeshi.addDaneshjoo("2","2","bisehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA4)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
+        raiisDaneshkade.setDaneshKade(DaneshKade.OMRAN);
         DaneshjooArshad daneshjooArshad = new DaneshjooArshad("4","4","ali arshad",null,"chemidonalvala@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,true,"10:00");
         daneshjooArshad.getDars().add(chom1);
         daneshjooArshad.getDars().add(chom2);
         daneshjooArshad.getDars().add(chom3);
+        daneshjooArshad.setDaneshKade(DaneshKade.OMRAN);
         ostad.getDarsha().add(chom1);
         ostad.getDarsha().add(chom2);
         ostad.getDarsha().add(chom3);
