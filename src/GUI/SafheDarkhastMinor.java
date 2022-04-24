@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class SafheDarkhastMinor extends JPanel {
     JButton jButton;
@@ -41,6 +44,18 @@ public class SafheDarkhastMinor extends JPanel {
         jOptionPane = new JOptionPane();
         jTable = null;
         jScrollPane = null;
+        if (!Controller.getInstance().getMinorData().isEmpty()){
+            data.addAll(Controller.getInstance().getMinorData());
+            String data1[][]= data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+            jTable = new JTable(data1,coloms);
+            jScrollPane = new JScrollPane(jTable);
+            jScrollPane.setBounds(50,200,600,400);
+            jScrollPane.repaint();
+            jScrollPane.revalidate();
+            add(jScrollPane);
+            repaint();
+            revalidate();
+        }
     }
     public void align1(){
         jButton.setBounds(10,50,150,30);
@@ -70,6 +85,10 @@ public class SafheDarkhastMinor extends JPanel {
                                 i.add("MOSHAHEDE NATIJE");
                             }
                         }
+                        Set<ArrayList<String>> set = new HashSet<>(data);
+                        data.clear();
+                        data.addAll(set);
+                        Controller.getInstance().setMinorData(data);
                         String data1[][]= data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
                         jTable = new JTable(data1,coloms);
                         jScrollPane = new JScrollPane(jTable);

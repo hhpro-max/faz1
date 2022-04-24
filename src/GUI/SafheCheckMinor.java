@@ -84,8 +84,12 @@ public class SafheCheckMinor extends JPanel {
                         String data1[][] = data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
                         jTable = new JTable(data1,column);
                         jScrollPane = new JScrollPane(jTable);
-                        jScrollPane.setBounds(10,100,600,600);
+                        jScrollPane.setBounds(10,200,700,500);
                         add(jScrollPane);
+                        jScrollPane.repaint();
+                        jScrollPane.revalidate();
+                        repaint();
+                        revalidate();
                         jOptionPane.showMessageDialog(GuiController.getFrame(),"MOVAFAGIAT AMIZ BOOD");
                     }else {
                         jOptionPane.showMessageDialog(GuiController.getFrame(),"ID MOJOOD NIST");

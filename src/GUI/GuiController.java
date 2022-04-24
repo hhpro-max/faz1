@@ -29,7 +29,7 @@ public class GuiController {
              jPanels) {
             i.setVisible(false);
         }
-        //jPanels.clear();
+        jPanels.clear();
 
     }
 

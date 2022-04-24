@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SafheDarkhastKhabGah extends JPanel {
-
+    boolean check = false;
     JButton jButton;
     JTable jTable;
     JScrollPane jScrollPane;
@@ -32,6 +32,16 @@ public class SafheDarkhastKhabGah extends JPanel {
         jTable=null;
         jScrollPane=null;
         jOptionPane = new JOptionPane();
+        if (Controller.getInstance().getVaziatKhabgah()){
+            jTable = new JTable(data,columns);
+            jScrollPane = new JScrollPane(jTable);
+            jScrollPane.setBounds(50,200,600,100);
+            jScrollPane.repaint();
+            jScrollPane.revalidate();
+            this.add(jScrollPane);
+            repaint();
+            revalidate();
+        }
     }
     public void align1(){
         jButton.setBounds(10,50,200,30);
@@ -41,7 +51,7 @@ public class SafheDarkhastKhabGah extends JPanel {
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean check = Controller.getInstance().checkKhabgah();
+                check = Controller.getInstance().checkKhabgah();
                 if (check){
                     jTable = new JTable(data,columns);
                     jScrollPane = new JScrollPane(jTable);

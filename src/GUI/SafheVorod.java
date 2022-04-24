@@ -54,6 +54,7 @@ public class SafheVorod extends JPanel {
     SafheTaghirPass safheTaghirPass;
 
     MainFrame frame;
+    SafheAsli safheAsli;
 
     public SafheVorod(MainFrame frame) {
         this.frame = frame;
@@ -260,7 +261,7 @@ public class SafheVorod extends JPanel {
                                 Controller.getInstance().setAkharinZamanVorood();
                             }
 
-                            SafheAsli safheAsli = new SafheDaneshjoo();
+                            safheAsli = Controller.getInstance().getPage();
                             frame.add(safheAsli);
                             setVisible(false);
                             logger.info("vorood karbar "+ Controller.getInstance().getName() +"dar zaman"+ showTime.getText() +"movafaghiat amiz bood");

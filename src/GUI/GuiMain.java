@@ -30,7 +30,7 @@ public class GuiMain {
         chom3.setZamanEmtehanPayanterm("1401 10 10");
         Daneshjoo daneshjoo = new Daneshjoo("0","0","sehat",new ImageIcon(ResourceManager.get(ImageResource.CAPCHA2)),"betoche@gmail.com",Vazittahsily.DARHALTAHSIL,ostad,false,"9:00" );
         MoavenAmoozeshi moavenAmoozeshi = new MoavenAmoozeshi("00","00","ali",null,"felanale@rrr.com");
-        daneshjoo.setDaneshKade(DaneshKade.OMRAN);
+        daneshjoo.setDaneshKade(DaneshKade.RIAZI);
         daneshjoo.setMoadel("15.5");
         daneshjoo.setMaghtaDars(MaghtaDars.KARSHENASI);
         ostad.setDarajeOstadi(DarajeOstadi.OSTAD_TAMAM);

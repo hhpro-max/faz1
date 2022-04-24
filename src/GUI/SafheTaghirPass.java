@@ -63,7 +63,7 @@ public class SafheTaghirPass extends JPanel {
         sabt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (newPass.getText().isEmpty()){
+                if (newPass1.getText().isEmpty() || previousPass1.getText().isEmpty()){
                     jOptionPane.showMessageDialog(GuiController.getFrame(),"FIEL PASS JADID EJBARIST");
                     return;
                 }
@@ -71,14 +71,14 @@ public class SafheTaghirPass extends JPanel {
                 String newPass2 = newPass1.getText();
                 boolean a = Controller.getInstance().sabtNewPass(checkPrePass,newPass2);
                 if (a){
-                    jOptionPane.showMessageDialog(GuiController.getFrame(),"BA MOVAFAGHIAT AVAZSHOD");
+
                     Controller.getInstance().setAkharinZamanVorood();
                     Controller.getInstance().setChangedPass(true);
                     GuiController.getInstance().resetJpanels();
                     SafheVorod safheVorod = new SafheVorod(frame);
                     setVisible(false);
                     frame.add(safheVorod);
-
+                    jOptionPane.showMessageDialog(GuiController.getFrame(),"BA MOVAFAGHIAT AVAZSHOD");
                     return;
                 }else {
                     jOptionPane.showMessageDialog(GuiController.getFrame(),"FIEL HARA DOROST MEGHDAR DEHI KONID");

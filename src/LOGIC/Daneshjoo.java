@@ -21,6 +21,8 @@ public class Daneshjoo extends AzayeDaneshgah{
     Map<Dars,String> listNomaratMovaghat = new HashMap<>();
     Map<Dars,String> listNomaratNahayy = new HashMap<>();
     ArrayList<String> natijeEteraz = new ArrayList<>();
+    ArrayList<ArrayList<String>> darkhastMinorData = new ArrayList<>();
+    ArrayList<ArrayList<String>> darkhastEnserafData = new ArrayList<>();
 
 
 
@@ -81,6 +83,22 @@ public class Daneshjoo extends AzayeDaneshgah{
 
     public void setListNomaratNahayy(Map<Dars, String> listNomaratNahayy) {
         this.listNomaratNahayy = listNomaratNahayy;
+    }
+
+    public ArrayList<ArrayList<String>> getDarkhastMinorData() {
+        return darkhastMinorData;
+    }
+
+    public void setDarkhastMinorData(ArrayList<ArrayList<String>> darkhastMinorData) {
+        this.darkhastMinorData = darkhastMinorData;
+    }
+
+    public ArrayList<ArrayList<String>> getDarkhastEnserafData() {
+        return darkhastEnserafData;
+    }
+
+    public void setDarkhastEnserafData(ArrayList<ArrayList<String>> darkhastEnserafData) {
+        this.darkhastEnserafData = darkhastEnserafData;
     }
 
     public ArrayList<String> getNatijeEteraz() {

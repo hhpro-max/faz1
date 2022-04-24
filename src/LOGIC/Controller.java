@@ -1,14 +1,11 @@
 package LOGIC;
 
-import GUI.SendLoginInfo;
+import GUI.*;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Controller {
     static final Logger logger = LogManager.getLogger(Controller.class);
@@ -498,6 +495,9 @@ public class Controller {
                     }
                 }
             }
+            Set<ArrayList<String>> set = new HashSet<>(arrayLists);
+            arrayLists.clear();
+            arrayLists.addAll(set);
             return arrayLists;
         }
         return arrayLists;
@@ -735,16 +735,73 @@ public class Controller {
         return arrayList;
     }
     public boolean sabtNewPass(String prePass,String newPass){
-        for (AzayeDaneshgah i:
+        /*for (AzayeDaneshgah i:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
-            if (i.getPass().equals(prePass)){
+            if (i.getPass().equals(prePass) && !i.getPass().equals(newPass)){
                 i.setPass(newPass);
                 return true;
             }
         }
+        return false;*/
+        if (azayeDaneshgah.getPass().equals(prePass) && !azayeDaneshgah.getPass().equals(newPass)){
+            azayeDaneshgah.setPass(newPass);
+            return true;
+        }
         return false;
     }
+    public SafheAsli getPage(){
+        SafheAsli safheAsli = new SafheAsli();
+        if (azayeDaneshgah instanceof DaneshjooArshad){
+            safheAsli = new SafheDaneshjooArshad();
+        }else if (azayeDaneshgah instanceof DaneshjooDoctor){
+            safheAsli = new SafheDaneshjooDoctora();
+        }else if (azayeDaneshgah instanceof Daneshjoo){
+            safheAsli = new SafheDaneshjoo();
+        }else if (azayeDaneshgah instanceof MoavenAmoozeshi){
+            safheAsli = new SafheMoaven();
+        }else if (azayeDaneshgah instanceof RaiisDaneshkade){
+            safheAsli = new SafheRaiis();
+        }else if (azayeDaneshgah instanceof Ostad){
+            safheAsli = new SafheOstad();
+        }
+        return safheAsli;
+    }
+    public void setMinorData(ArrayList<ArrayList<String>> data){
+        try {
+            if (azayeDaneshgah instanceof Daneshjoo) {
+                ((Daneshjoo) azayeDaneshgah).setDarkhastMinorData(data);
+            }
+        }catch (Exception e){
 
+        }
+    }
+    public ArrayList<ArrayList<String>> getMinorData(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo){
+         arrayLists =   ((Daneshjoo) azayeDaneshgah).getDarkhastMinorData();
+        }
+        return arrayLists;
+    }
+    public void setEnserafData(ArrayList<ArrayList<String>> data){
+        try {
+            if (azayeDaneshgah instanceof Daneshjoo){
+                ((Daneshjoo) azayeDaneshgah).setDarkhastEnserafData(data);
+            }
+        }catch (Exception e){}
+    }
+    public ArrayList<ArrayList<String>> getEnserafData(){
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo){
+            arrayLists = ((Daneshjoo) azayeDaneshgah).getDarkhastEnserafData();
+        }
+        return arrayLists;
+    }
+    public boolean getVaziatKhabgah() {
+        if (azayeDaneshgah instanceof DaneshjooArshad){
+           return ((DaneshjooArshad) azayeDaneshgah).darkhastKhabgah;
+        }
+        return false;
+    }
     public boolean isChangedPass() {
         return changedPass;
     }

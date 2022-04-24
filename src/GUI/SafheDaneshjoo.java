@@ -190,12 +190,10 @@ public class SafheDaneshjoo extends SafheAsli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiController.getInstance().resetJpanels();
-                if (safheDarkhastTosieName == null) {
+
                     safheDarkhastTosieName = new SafheDarkhastTosieName();
-                }
-                else {
-                    safheDarkhastTosieName.setVisible(true);
-                }
+
+
                 add(safheDarkhastTosieName,1);
                 repaint();
                 revalidate();
@@ -215,11 +213,11 @@ public class SafheDaneshjoo extends SafheAsli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiController.getInstance().resetJpanels();
-                if (safheDarkhastMinor == null) {
+
                     safheDarkhastMinor = new SafheDarkhastMinor();
-                }else {
+
                     safheDarkhastMinor.setVisible(true);
-                }
+
                 add(safheDarkhastMinor,1);
                 repaint();
                 revalidate();
@@ -229,11 +227,9 @@ public class SafheDaneshjoo extends SafheAsli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiController.getInstance().resetJpanels();
-                if (safheEnserafAzTahsil == null) {
-                    safheEnserafAzTahsil = new SafheEnserafAzTahsil();
-                }else {
-                    safheEnserafAzTahsil.setVisible(true);
-                }
+
+                safheEnserafAzTahsil = new SafheEnserafAzTahsil();
+
                 add(safheEnserafAzTahsil,1);
                 repaint();
                 revalidate();

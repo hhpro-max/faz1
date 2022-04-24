@@ -33,6 +33,18 @@ public class SafheEnserafAzTahsil extends JPanel {
         jOptionPane = new JOptionPane();
         jTable = null;
         jScrollPane = null;
+        if (!Controller.getInstance().getEnserafData().isEmpty()){
+            data.addAll(Controller.getInstance().getEnserafData());
+            String data1[][]= data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+            jTable = new JTable(data1,coloms);
+            jScrollPane = new JScrollPane(jTable);
+            jScrollPane.setBounds(50,200,600,400);
+            jScrollPane.repaint();
+            jScrollPane.revalidate();
+            add(jScrollPane);
+            repaint();
+            revalidate();
+        }
     }
     public void align1(){
         jButton.setBounds(10,50,250,30);
@@ -54,6 +66,7 @@ public class SafheEnserafAzTahsil extends JPanel {
                                 i.add("MOSHAHEDE NATIJE");
                             }
                         }
+                        Controller.getInstance().setEnserafData(data);
                         String data1[][]= data.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
                         jTable = new JTable(data1,coloms);
                         jScrollPane = new JScrollPane(jTable);

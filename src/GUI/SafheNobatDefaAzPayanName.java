@@ -52,7 +52,7 @@ public class SafheNobatDefaAzPayanName extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (jLabel == null) {
-                    jLabel = new JLabel("TAROKH NOBAT DEFA SHOMA : " + year + " / " + month + " / " + day);
+                    jLabel = new JLabel("TARIKH NOBAT DEFA SHOMA : " + year + " / " + month + " / " + day);
 
                     jLabel.setBounds(30, 100, 400, 30);
                     add(jLabel);

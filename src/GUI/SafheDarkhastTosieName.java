@@ -65,6 +65,17 @@ public class SafheDarkhastTosieName extends JPanel {
         sabtDarkhast = new JButton("SABT DARKHAST");
         jTable = null;
         jScrollPane = null;
+        if (!Controller.getInstance().getDarkhatTosieNameDaneshjoo().isEmpty()){
+            String data1[][] = Controller.getInstance().getDarkhatTosieNameDaneshjoo().stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+            jTable = new JTable(data1,columns);
+            jScrollPane = new JScrollPane(jTable);
+            jScrollPane.setBounds(50,200,600,400);
+            jScrollPane.repaint();
+            jScrollPane.revalidate();
+            add(jScrollPane);
+            repaint();
+            revalidate();
+        }
         jOptionPane = new JOptionPane();
         jButton = new JButton("REFRESH TABLE");
     }
