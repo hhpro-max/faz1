@@ -26,6 +26,7 @@ public class SafheOstad extends SafheAsli{
     public JMenu darkhastha;
     public JMenuItem darkhastHayeTosieName;
     public JMenuItem nomaratMovaghat;
+    public JMenuItem profileKarbar1;
 
     SafheDoros safheDoros;
     SafheListAsatid safheListAsatid;
@@ -33,6 +34,7 @@ public class SafheOstad extends SafheAsli{
     public SafheListEmtehanat safheListEmtehanat;
     public SafheCheckTosieNameOstad safheCheckTosieNameOstad;
     public SafheNomaratMovaghatOstad safheNomaratMovaghatOstad;
+    public SafheProfileOstad safheProfileOstad;
 
     public SafheOstad(){
         super();
@@ -51,6 +53,7 @@ public class SafheOstad extends SafheAsli{
         nomaratMovaghat = new JMenuItem("NOMARAT");
         darkhastHayeTosieName = new JMenuItem("DARKHASTHAYE TOSIENAME");
         khadamatAmoozeshi = new JMenu("KHADAMAT AMOOZESHI");
+        profileKarbar1 = new JMenuItem("PROFILE");
         barnameHaftegi = new JMenuItem("BARNAME HAFTEGI");
         khadamatAmoozeshi.add(barnameHaftegi);
         listEmtehanat = new JMenuItem("EMTEHANAT");
@@ -65,7 +68,7 @@ public class SafheOstad extends SafheAsli{
         omoorSabtnam.add(listDoros);
         omoorSabtnam.add(listAsatid);
         omoorKarname.add(nomaratMovaghat);
-
+        profileKarbar.add(profileKarbar1);
         jMenuBar.add(omoorKarname);
         jMenuBar.add(khadamatAmoozeshi);
         jMenuBar.add(profileKarbar);
@@ -140,6 +143,16 @@ public class SafheOstad extends SafheAsli{
                 GuiController.getInstance().resetJpanels();
                 safheNomaratMovaghatOstad = new SafheNomaratMovaghatOstad();
                 add(safheNomaratMovaghatOstad,1);
+                repaint();
+                revalidate();
+            }
+        });
+        profileKarbar1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheProfileOstad = new SafheProfileOstad();
+                add(safheProfileOstad,1);
                 repaint();
                 revalidate();
             }

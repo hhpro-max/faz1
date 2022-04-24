@@ -33,6 +33,7 @@ public class GuiMain {
         daneshjoo.setDaneshKade(DaneshKade.OMRAN);
         daneshjoo.setMoadel("15.5");
         daneshjoo.setMaghtaDars(MaghtaDars.KARSHENASI);
+        ostad.setDarajeOstadi(DarajeOstadi.OSTAD_TAMAM);
         daneshjoo.getDars().add(chom1);
         daneshjoo.getDars().add(chom2);
         daneshjoo.getDars().add(chom3);

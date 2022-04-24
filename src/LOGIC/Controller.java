@@ -18,43 +18,47 @@ public class Controller {
     String zamanvorood;
     AzayeDaneshgah azayeDaneshgah;
     public static Controller controller;
-    private Controller(){
+
+    private Controller() {
         PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
         azayeDaneshgahs = AzayeDaneshgah.getAzayeDaneshgahs();
     }
-    public static Controller getInstance(){
-        if (controller==null){
+
+    public static Controller getInstance() {
+        if (controller == null) {
             controller = new Controller();
         }
         return controller;
     }
 
 
-
-    public void login(SendLoginInfo sendLoginInfo){
-         this.name = sendLoginInfo.getName();
-         this.pass = sendLoginInfo.getPass();
-         this.zamanvorood = sendLoginInfo.getZamanvorood();
+    public void login(SendLoginInfo sendLoginInfo) {
+        this.name = sendLoginInfo.getName();
+        this.pass = sendLoginInfo.getPass();
+        this.zamanvorood = sendLoginInfo.getZamanvorood();
     }
-    public boolean chekvalidlogin(){
+
+    public boolean chekvalidlogin() {
         LoginCheck loginCheck = new LoginCheck();
         loginCheck.check();
-        logger.info("checked login is :" + String.valueOf(LoginCheck.isvalidLogin) );
-        if (LoginCheck.isvalidLogin){
+        logger.info("checked login is :" + String.valueOf(LoginCheck.isvalidLogin));
+        if (LoginCheck.isvalidLogin) {
             azayeDaneshgah = LoginCheck.azayeDaneshgah;
         }
         return LoginCheck.isvalidLogin;
 
     }
-    public boolean removeOstad(String id){
+
+    public boolean removeOstad(String id) {
         if (azayeDaneshgah instanceof RaiisDaneshkade) {
             RaiisDaneshkade raiisDaneshkade = (RaiisDaneshkade) azayeDaneshgah;
             boolean a = raiisDaneshkade.deleteOstad(id);
             return a;
         }
-       return false;
+        return false;
     }
-    public boolean upGradeOstad(String id){
+
+    public boolean upGradeOstad(String id) {
         if (azayeDaneshgah instanceof RaiisDaneshkade) {
             RaiisDaneshkade raiisDaneshkade = (RaiisDaneshkade) azayeDaneshgah;
             boolean a = raiisDaneshkade.upGradetoMoaven(id);
@@ -62,6 +66,7 @@ public class Controller {
         }
         return false;
     }
+
     public boolean addDars(String id,
                            String name,
                            String pishniaz,
@@ -69,44 +74,48 @@ public class Controller {
                            DaneshKade daneshkade,
                            String tedadVahed,
                            MaghtaDars maghtaDars,
-                           String zarfiat){
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+                           String zarfiat) {
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
             MoavenAmoozeshi moavenAmoozeshi = (MoavenAmoozeshi) azayeDaneshgah;
-            boolean a = moavenAmoozeshi.addDars(id,name,pishniaz,ostad,daneshkade,tedadVahed,maghtaDars,zarfiat);
+            boolean a = moavenAmoozeshi.addDars(id, name, pishniaz, ostad, daneshkade, tedadVahed, maghtaDars, zarfiat);
             return a;
         }
         return false;
     }
-    public boolean hazfDars(String id){
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+
+    public boolean hazfDars(String id) {
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
             MoavenAmoozeshi moavenAmoozeshi = (MoavenAmoozeshi) azayeDaneshgah;
             boolean a = moavenAmoozeshi.hazfDars(id);
             return a;
         }
         return false;
     }
-    public boolean checkOstad(String id){
-        for (AzayeDaneshgah i:
-             azayeDaneshgahs) {
-            if (i.getId().equals(id) && i instanceof Ostad){
+
+    public boolean checkOstad(String id) {
+        for (AzayeDaneshgah i :
+                azayeDaneshgahs) {
+            if (i.getId().equals(id) && i instanceof Ostad) {
 
                 return true;
             }
         }
         return false;
     }
-    public AzayeDaneshgah getOstad(String id){
+
+    public AzayeDaneshgah getOstad(String id) {
         boolean a = checkOstad(id);
-        if (a){
-            for (AzayeDaneshgah i:
+        if (a) {
+            for (AzayeDaneshgah i :
                     azayeDaneshgahs) {
-                if (i.getId().equals(id) && i instanceof Ostad){
+                if (i.getId().equals(id) && i instanceof Ostad) {
                     return i;
                 }
             }
         }
         return null;
     }
+
     public boolean virayeshDars(String id,
                                 String name,
                                 String pishniaz,
@@ -114,60 +123,79 @@ public class Controller {
                                 DaneshKade daneshkade,
                                 String tedadVahed,
                                 MaghtaDars maghtaDars,
-                                String zarfiat){
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
-            MoavenAmoozeshi moavenAmoozeshi =(MoavenAmoozeshi) azayeDaneshgah;
+                                String zarfiat) {
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            MoavenAmoozeshi moavenAmoozeshi = (MoavenAmoozeshi) azayeDaneshgah;
             boolean a = moavenAmoozeshi.virayeshDars(id, name, pishniaz, ostad, daneshkade, tedadVahed, maghtaDars, zarfiat);
             return a;
         }
         return false;
     }
-    public ArrayList<Dars> getDarsDaneshjoo(){
-        if (azayeDaneshgah instanceof Daneshjoo){
+
+    public ArrayList<Dars> getDarsDaneshjoo() {
+        if (azayeDaneshgah instanceof Daneshjoo) {
             Daneshjoo daneshjoo = (Daneshjoo) azayeDaneshgah;
             ArrayList<Dars> dars = new ArrayList<>();
-            for (Dars i:
-                 daneshjoo.getDars()) {
+            for (Dars i :
+                    daneshjoo.getDars()) {
                 dars.add(i);
             }
             return dars;
-        }else if (azayeDaneshgah instanceof Ostad){
-            Ostad ostad =(Ostad) azayeDaneshgah;
+        } else if (azayeDaneshgah instanceof Ostad) {
+            Ostad ostad = (Ostad) azayeDaneshgah;
             ArrayList<Dars> dars = new ArrayList<>();
-            for (Dars i:
-                 ostad.getDarsha()) {
+            for (Dars i :
+                    ostad.getDarsha()) {
                 dars.add(i);
             }
             return dars;
         }
-       return null;
+        return null;
     }
-    public int roozHafte(RoozayeHafte roozayeHafte){
-        switch (roozayeHafte){
-            case SHANBE: return 0;
-            case YEKSHANBE: return 1;
-            case DOSHANBE:return 2;
-            case SESHANBE:return 3;
-            case CHARSHANBE:return 4;
-            case PANJSHANBE:return 5;
-            case JOME:return 6;
+
+    public int roozHafte(RoozayeHafte roozayeHafte) {
+        switch (roozayeHafte) {
+            case SHANBE:
+                return 0;
+            case YEKSHANBE:
+                return 1;
+            case DOSHANBE:
+                return 2;
+            case SESHANBE:
+                return 3;
+            case CHARSHANBE:
+                return 4;
+            case PANJSHANBE:
+                return 5;
+            case JOME:
+                return 6;
         }
         return 0;
     }
-    public int saatClass(String saat){
-        switch (saat){
-            case "9":return 0;
-            case "10.5":return 1;
-            case "12":return 2;
-            case "1.5":return 3;
-            case  "3":return 4;
-            case   "4.5":return 5;
-            case "6":return 6;
-            case "7.5":return 7;
+
+    public int saatClass(String saat) {
+        switch (saat) {
+            case "9":
+                return 0;
+            case "10.5":
+                return 1;
+            case "12":
+                return 2;
+            case "1.5":
+                return 3;
+            case "3":
+                return 4;
+            case "4.5":
+                return 5;
+            case "6":
+                return 6;
+            case "7.5":
+                return 7;
         }
         return 0;
     }
-    public ArrayList<Dars> tartibBnadiTarikhEmt(){
+
+    public ArrayList<Dars> tartibBnadiTarikhEmt() {
         ArrayList<Dars> dars = getDarsDaneshjoo();
         Dars a = null;
         Dars b = null;
@@ -179,9 +207,9 @@ public class Controller {
                         dars) {
                     b = a;
                     a = i;
-                    int indexb = 0 ;
-                    int indexa = 0 ;
-                    if (!(b==null && a==null)){
+                    int indexb = 0;
+                    int indexa = 0;
+                    if (!(b == null && a == null)) {
                         indexb = dars.indexOf(b);
                         indexa = dars.indexOf(a);
                     }
@@ -192,15 +220,13 @@ public class Controller {
                         dars.remove(a);
                         dars.add(indexa, b);
                         break loop;
-                    }
-                    else if (!(b == null) && a.getDateEmtehan().getMonth() > b.getDateEmtehan().getMonth() && dars.indexOf(a) < dars.indexOf(b)) {
+                    } else if (!(b == null) && a.getDateEmtehan().getMonth() > b.getDateEmtehan().getMonth() && dars.indexOf(a) < dars.indexOf(b)) {
                         dars.remove(b);
                         dars.add(indexb, a);
                         dars.remove(a);
                         dars.add(indexa, b);
                         break loop;
-                    }
-                    else if (!(b == null) && a.getDateEmtehan().getDate() > b.getDateEmtehan().getDate() && dars.indexOf(a) < dars.indexOf(b)) {
+                    } else if (!(b == null) && a.getDateEmtehan().getDate() > b.getDateEmtehan().getDate() && dars.indexOf(a) < dars.indexOf(b)) {
                         dars.remove(b);
                         dars.add(indexb, a);
                         dars.remove(a);
@@ -210,12 +236,12 @@ public class Controller {
 
                 }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 logger.error("error is " + e.getMessage());
                 break;
             }
             key--;
-            if (key <= 0){
+            if (key <= 0) {
                 break;
             }
 
@@ -224,15 +250,16 @@ public class Controller {
         return dars;
 
     }
-    public ArrayList<Ostad> getAsatidDaneshjoo(){
-        if (azayeDaneshgah instanceof Daneshjoo){
-            Daneshjoo daneshjoo =(Daneshjoo) azayeDaneshgah;
+
+    public ArrayList<Ostad> getAsatidDaneshjoo() {
+        if (azayeDaneshgah instanceof Daneshjoo) {
+            Daneshjoo daneshjoo = (Daneshjoo) azayeDaneshgah;
             ArrayList<Ostad> asatid = new ArrayList<>();
-            for (Dars i:
-                 daneshjoo.getDars()) {
+            for (Dars i :
+                    daneshjoo.getDars()) {
                 loop:
-                for (Ostad j : asatid){
-                    if (j.getId().equals(i.getOstad().getId())){
+                for (Ostad j : asatid) {
+                    if (j.getId().equals(i.getOstad().getId())) {
                         asatid.remove(j);
                         break loop;
                     }
@@ -244,33 +271,38 @@ public class Controller {
         }
         return null;
     }
-    public Daneshjoo getDaneshjoo(){
-        if (azayeDaneshgah instanceof Daneshjoo){
+
+    public Daneshjoo getDaneshjoo() {
+        if (azayeDaneshgah instanceof Daneshjoo) {
             return (Daneshjoo) azayeDaneshgah;
         }
         return null;
     }
-    public void addDarkhastTosieName(String id){
+
+    public void addDarkhastTosieName(String id) {
         Ostad ostad = (Ostad) getOstad(id);
-        if (azayeDaneshgah instanceof Daneshjoo){
-            ostad.getDarkhastTosieName().put((Daneshjoo) azayeDaneshgah,Vaziat.SABTSHODE);
+        if (azayeDaneshgah instanceof Daneshjoo) {
+            ostad.getDarkhastTosieName().put((Daneshjoo) azayeDaneshgah, Vaziat.SABTSHODE);
         }
     }
-    public void addDarkhastToseiNameDaneshjoo(ArrayList<String> i){
-        if (azayeDaneshgah instanceof Daneshjoo){
+
+    public void addDarkhastToseiNameDaneshjoo(ArrayList<String> i) {
+        if (azayeDaneshgah instanceof Daneshjoo) {
             ((Daneshjoo) azayeDaneshgah).getDarkhastTosieName().add(i);
         }
     }
-    public ArrayList<ArrayList<String>> getDarkhatTosieNameDaneshjoo(){
+
+    public ArrayList<ArrayList<String>> getDarkhatTosieNameDaneshjoo() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof Daneshjoo){
-            if(!((Daneshjoo) azayeDaneshgah).getDarkhastTosieName().isEmpty()){
+        if (azayeDaneshgah instanceof Daneshjoo) {
+            if (!((Daneshjoo) azayeDaneshgah).getDarkhastTosieName().isEmpty()) {
                 return ((Daneshjoo) azayeDaneshgah).getDarkhastTosieName();
             }
         }
         return arrayLists;
     }
-    public ArrayList<ArrayList<String>> getOstadTosieNameList(){
+
+    public ArrayList<ArrayList<String>> getOstadTosieNameList() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
         if (azayeDaneshgah instanceof Ostad) {
             for (Map.Entry<Daneshjoo, Vaziat> i :
@@ -291,16 +323,17 @@ public class Controller {
 
         return arrayLists;
     }
-    public boolean setVaziatDarkhastDaneshjoo(String id,Vaziat vaziat){
-        for (AzayeDaneshgah i:
-             azayeDaneshgahs) {
-            if (i instanceof Daneshjoo && i.getId().equals(id)){
-                for (ArrayList<String> j:
-                     ((Daneshjoo) i).getDarkhastTosieName()) {
-                    if (j.get(0).equals(azayeDaneshgah.getId())){
-                        j.set(2,vaziat.toString());
-                        if (azayeDaneshgah instanceof Ostad){
-                            ((Ostad) azayeDaneshgah).getDarkhastTosieName().replace((Daneshjoo) i,vaziat);
+
+    public boolean setVaziatDarkhastDaneshjoo(String id, Vaziat vaziat) {
+        for (AzayeDaneshgah i :
+                azayeDaneshgahs) {
+            if (i instanceof Daneshjoo && i.getId().equals(id)) {
+                for (ArrayList<String> j :
+                        ((Daneshjoo) i).getDarkhastTosieName()) {
+                    if (j.get(0).equals(azayeDaneshgah.getId())) {
+                        j.set(2, vaziat.toString());
+                        if (azayeDaneshgah instanceof Ostad) {
+                            ((Ostad) azayeDaneshgah).getDarkhastTosieName().replace((Daneshjoo) i, vaziat);
                         }
                         return true;
                     }
@@ -309,34 +342,36 @@ public class Controller {
         }
         return false;
     }
-    public boolean setVaziatDarkhastMinorDaneshjoo(String id,DaneshKade daneshKade,Vaziat vaziat){
-        for (AzayeDaneshgah i:
+
+    public boolean setVaziatDarkhastMinorDaneshjoo(String id, DaneshKade daneshKade, Vaziat vaziat) {
+        for (AzayeDaneshgah i :
                 azayeDaneshgahs) {
-            if (i instanceof Daneshjoo && i.getId().equals(id) && azayeDaneshgah instanceof MoavenAmoozeshi){
-                if (((Daneshjoo) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())){
-                    ArrayList<Vaziat> vaziats=new ArrayList<>();
+            if (i instanceof Daneshjoo && i.getId().equals(id) && azayeDaneshgah instanceof MoavenAmoozeshi) {
+                if (((Daneshjoo) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())) {
+                    ArrayList<Vaziat> vaziats = new ArrayList<>();
                     vaziats.addAll(((Daneshjoo) i).getDarkhastMinor().get(daneshKade));
-                    vaziats.set(0,vaziat);
-                    ((Daneshjoo) i).getDarkhastMinor().replace(daneshKade,vaziats);
+                    vaziats.set(0, vaziat);
+                    ((Daneshjoo) i).getDarkhastMinor().replace(daneshKade, vaziats);
                     return true;
-                }else {
-                    ArrayList<Vaziat> vaziats=new ArrayList<>();
+                } else {
+                    ArrayList<Vaziat> vaziats = new ArrayList<>();
                     vaziats.addAll(((Daneshjoo) i).getDarkhastMinor().get(daneshKade));
-                    vaziats.set(1,vaziat);
-                    ((Daneshjoo) i).getDarkhastMinor().replace(daneshKade,vaziats);
+                    vaziats.set(1, vaziat);
+                    ((Daneshjoo) i).getDarkhastMinor().replace(daneshKade, vaziats);
                     return true;
                 }
             }
         }
         return false;
     }
-    public ArrayList<ArrayList<String>> getListEnserafia(){
+
+    public ArrayList<ArrayList<String>> getListEnserafia() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
-            for (Daneshjoo i : ((MoavenAmoozeshi) azayeDaneshgah).getDaneshjooDarkhastEnseraf()){
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            for (Daneshjoo i : ((MoavenAmoozeshi) azayeDaneshgah).getDaneshjooDarkhastEnseraf()) {
                 arrayLists.add(new ArrayList<>());
-                for (ArrayList<String> j: arrayLists){
-                    if (j.isEmpty()){
+                for (ArrayList<String> j : arrayLists) {
+                    if (j.isEmpty()) {
                         j.add(i.getId());
                         j.add(i.getName());
                     }
@@ -347,21 +382,22 @@ public class Controller {
         return arrayLists;
     }
 
-    public boolean removeDaneshjoo(String id){
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
-          return   ((MoavenAmoozeshi) azayeDaneshgah).hazfDaneshjooEnserafi(id);
+    public boolean removeDaneshjoo(String id) {
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            return ((MoavenAmoozeshi) azayeDaneshgah).hazfDaneshjooEnserafi(id);
         }
         return false;
     }
-    public ArrayList<ArrayList<String>> getListNomaratMovaghatDaneshjoo(){
+
+    public ArrayList<ArrayList<String>> getListNomaratMovaghatDaneshjoo() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof Daneshjoo){
-            for (Map.Entry<Dars,String> i:
-                 ((Daneshjoo) azayeDaneshgah).getListNomaratMovaghat().entrySet()) {
+        if (azayeDaneshgah instanceof Daneshjoo) {
+            for (Map.Entry<Dars, String> i :
+                    ((Daneshjoo) azayeDaneshgah).getListNomaratMovaghat().entrySet()) {
                 arrayLists.add(new ArrayList<>());
-                for (ArrayList<String> j:
-                     arrayLists) {
-                    if (j.isEmpty()){
+                for (ArrayList<String> j :
+                        arrayLists) {
+                    if (j.isEmpty()) {
                         j.add(i.getKey().getId());
                         j.add(i.getKey().getName());
                         j.add(i.getValue());
@@ -371,7 +407,8 @@ public class Controller {
         }
         return arrayLists;
     }
-    public boolean sabtEteraz(String id,String matn){
+
+    public boolean sabtEteraz(String id, String matn) {
         Ostad ostad = null;
         if (azayeDaneshgah instanceof Daneshjoo) {
             for (Dars i :
@@ -387,49 +424,54 @@ public class Controller {
         }
         return false;
     }
-    public boolean sabtNatijeEteraz(String id,String matn){
+
+    public boolean sabtNatijeEteraz(String id, String matn) {
         Daneshjoo daneshjoo = null;
-        if (azayeDaneshgah instanceof Ostad){
-            for (AzayeDaneshgah i:azayeDaneshgahs){
-                if (i.getId().equals(id)){
-                    daneshjoo =(Daneshjoo) i;
+        if (azayeDaneshgah instanceof Ostad) {
+            for (AzayeDaneshgah i : azayeDaneshgahs) {
+                if (i.getId().equals(id)) {
+                    daneshjoo = (Daneshjoo) i;
                 }
             }
         }
-        if (!(daneshjoo == null)){
+        if (!(daneshjoo == null)) {
             daneshjoo.getNatijeEteraz().add(matn);
             return true;
         }
         return false;
     }
-    public ArrayList<ArrayList<String>> getListDaneshjooOstad(){
+
+    public ArrayList<ArrayList<String>> getListDaneshjooOstad() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof Ostad){
-            arrayLists =  ((Ostad) azayeDaneshgah).getListDaneshjoo()  ;
+        if (azayeDaneshgah instanceof Ostad) {
+            arrayLists = ((Ostad) azayeDaneshgah).getListDaneshjoo();
         }
         return arrayLists;
     }
-    public ArrayList<ArrayList<String>> getListDaneshjooMoaven(){
+
+    public ArrayList<ArrayList<String>> getListDaneshjooMoaven() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
-            arrayLists =  ((MoavenAmoozeshi) azayeDaneshgah).checkDaneshjooha()  ;
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            arrayLists = ((MoavenAmoozeshi) azayeDaneshgah).checkDaneshjooha();
         }
         return arrayLists;
     }
-    public Dars getDars1(String id){
+
+    public Dars getDars1(String id) {
         Dars dars = null;
-        for (Dars i:
+        for (Dars i :
                 Dars.getDoros()) {
-            if (i.getId().equals(id)){
+            if (i.getId().equals(id)) {
                 dars = i;
             }
         }
         return dars;
     }
-    public ArrayList<ArrayList<String>> getMinorListMoaven(){
+
+    public ArrayList<ArrayList<String>> getMinorListMoaven() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
-            for (Daneshjoo i : ((MoavenAmoozeshi) azayeDaneshgah).getDaneshjooDarkhastMinor()){
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            for (Daneshjoo i : ((MoavenAmoozeshi) azayeDaneshgah).getDaneshjooDarkhastMinor()) {
                 for (Map.Entry<DaneshKade, ArrayList<Vaziat>> j :
                         i.getDarkhastMinor().entrySet()) {
                     arrayLists.add(new ArrayList<>());
@@ -452,48 +494,50 @@ public class Controller {
         return arrayLists;
     }
 
-    public boolean checkShartMinor(){
-        if (azayeDaneshgah instanceof Daneshjoo){
+    public boolean checkShartMinor() {
+        if (azayeDaneshgah instanceof Daneshjoo) {
             try {
                 Daneshjoo daneshjoo = (Daneshjoo) azayeDaneshgah;
                 double moadel = Double.parseDouble(daneshjoo.getMoadel());
-                if (moadel >= 15.0){
+                if (moadel >= 15.0) {
                     return true;
                 }
-            }catch (Exception e4){
+            } catch (Exception e4) {
                 logger.warn("error is : " + e4.getMessage());
             }
 
         }
         return false;
     }
-    public boolean sendDarkhastMinor(DaneshKade daneshKade){
-        if (azayeDaneshgah instanceof Daneshjoo){
+
+    public boolean sendDarkhastMinor(DaneshKade daneshKade) {
+        if (azayeDaneshgah instanceof Daneshjoo) {
             DaneshKade daneshKadeMabda = ((Daneshjoo) azayeDaneshgah).getDaneshKade();
             DaneshKade daneshKadeMaghsad = daneshKade;
             ArrayList<Vaziat> vaziats = new ArrayList<>();
             vaziats.add(Vaziat.SABTSHODE);
             vaziats.add(Vaziat.SABTSHODE);
 
-            for (AzayeDaneshgah i:
+            for (AzayeDaneshgah i :
                     AzayeDaneshgah.getAzayeDaneshgahs()) {
-                if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))){
+                if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))) {
                     ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
                     break;
                 }
             }
-            for (AzayeDaneshgah i:
-                 AzayeDaneshgah.getAzayeDaneshgahs()) {
-                if (i instanceof MoavenAmoozeshi && daneshKadeMaghsad.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))){
+            for (AzayeDaneshgah i :
+                    AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof MoavenAmoozeshi && daneshKadeMaghsad.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))) {
                     ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
-                    ((Daneshjoo) azayeDaneshgah).getDarkhastMinor().put(daneshKadeMaghsad,vaziats);
+                    ((Daneshjoo) azayeDaneshgah).getDarkhastMinor().put(daneshKadeMaghsad, vaziats);
                     return true;
                 }
             }
         }
         return false;
     }
-    public boolean sendDarkhastEnseraf(){
+
+    public boolean sendDarkhastEnseraf() {
         if (azayeDaneshgah instanceof Daneshjoo) {
             DaneshKade daneshKadeMabda = ((Daneshjoo) azayeDaneshgah).getDaneshKade();
             for (AzayeDaneshgah i :
@@ -506,13 +550,14 @@ public class Controller {
         }
         return false;
     }
-    public boolean checkKhabgah(){
+
+    public boolean checkKhabgah() {
         Double a = Math.random() * 20;
         Double b = Math.random() * 20;
 
-        if (azayeDaneshgah instanceof DaneshjooArshad){
-            DaneshjooArshad daneshjooArshad =(DaneshjooArshad) azayeDaneshgah;
-            if (daneshjooArshad.isDarkhastKhabgah()){
+        if (azayeDaneshgah instanceof DaneshjooArshad) {
+            DaneshjooArshad daneshjooArshad = (DaneshjooArshad) azayeDaneshgah;
+            if (daneshjooArshad.isDarkhastKhabgah()) {
                 return daneshjooArshad.isDarkhastKhabgah();
             }
             daneshjooArshad.setDarkhastKhabgah(a > b);
@@ -521,98 +566,99 @@ public class Controller {
     }
 
 
-    public boolean sabtNomaratMovaghat(ArrayList<String> arrayList){
+    public boolean sabtNomaratMovaghat(ArrayList<String> arrayList) {
         try {
             String idDaneshjoo = arrayList.get(0);
             String idDars = arrayList.get(2);
             String nomre = arrayList.get(4);
             Daneshjoo daneshjoo = null;
             Dars dars = null;
-            for (AzayeDaneshgah i:AzayeDaneshgah.getAzayeDaneshgahs()){
-                if (i instanceof Daneshjoo && i.getId().equals(idDaneshjoo)){
+            for (AzayeDaneshgah i : AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof Daneshjoo && i.getId().equals(idDaneshjoo)) {
                     daneshjoo = (Daneshjoo) i;
                 }
             }
-            for (Dars i:
-                 Dars.getDoros()) {
-                if (i.getId().equals(idDars)){
+            for (Dars i :
+                    Dars.getDoros()) {
+                if (i.getId().equals(idDars)) {
                     dars = i;
                 }
             }
-            if (!(dars == null) && !(daneshjoo == null)){
+            if (!(dars == null) && !(daneshjoo == null)) {
                 boolean a = true;
-                for (Map.Entry<Dars,String> j:
-                     daneshjoo.getListNomaratMovaghat().entrySet()) {
-                    if (j.getKey() == dars){
-                        daneshjoo.getListNomaratMovaghat().replace(dars,nomre);
+                for (Map.Entry<Dars, String> j :
+                        daneshjoo.getListNomaratMovaghat().entrySet()) {
+                    if (j.getKey() == dars) {
+                        daneshjoo.getListNomaratMovaghat().replace(dars, nomre);
                         a = false;
                     }
                 }
-                if (a){
-                    daneshjoo.getListNomaratMovaghat().put(dars,nomre);
+                if (a) {
+                    daneshjoo.getListNomaratMovaghat().put(dars, nomre);
                 }
                 return true;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("error da tabe sabt nomarat movaghat" + e.getMessage());
             return false;
         }
         return false;
     }
 
-    public boolean sabtNomaratNahayy(ArrayList<String> arrayList){
+    public boolean sabtNomaratNahayy(ArrayList<String> arrayList) {
         try {
             String idDaneshjoo = arrayList.get(0);
             String idDars = arrayList.get(2);
             String nomre = arrayList.get(4);
             Daneshjoo daneshjoo = null;
             Dars dars = null;
-            for (AzayeDaneshgah i:AzayeDaneshgah.getAzayeDaneshgahs()){
-                if (i instanceof Daneshjoo && i.getId().equals(idDaneshjoo)){
+            for (AzayeDaneshgah i : AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof Daneshjoo && i.getId().equals(idDaneshjoo)) {
                     daneshjoo = (Daneshjoo) i;
                 }
             }
-            for (Dars i:
+            for (Dars i :
                     Dars.getDoros()) {
-                if (i.getId().equals(idDars)){
+                if (i.getId().equals(idDars)) {
                     dars = i;
                 }
             }
-            if (!(dars == null) && !(daneshjoo == null)){
+            if (!(dars == null) && !(daneshjoo == null)) {
                 boolean a = true;
-                for (Map.Entry<Dars,String> j:
+                for (Map.Entry<Dars, String> j :
                         daneshjoo.getListNomaratNahayy().entrySet()) {
-                    if (j.getKey() == dars){
-                        daneshjoo.getListNomaratNahayy().replace(dars,nomre);
+                    if (j.getKey() == dars) {
+                        daneshjoo.getListNomaratNahayy().replace(dars, nomre);
                         a = false;
                     }
                 }
-                if (a){
-                    daneshjoo.getListNomaratNahayy().put(dars,nomre);
+                if (a) {
+                    daneshjoo.getListNomaratNahayy().put(dars, nomre);
                 }
                 return true;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("error da tabe sabt nomarat Nahayy" + e.getMessage());
             return false;
         }
         return false;
     }
-    public ArrayList<String> getEterazDaneshjoo(){
+
+    public ArrayList<String> getEterazDaneshjoo() {
         ArrayList<String> arrayList = new ArrayList<>();
-        if (azayeDaneshgah instanceof Ostad && !(azayeDaneshgah instanceof MoavenAmoozeshi)){
+        if (azayeDaneshgah instanceof Ostad && !(azayeDaneshgah instanceof MoavenAmoozeshi)) {
             arrayList = ((Ostad) azayeDaneshgah).getEterazat();
-        }else if (azayeDaneshgah instanceof MoavenAmoozeshi){
-            for (AzayeDaneshgah i:
-                 AzayeDaneshgah.getAzayeDaneshgahs()) {
-                if (i instanceof Ostad && ((Ostad) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())){
-                    for (String j : ((Ostad) i).getEterazat()){
+        } else if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            for (AzayeDaneshgah i :
+                    AzayeDaneshgah.getAzayeDaneshgahs()) {
+                if (i instanceof Ostad && ((Ostad) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())) {
+                    for (String j : ((Ostad) i).getEterazat()) {
                         arrayList.add("ETERAZ :" + j);
                     }
                 }
-                if (i instanceof Daneshjoo && ((Daneshjoo) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())){
-                    for (String k:
-                         ((Daneshjoo) i).getNatijeEteraz()) {
+                if (i instanceof Daneshjoo && ((Daneshjoo) i).getDaneshKade().equals(((MoavenAmoozeshi) azayeDaneshgah).getDaneshKade())) {
+                    for (String k :
+                            ((Daneshjoo) i).getNatijeEteraz()) {
                         arrayList.add("PASOKH : " + k);
                     }
                 }
@@ -620,42 +666,48 @@ public class Controller {
         }
         return arrayList;
     }
-    public ArrayList<String> getPasokhOstad(){
-        ArrayList<String> arrayList= new ArrayList<>();
-        if (azayeDaneshgah instanceof Daneshjoo){
+
+    public ArrayList<String> getPasokhOstad() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo) {
             arrayList = ((Daneshjoo) azayeDaneshgah).getNatijeEteraz();
         }
         return arrayList;
     }
-    public String getKholaseDars(String id){
+
+    public String getKholaseDars(String id) {
         String a = "KHOLASE MOJOOD NIST";
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
-          a =  ((MoavenAmoozeshi) azayeDaneshgah).getKholaseDars(id);
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
+            a = ((MoavenAmoozeshi) azayeDaneshgah).getKholaseDars(id);
         }
         return a;
     }
-    public ArrayList<ArrayList<String>> getListDorosGerefteshodeDaneshjoo(){
+
+    public ArrayList<ArrayList<String>> getListDorosGerefteshodeDaneshjoo() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof Daneshjoo){
-          arrayLists =  ((Daneshjoo) azayeDaneshgah).getListDorosGozarande();
+        if (azayeDaneshgah instanceof Daneshjoo) {
+            arrayLists = ((Daneshjoo) azayeDaneshgah).getListDorosGozarande();
         }
         return arrayLists;
     }
-    public ArrayList<ArrayList<String>> getVaziatTahsilyList(){
+
+    public ArrayList<ArrayList<String>> getVaziatTahsilyList() {
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-        if (azayeDaneshgah instanceof MoavenAmoozeshi){
+        if (azayeDaneshgah instanceof MoavenAmoozeshi) {
             arrayLists = ((MoavenAmoozeshi) azayeDaneshgah).getVaziatTahsiliList();
         }
         return arrayLists;
     }
-    public void setModelDaneshjoo(String moadel){
-        if (azayeDaneshgah instanceof Daneshjoo){
+
+    public void setModelDaneshjoo(String moadel) {
+        if (azayeDaneshgah instanceof Daneshjoo) {
             ((Daneshjoo) azayeDaneshgah).setMoadel(moadel);
         }
     }
-public ArrayList<String> getEtelatProfileDaneshjoo(){
+
+    public ArrayList<String> getEtelatProfileDaneshjoo() {
         ArrayList<String> arrayList = new ArrayList<>();
-        if (azayeDaneshgah instanceof Daneshjoo){
+        if (azayeDaneshgah instanceof Daneshjoo) {
             arrayList.add(((Daneshjoo) azayeDaneshgah).getMoadel());
             arrayList.add(((Daneshjoo) azayeDaneshgah).getOstadRahnama().getName());
             arrayList.add(((Daneshjoo) azayeDaneshgah).getSaalVorod());
@@ -663,10 +715,16 @@ public ArrayList<String> getEtelatProfileDaneshjoo(){
             arrayList.add(((Daneshjoo) azayeDaneshgah).getVazittahsily().toString());
         }
         return arrayList;
-}
+    }
 
-
-
+    public ArrayList<String> getEtelatProlfileOstad() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (azayeDaneshgah instanceof Ostad) {
+            arrayList.add(((Ostad) azayeDaneshgah).getShomareOtagh());
+            arrayList.add(((Ostad) azayeDaneshgah).getDarajeOstadi().toString());
+        }
+        return arrayList;
+    }
 
 
     public AzayeDaneshgah getAzayeDaneshgah() {
