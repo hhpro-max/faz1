@@ -25,9 +25,7 @@ public class Main {
         System.out.println(emtehan1.name);
 
          */
-        String string = "nasjnj & anajksnk %";
-        String ali = string.replace("&","ali");
-        System.out.println(ali);
+
 
     }
 }

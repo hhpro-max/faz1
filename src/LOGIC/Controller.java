@@ -18,6 +18,7 @@ public class Controller {
     String zamanvorood;
     AzayeDaneshgah azayeDaneshgah;
     public static Controller controller;
+    boolean changedPass = false;
 
     private Controller() {
         PropertyConfigurator.configure("src/EDUFILES/log4j.properties");
@@ -30,12 +31,20 @@ public class Controller {
         }
         return controller;
     }
+    public void initZamanVorood(){
+        zamanvorood = azayeDaneshgah.getAkharinzamanvorood();
+    }
+    public void setAkharinZamanVorood(){
+        Date date = new Date();
+        int hour = date.getHours();
+        azayeDaneshgah.setAkharinzamanvorood(String.valueOf(hour));
+    }
 
 
     public void login(SendLoginInfo sendLoginInfo) {
         this.name = sendLoginInfo.getName();
         this.pass = sendLoginInfo.getPass();
-        this.zamanvorood = sendLoginInfo.getZamanvorood();
+
     }
 
     public boolean chekvalidlogin() {
@@ -725,7 +734,24 @@ public class Controller {
         }
         return arrayList;
     }
+    public boolean sabtNewPass(String prePass,String newPass){
+        for (AzayeDaneshgah i:
+             AzayeDaneshgah.getAzayeDaneshgahs()) {
+            if (i.getPass().equals(prePass)){
+                i.setPass(newPass);
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public boolean isChangedPass() {
+        return changedPass;
+    }
+
+    public void setChangedPass(boolean changedPass) {
+        this.changedPass = changedPass;
+    }
 
     public AzayeDaneshgah getAzayeDaneshgah() {
         return azayeDaneshgah;

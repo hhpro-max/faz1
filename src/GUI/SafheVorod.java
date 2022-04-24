@@ -51,6 +51,8 @@ public class SafheVorod extends JPanel {
 
     public JCheckBox checkpassBox;
 
+    SafheTaghirPass safheTaghirPass;
+
     MainFrame frame;
 
     public SafheVorod(MainFrame frame) {
@@ -234,12 +236,31 @@ public class SafheVorod extends JPanel {
                 String pass = passwordField.getText();
                 if (capcha.equals(thiscapcha.getName())){
                     if (!name.isEmpty() && !pass.isEmpty()){
-                        String zamanvorood = showTime.getText();
+                        Date date = new Date();
+                        int hour = date.getHours();
+
+
+
+                        String zamanvorood = String.valueOf(hour);
                         sendLoginInfo = new SendLoginInfo(name,pass,zamanvorood);
                         Controller.getInstance().login(sendLoginInfo);
                         if (Controller.getInstance().chekvalidlogin()){
+                            Controller.getInstance().initZamanVorood();
+                            System.out.println(Controller.getInstance().getZamanvorood());
+                            int lasHour = Integer.parseInt(Controller.getInstance().getZamanvorood());
+                            if (hour - lasHour >= 3){
+                                Controller.getInstance().setChangedPass(false);
+                                safheTaghirPass = new SafheTaghirPass();
+                                frame.add(safheTaghirPass,1);
+                                repaint();
+                                revalidate();
+                                setVisible(false);
+                                return;
+                            }else {
+                                Controller.getInstance().setAkharinZamanVorood();
+                            }
 
-                            SafheAsli safheAsli = new SafheOstad();
+                            SafheAsli safheAsli = new SafheDaneshjoo();
                             frame.add(safheAsli);
                             setVisible(false);
                             logger.info("vorood karbar "+ Controller.getInstance().getName() +"dar zaman"+ showTime.getText() +"movafaghiat amiz bood");

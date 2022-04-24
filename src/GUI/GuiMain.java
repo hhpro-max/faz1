@@ -37,6 +37,7 @@ public class GuiMain {
         daneshjoo.getDars().add(chom1);
         daneshjoo.getDars().add(chom2);
         daneshjoo.getDars().add(chom3);
+        daneshjoo.setAkharinzamanvorood("5");
         daneshjoo.getListNomaratMovaghat().put(chom1,"15");
         daneshjoo.getListNomaratMovaghat().put(chom2,"12");
         daneshjoo.getListNomaratMovaghat().put(chom3,"9.5");

@@ -12,7 +12,7 @@ public class AzayeDaneshgah {
     public String id;
     public String pass;
     public String name;
-    public String akharinzamanvorood;
+    public String akharinzamanvorood = "0";
     public ImageIcon akskarbar = null;
     public String email;
     public String kodMeli;
