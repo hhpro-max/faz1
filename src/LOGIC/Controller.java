@@ -648,6 +648,22 @@ public class Controller {
         }
         return arrayLists;
     }
+    public void setModelDaneshjoo(String moadel){
+        if (azayeDaneshgah instanceof Daneshjoo){
+            ((Daneshjoo) azayeDaneshgah).setMoadel(moadel);
+        }
+    }
+public ArrayList<String> getEtelatProfileDaneshjoo(){
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (azayeDaneshgah instanceof Daneshjoo){
+            arrayList.add(((Daneshjoo) azayeDaneshgah).getMoadel());
+            arrayList.add(((Daneshjoo) azayeDaneshgah).getOstadRahnama().getName());
+            arrayList.add(((Daneshjoo) azayeDaneshgah).getSaalVorod());
+            arrayList.add(((Daneshjoo) azayeDaneshgah).getMaghtaDars().toString());
+            arrayList.add(((Daneshjoo) azayeDaneshgah).getVazittahsily().toString());
+        }
+        return arrayList;
+}
 
 
 

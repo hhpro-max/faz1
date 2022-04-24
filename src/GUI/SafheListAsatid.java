@@ -65,7 +65,7 @@ public class SafheListAsatid extends JPanel {
                         etelat.get(j).add(i.getName());
                         etelat.get(j).add(i.getEmail());
                         etelat.get(j).add(String.valueOf(((Ostad) i).getDaneshKade()));
-                        etelat.get(j).add(((Ostad) i).getShomareTamas());
+                        etelat.get(j).add(((Ostad) i).getPhoneNumber());
                         etelat.get(j).add(String.valueOf(((Ostad) i).getDarajeOstadi()));
                         j++;
                     }

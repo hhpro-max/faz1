@@ -15,6 +15,8 @@ public class ResourcePathFinder {
                 return "capcha5.png";
             case CAPCHA6:
                 return "capcha6.png";
+            case NULL_PROFILE:
+                return "nullProfile.jpg";
             default:
                 return type.toString();
         }

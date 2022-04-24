@@ -1,5 +1,8 @@
 package LOGIC;
 
+import RESOURCES.ImageResource;
+import RESOURCES.ResourceManager;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -10,8 +13,11 @@ public class AzayeDaneshgah {
     public String pass;
     public String name;
     public String akharinzamanvorood;
-    public ImageIcon akskarbar;
+    public ImageIcon akskarbar = null;
     public String email;
+    public String kodMeli;
+    public String phoneNumber;
+    DaneshKade daneshKade;
 
     public AzayeDaneshgah(String id,String pass,String name,ImageIcon akskarbar,String email){
         this.id=id;
@@ -23,10 +29,29 @@ public class AzayeDaneshgah {
     }
 
 
+    public DaneshKade getDaneshKade() {
+        return daneshKade;
+    }
 
+    public void setDaneshKade(DaneshKade daneshKade) {
+        this.daneshKade = daneshKade;
+    }
 
+    public String getKodMeli() {
+        return kodMeli;
+    }
 
+    public void setKodMeli(String kodMeli) {
+        this.kodMeli = kodMeli;
+    }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getEmail() {
         return email;
@@ -46,6 +71,11 @@ public class AzayeDaneshgah {
 
 
     public ImageIcon getAkskarbar() {
+
+        if (akskarbar == null){
+            ImageIcon imageIcon = new ImageIcon(ResourceManager.get(ImageResource.NULL_PROFILE));
+            return imageIcon ;
+        }
         return akskarbar;
     }
 

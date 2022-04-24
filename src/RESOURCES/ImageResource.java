@@ -7,5 +7,6 @@ public enum ImageResource {
     CAPCHA4,
     CAPCHA5,
     CAPCHA6,
+    NULL_PROFILE,
 
 }

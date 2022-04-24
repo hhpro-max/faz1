@@ -35,6 +35,7 @@ public class SafheDaneshjoo extends SafheAsli {
     public JMenuItem darkhastTosiename;
     public JMenuItem nomaratMovaghat;
     public JMenuItem vaziatTahsily;
+    public JMenuItem profileKarbar1;
 
     public SafheDoros safheDoros;
     public  SafheBarnameHaftegi safheBarnameHaftegi;
@@ -45,6 +46,7 @@ public class SafheDaneshjoo extends SafheAsli {
     public SafheEnserafAzTahsil safheEnserafAzTahsil;
     public SafheNomaratMovaghatDaneshjoo safheNomaratMovaghatDaneshjoo;
     public SafheVaziatTahsiliDaneshjoo safheVaziatTahsiliDaneshjoo;
+    public SafheProfileDaneshjoo safheProfileDaneshjoo;
 
     SafheListAsatid safheListAsatid;
 
@@ -101,6 +103,7 @@ public class SafheDaneshjoo extends SafheAsli {
         listEmtehnat = new JMenuItem("LIST EMTEHANAT");
         nomaratMovaghat = new JMenuItem("LIST NOMARAT MOVAGHAT");
         darKhastha = new JMenu("DARKHAT HA");
+        profileKarbar1 = new JMenuItem("PROFILE");
         darkhastenseraf = new JMenuItem("ENSERAF");
         darkhastMinor = new JMenuItem("MINOR");
         darkhastGobahiEshteghal = new JMenuItem("GOVAHI ESHTEGHAL");
@@ -121,6 +124,7 @@ public class SafheDaneshjoo extends SafheAsli {
         safheAsli = new JButton("SAFHE ASLI");
         khadamatAmoozeshi.add(barnameHaftegi);
         khadamatAmoozeshi.add(listEmtehnat);
+        profileKarbar.add(profileKarbar1);
         khadamatAmoozeshi.add(darKhastha);
         safheAsli.setBounds(680,0,100,30);
         this.add(safheAsli);
@@ -252,6 +256,16 @@ public class SafheDaneshjoo extends SafheAsli {
                 GuiController.getInstance().resetJpanels();
                 safheVaziatTahsiliDaneshjoo = new SafheVaziatTahsiliDaneshjoo();
                 add(safheVaziatTahsiliDaneshjoo,1);
+                repaint();
+                revalidate();
+            }
+        });
+        profileKarbar1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiController.getInstance().resetJpanels();
+                safheProfileDaneshjoo = new SafheProfileDaneshjoo();
+                add(safheProfileDaneshjoo,1);
                 repaint();
                 revalidate();
             }

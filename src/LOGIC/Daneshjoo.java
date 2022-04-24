@@ -12,8 +12,10 @@ public class Daneshjoo extends AzayeDaneshgah{
     AzayeDaneshgah ostadRahnama;
     boolean mojavezSabtnam;
     String saatSabtnam;
-    DaneshKade daneshKade;
+
     String moadel;
+    String saalVorod;
+    MaghtaDars maghtaDars;
     ArrayList<ArrayList<String>> DarkhastTosieName = new ArrayList<>();
     Map<DaneshKade,ArrayList<Vaziat>> darkhastMinor = new HashMap<>();
     Map<Dars,String> listNomaratMovaghat = new HashMap<>();
@@ -55,6 +57,22 @@ public class Daneshjoo extends AzayeDaneshgah{
             }
         }
         return arrayLists;
+    }
+
+    public MaghtaDars getMaghtaDars() {
+        return maghtaDars;
+    }
+
+    public String getSaalVorod() {
+        return saalVorod;
+    }
+
+    public void setSaalVorod(String saalVorod) {
+        this.saalVorod = saalVorod;
+    }
+
+    public void setMaghtaDars(MaghtaDars maghtaDars) {
+        this.maghtaDars = maghtaDars;
     }
 
     public Map<Dars, String> getListNomaratNahayy() {
@@ -109,13 +127,7 @@ public class Daneshjoo extends AzayeDaneshgah{
         this.ostadRahnama = ostadRahnama;
     }
 
-    public DaneshKade getDaneshKade() {
-        return daneshKade;
-    }
 
-    public void setDaneshKade(DaneshKade daneshKade) {
-        this.daneshKade = daneshKade;
-    }
 
     public ArrayList<Dars> getDars() {
         return dars;

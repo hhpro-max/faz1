@@ -32,6 +32,7 @@ public class GuiMain {
         MoavenAmoozeshi moavenAmoozeshi = new MoavenAmoozeshi("00","00","ali",null,"felanale@rrr.com");
         daneshjoo.setDaneshKade(DaneshKade.OMRAN);
         daneshjoo.setMoadel("15.5");
+        daneshjoo.setMaghtaDars(MaghtaDars.KARSHENASI);
         daneshjoo.getDars().add(chom1);
         daneshjoo.getDars().add(chom2);
         daneshjoo.getDars().add(chom3);

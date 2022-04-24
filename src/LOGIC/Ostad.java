@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Ostad extends AzayeDaneshgah{
-    DaneshKade daneshKade;
+
     DarajeOstadi darajeOstadi;
-    String shomareTamas;
+    String shomareOtagh;
     public Map<Daneshjoo,Vaziat> DarkhastTosieName = new HashMap<>();
     public ArrayList<Dars> darsha = new ArrayList<>();
     public ArrayList<String> eterazat = new ArrayList<>();
@@ -47,6 +47,14 @@ public class Ostad extends AzayeDaneshgah{
         return arrayLists;
     }
 
+    public String getShomareOtagh() {
+        return shomareOtagh;
+    }
+
+    public void setShomareOtagh(String shomareOtagh) {
+        this.shomareOtagh = shomareOtagh;
+    }
+
     public ArrayList<String> getEterazat() {
         return eterazat;
     }
@@ -71,13 +79,7 @@ public class Ostad extends AzayeDaneshgah{
         DarkhastTosieName = darkhastTosieName;
     }
 
-    public DaneshKade getDaneshKade() {
-        return daneshKade;
-    }
 
-    public void setDaneshKade(DaneshKade daneshKade) {
-        this.daneshKade = daneshKade;
-    }
 
     public DarajeOstadi getDarajeOstadi() {
         return darajeOstadi;
@@ -87,11 +89,5 @@ public class Ostad extends AzayeDaneshgah{
         this.darajeOstadi = darajeOstadi;
     }
 
-    public String getShomareTamas() {
-        return shomareTamas;
-    }
 
-    public void setShomareTamas(String shomareTamas) {
-        this.shomareTamas = shomareTamas;
-    }
 }

@@ -4689,4 +4689,92 @@
 %2022-04-23 07:55:52,331 [INFO|GUI.SafheAsli|SafheAsli] enter to the initpanel() 
 %2022-04-23 07:55:52,331 [INFO|GUI.SafheAsli|SafheAsli] exit from initpanel() 
 %2022-04-23 07:55:52,357 [INFO|GUI.SafheVorod|SafheVorod$4] vorood karbar 00dar zamanSat Apr 23 07:55:52 PDT 2022movafaghiat amiz bood 
+%2022-04-23 08:02:49,020 [INFO|GUI.MainFrame|MainFrame] enter in constructor of Mainframe 
+%2022-04-23 08:02:49,021 [INFO|GUI.MainFrame|MainFrame] enter to the initframe() 
+%2022-04-23 08:02:49,071 [INFO|GUI.MainFrame|MainFrame] exit of the initframe() 
+%2022-04-23 08:02:49,077 [INFO|GUI.SafheVorod|SafheVorod] enter to the constructor 
+%2022-04-23 08:02:49,077 [INFO|GUI.SafheVorod|SafheVorod] enter to the initpanel() 
+%2022-04-23 08:02:49,078 [INFO|GUI.SafheVorod|SafheVorod] exit from initpanel() 
+%2022-04-23 08:02:49,078 [INFO|GUI.SafheVorod|SafheVorod] enter to the initcom() 
+%2022-04-23 08:02:49,109 [INFO|GUI.SafheVorod|SafheVorod] exit from initcom() 
+%2022-04-23 08:02:49,109 [INFO|GUI.SafheVorod|SafheVorod] vorood be align() 
+%2022-04-23 08:02:49,125 [INFO|GUI.SafheVorod|SafheVorod] khoroj az align() 
+%2022-04-23 08:02:49,128 [INFO|GUI.SafheVorod|SafheVorod] exit from constructor 
+%2022-04-23 08:02:49,144 [INFO|GUI.MainFrame|MainFrame] vorood be update 
+%2022-04-23 08:02:49,148 [INFO|GUI.MainFrame|MainFrame] exit of constructor 
+%2022-04-23 08:02:52,848 [INFO|GUI.SendLoginInfo|SendLoginInfo] enter to the constructor 
+%2022-04-23 08:02:52,851 [INFO|LOGIC.Controller|Controller] checked login is :true 
+%2022-04-23 08:02:52,852 [INFO|GUI.SafheAsli|SafheAsli] enter to the constructor 
+%2022-04-23 08:02:52,853 [INFO|GUI.SafheAsli|SafheAsli] enter to the initpanel() 
+%2022-04-23 08:02:52,853 [INFO|GUI.SafheAsli|SafheAsli] exit from initpanel() 
+%2022-04-23 08:02:52,874 [INFO|GUI.SafheVorod|SafheVorod$4] vorood karbar 00dar zamanSat Apr 23 08:02:52 PDT 2022movafaghiat amiz bood 
+%2022-04-24 03:02:21,940 [INFO|GUI.MainFrame|MainFrame] enter in constructor of Mainframe 
+%2022-04-24 03:02:21,941 [INFO|GUI.MainFrame|MainFrame] enter to the initframe() 
+%2022-04-24 03:02:22,003 [INFO|GUI.MainFrame|MainFrame] exit of the initframe() 
+%2022-04-24 03:02:22,007 [INFO|GUI.SafheVorod|SafheVorod] enter to the constructor 
+%2022-04-24 03:02:22,008 [INFO|GUI.SafheVorod|SafheVorod] enter to the initpanel() 
+%2022-04-24 03:02:22,008 [INFO|GUI.SafheVorod|SafheVorod] exit from initpanel() 
+%2022-04-24 03:02:22,008 [INFO|GUI.SafheVorod|SafheVorod] enter to the initcom() 
+%2022-04-24 03:02:22,117 [INFO|GUI.SafheVorod|SafheVorod] exit from initcom() 
+%2022-04-24 03:02:22,117 [INFO|GUI.SafheVorod|SafheVorod] vorood be align() 
+%2022-04-24 03:02:22,140 [INFO|GUI.SafheVorod|SafheVorod] khoroj az align() 
+%2022-04-24 03:02:22,209 [INFO|GUI.SafheVorod|SafheVorod] exit from constructor 
+%2022-04-24 03:02:22,224 [INFO|GUI.MainFrame|MainFrame] vorood be update 
+%2022-04-24 03:02:22,230 [INFO|GUI.MainFrame|MainFrame] exit of constructor 
+%2022-04-24 03:02:28,331 [INFO|GUI.SendLoginInfo|SendLoginInfo] enter to the constructor 
+%2022-04-24 03:02:28,334 [INFO|LOGIC.Controller|Controller] checked login is :true 
+%2022-04-24 03:02:28,336 [INFO|GUI.SafheAsli|SafheAsli] enter to the constructor 
+%2022-04-24 03:02:28,337 [INFO|GUI.SafheAsli|SafheAsli] enter to the initpanel() 
+%2022-04-24 03:02:28,337 [INFO|GUI.SafheAsli|SafheAsli] exit from initpanel() 
+%2022-04-24 03:02:28,647 [INFO|GUI.SafheVorod|SafheVorod$4] vorood karbar 00dar zamanSun Apr 24 03:02:28 PDT 2022movafaghiat amiz bood 
+%2022-04-24 03:02:37,059 [INFO|GUI.SafheAddOstad|SafheAddOstad] safhe addOstad sakhte shod 
+%2022-04-24 03:02:37,102 [INFO|GUI.SafheOstad|SafheMoaven$5] enter to the addOstad 
+%2022-04-24 03:02:38,290 [INFO|GUI.SafheAddDaneshjoo|SafheAddDaneshjoo] safhe addDaneshjoo sakhte shod 
+%2022-04-24 03:02:38,349 [INFO|GUI.SafheOstad|SafheMoaven$4] zirmenu adduDaneshjoo 
+%2022-04-24 03:02:40,701 [INFO|GUI.SafheAddOstad|SafheAddOstad] safhe addOstad sakhte shod 
+%2022-04-24 03:02:40,704 [INFO|GUI.SafheOstad|SafheMoaven$5] enter to the addOstad 
+%2022-04-24 03:02:45,002 [INFO|GUI.SafheAddDaneshjoo|SafheAddDaneshjoo] safhe addDaneshjoo sakhte shod 
+%2022-04-24 03:02:45,007 [INFO|GUI.SafheOstad|SafheMoaven$4] zirmenu adduDaneshjoo 
+%2022-04-24 04:11:23,632 [INFO|GUI.MainFrame|MainFrame] enter in constructor of Mainframe 
+%2022-04-24 04:11:23,634 [INFO|GUI.MainFrame|MainFrame] enter to the initframe() 
+%2022-04-24 04:11:23,681 [INFO|GUI.MainFrame|MainFrame] exit of the initframe() 
+%2022-04-24 04:11:23,685 [INFO|GUI.SafheVorod|SafheVorod] enter to the constructor 
+%2022-04-24 04:11:23,685 [INFO|GUI.SafheVorod|SafheVorod] enter to the initpanel() 
+%2022-04-24 04:11:23,686 [INFO|GUI.SafheVorod|SafheVorod] exit from initpanel() 
+%2022-04-24 04:11:23,686 [INFO|GUI.SafheVorod|SafheVorod] enter to the initcom() 
+%2022-04-24 04:11:23,716 [INFO|GUI.SafheVorod|SafheVorod] exit from initcom() 
+%2022-04-24 04:11:23,716 [INFO|GUI.SafheVorod|SafheVorod] vorood be align() 
+%2022-04-24 04:11:23,734 [INFO|GUI.SafheVorod|SafheVorod] khoroj az align() 
+%2022-04-24 04:11:23,738 [INFO|GUI.SafheVorod|SafheVorod] exit from constructor 
+%2022-04-24 04:11:23,754 [INFO|GUI.MainFrame|MainFrame] vorood be update 
+%2022-04-24 04:11:23,760 [INFO|GUI.MainFrame|MainFrame] exit of constructor 
+%2022-04-24 04:11:28,550 [INFO|GUI.SendLoginInfo|SendLoginInfo] enter to the constructor 
+%2022-04-24 04:11:28,553 [INFO|LOGIC.Controller|Controller] checked login is :true 
+%2022-04-24 04:11:28,556 [INFO|GUI.SafheAsli|SafheAsli] enter to the constructor 
+%2022-04-24 04:11:28,557 [INFO|GUI.SafheAsli|SafheAsli] enter to the initpanel() 
+%2022-04-24 04:11:28,557 [INFO|GUI.SafheAsli|SafheAsli] exit from initpanel() 
+%2022-04-24 04:11:28,560 [INFO|GUI.SafheDaneshjoo|SafheDaneshjoo] table being initializing 
+%2022-04-24 04:11:28,614 [INFO|GUI.SafheDaneshjoo|SafheDaneshjoo] initializing table has finished 
+%2022-04-24 04:11:28,638 [INFO|GUI.SafheVorod|SafheVorod$4] vorood karbar 0dar zamanSun Apr 24 04:11:28 PDT 2022movafaghiat amiz bood 
+%2022-04-24 04:12:47,243 [INFO|GUI.MainFrame|MainFrame] enter in constructor of Mainframe 
+%2022-04-24 04:12:47,244 [INFO|GUI.MainFrame|MainFrame] enter to the initframe() 
+%2022-04-24 04:12:47,292 [INFO|GUI.MainFrame|MainFrame] exit of the initframe() 
+%2022-04-24 04:12:47,296 [INFO|GUI.SafheVorod|SafheVorod] enter to the constructor 
+%2022-04-24 04:12:47,296 [INFO|GUI.SafheVorod|SafheVorod] enter to the initpanel() 
+%2022-04-24 04:12:47,297 [INFO|GUI.SafheVorod|SafheVorod] exit from initpanel() 
+%2022-04-24 04:12:47,297 [INFO|GUI.SafheVorod|SafheVorod] enter to the initcom() 
+%2022-04-24 04:12:47,326 [INFO|GUI.SafheVorod|SafheVorod] exit from initcom() 
+%2022-04-24 04:12:47,326 [INFO|GUI.SafheVorod|SafheVorod] vorood be align() 
+%2022-04-24 04:12:47,340 [INFO|GUI.SafheVorod|SafheVorod] khoroj az align() 
+%2022-04-24 04:12:47,345 [INFO|GUI.SafheVorod|SafheVorod] exit from constructor 
+%2022-04-24 04:12:47,361 [INFO|GUI.MainFrame|MainFrame] vorood be update 
+%2022-04-24 04:12:47,366 [INFO|GUI.MainFrame|MainFrame] exit of constructor 
+%2022-04-24 04:12:51,207 [INFO|GUI.SendLoginInfo|SendLoginInfo] enter to the constructor 
+%2022-04-24 04:12:51,210 [INFO|LOGIC.Controller|Controller] checked login is :true 
+%2022-04-24 04:12:51,213 [INFO|GUI.SafheAsli|SafheAsli] enter to the constructor 
+%2022-04-24 04:12:51,213 [INFO|GUI.SafheAsli|SafheAsli] enter to the initpanel() 
+%2022-04-24 04:12:51,213 [INFO|GUI.SafheAsli|SafheAsli] exit from initpanel() 
+%2022-04-24 04:12:51,216 [INFO|GUI.SafheDaneshjoo|SafheDaneshjoo] table being initializing 
+%2022-04-24 04:12:51,230 [INFO|GUI.SafheDaneshjoo|SafheDaneshjoo] initializing table has finished 
+%2022-04-24 04:12:51,252 [INFO|GUI.SafheVorod|SafheVorod$4] vorood karbar 0dar zamanSun Apr 24 04:12:51 PDT 2022movafaghiat amiz bood 
 %

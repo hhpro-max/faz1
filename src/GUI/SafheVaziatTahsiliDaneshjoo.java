@@ -53,6 +53,7 @@ public class SafheVaziatTahsiliDaneshjoo extends JPanel {
         }
         if (!(counter == 0.0)){
             average = sum / counter;
+            Controller.getInstance().setModelDaneshjoo(String.valueOf(average));
         }
         ArrayList<String> k = new ArrayList<>();
         k.add("JAM/AVG");
