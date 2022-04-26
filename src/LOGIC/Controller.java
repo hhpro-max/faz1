@@ -80,10 +80,13 @@ public class Controller {
                            DaneshKade daneshkade,
                            String tedadVahed,
                            MaghtaDars maghtaDars,
-                           String zarfiat) {
+                           String zarfiat,
+                           ArrayList<RoozayeHafte> roozayeHaftes,
+                           String saatClass,
+                           String zamanEmtehanPayanterm) {
         if (azayeDaneshgah instanceof MoavenAmoozeshi) {
             MoavenAmoozeshi moavenAmoozeshi = (MoavenAmoozeshi) azayeDaneshgah;
-            boolean a = moavenAmoozeshi.addDars(id, name, pishniaz, ostad, daneshkade, tedadVahed, maghtaDars, zarfiat);
+            boolean a = moavenAmoozeshi.addDars(id, name, pishniaz, ostad, daneshkade, tedadVahed, maghtaDars, zarfiat,roozayeHaftes,saatClass,zamanEmtehanPayanterm);
             return a;
         }
         return false;

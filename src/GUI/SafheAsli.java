@@ -1,6 +1,5 @@
 package GUI;
 
-import EDUFILES.Emtehan;
 import LOGIC.Controller;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

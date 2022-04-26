@@ -17,10 +17,11 @@ public class SafheAddOstad extends JPanel {
 
     boolean edit = false;
 
-    JTextField id, pass, name, email;
-    JLabel id1, pass1, name1, email1,chooseFIle ,aksKarbar1;
+    JTextField id, pass, name, email,kodeMeli,phoneNumber,shOtagh;
+    JLabel id1, pass1, name1, email1,chooseFIle ,aksKarbar1,kodeMeli1,phoneNumber1,shOtagh1;
     JButton fileChooser,sabtNam,virayesh;
     JOptionPane jOptionPane;
+    JComboBox<DarajeOstadi> darajeOstadi;
     MoavenAmoozeshi moavenAmoozeshi;
     RaiisDaneshkade raiisDaneshkade;
 
@@ -50,11 +51,19 @@ public class SafheAddOstad extends JPanel {
         pass=new JTextField();
         name=new JTextField();
         email=new JTextField();
+        kodeMeli = new JTextField();
+        phoneNumber = new JTextField();
+        shOtagh = new JTextField();
 
         id1= new JLabel("ID :");
         pass1= new JLabel("PASSWORD :");
         name1= new JLabel("NAME :");
         email1= new JLabel("EMAIL :");
+        kodeMeli1 = new JLabel("KODE MELI :");
+        phoneNumber1 = new JLabel("SHOMARE TAMAS :");
+        shOtagh1 = new JLabel("SHOMARE OTAGH :");
+
+        darajeOstadi = new JComboBox<>(DarajeOstadi.values());
 
         chooseFIle = new JLabel("ENTEKHAB AKS KARBAR :");
         virayesh = new JButton("VIRAYESH");
@@ -81,6 +90,20 @@ public class SafheAddOstad extends JPanel {
         this.add(email1);
         email.setBounds(150,220,150,30);
         this.add(email);
+        kodeMeli1.setBounds(0,270,200,30);
+        this.add(kodeMeli1);
+        kodeMeli.setBounds(150,270,200,30);
+        this.add(kodeMeli);
+        phoneNumber1.setBounds(0,320,200,30);
+        this.add(phoneNumber1);
+        phoneNumber.setBounds(150,320,200,30);
+        this.add(phoneNumber);
+        shOtagh1.setBounds(0,370,200,30);
+        this.add(shOtagh1);
+        shOtagh.setBounds(150,370,200,30);
+        this.add(shOtagh);
+        darajeOstadi.setBounds(0,420,200,30);
+        this.add(darajeOstadi);
 
 
 
@@ -149,7 +172,11 @@ public class SafheAddOstad extends JPanel {
                                     pass.getText(),
                                     name.getText(),
                                     aksKarbar2,
-                                    email.getText()
+                                    email.getText(),
+                                    kodeMeli.getText(),
+                                    phoneNumber.getText(),
+                                    darajeOstadi.getItemAt(darajeOstadi.getSelectedIndex()),
+                                    shOtagh.getText()
                             );
                         }else if (!(raiisDaneshkade == null)){
                             raiisDaneshkade.addOstad(
@@ -157,7 +184,11 @@ public class SafheAddOstad extends JPanel {
                                     pass.getText(),
                                     name.getText(),
                                     aksKarbar2,
-                                    email.getText()
+                                    email.getText(),
+                                    kodeMeli.getText(),
+                                    phoneNumber.getText(),
+                                    darajeOstadi.getItemAt(darajeOstadi.getSelectedIndex()),
+                                    shOtagh.getText()
                             );
                         }
                         jOptionPane.showMessageDialog(GuiController.getFrame(),"SAKHTE SHOD");

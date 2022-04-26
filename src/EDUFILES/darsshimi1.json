@@ -1,0 +1,35 @@
+{
+  "id": "2",
+  "name": "SHIMI 1",
+  "pishniaz": "",
+  "ostad": {
+    "daneshjooDarkhastMinor": [],
+    "daneshjooDarkhastEnseraf": [],
+    "darajeOstadi": "OSTAD_TAMAM",
+    "shomareOtagh": "4",
+    "DarkhastTosieName": {},
+    "darsha": [],
+    "eterazat": [],
+    "id": "333",
+    "pass": "333",
+    "name": "akbar akbary",
+    "akharinzamanvorood": "0",
+    "email": "AKBARKHAFAN@GMAIL.COM",
+    "kodMeli": "123091746",
+    "phoneNumber": "0961273234",
+    "daneshKade": "SHIMI"
+  },
+  "daneshkade": "SHIMI",
+  "tedadVahed": "3",
+  "maghtaDars": "KARSHENASI",
+  "zarfiat": "30",
+  "roozClassDars": [
+    "YEKSHANBE",
+    "SESHANBE"
+  ],
+  "saatClass": "10.5",
+  "month": 0,
+  "day": 0,
+  "year": 0,
+  "zamanEmtehanPayanterm": "1401 10 3"
+}

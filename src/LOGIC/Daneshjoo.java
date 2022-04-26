@@ -24,16 +24,19 @@ public class Daneshjoo extends AzayeDaneshgah{
     ArrayList<ArrayList<String>> darkhastMinorData = new ArrayList<>();
     ArrayList<ArrayList<String>> darkhastEnserafData = new ArrayList<>();
 
-
-
-    public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email,Vazittahsily vazittahsily,AzayeDaneshgah ostadRahnama,boolean mojavezSabtnam,String saatSabtnam) {
-        super(id, pass, name, akskarbar, email);
+    public Daneshjoo(String id, String pass, String name, ImageIcon akskarbar, String email, String kodMeli, String phoneNumber, DaneshKade daneshKade, Vazittahsily vazittahsily, AzayeDaneshgah ostadRahnama, boolean mojavezSabtnam, String saatSabtnam, String saalVorod, MaghtaDars maghtaDars) {
+        super(id, pass, name, akskarbar, email, kodMeli, phoneNumber, daneshKade);
         this.vazittahsily = vazittahsily;
         this.ostadRahnama = ostadRahnama;
         this.mojavezSabtnam = mojavezSabtnam;
-        this.saatSabtnam=saatSabtnam;
-
+        this.saatSabtnam = saatSabtnam;
+        this.saalVorod = saalVorod;
+        this.maghtaDars = maghtaDars;
     }
+
+
+
+
     public ArrayList<ArrayList<String>> getListDorosGozarande(){
         ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
         for (Dars i:

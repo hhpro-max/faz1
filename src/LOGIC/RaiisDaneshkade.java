@@ -5,22 +5,22 @@ import javax.swing.*;
 public class RaiisDaneshkade extends Ostad{
 
 
-    public RaiisDaneshkade(String id, String pass, String name, ImageIcon akskarbar, String email) {
-        super(id, pass, name, akskarbar, email);
+    public RaiisDaneshkade(String id, String pass, String name, ImageIcon akskarbar, String email, String kodMeli, String phoneNumber, DaneshKade daneshKade, DarajeOstadi darajeOstadi, String shomareOtagh) {
+        super(id, pass, name, akskarbar, email, kodMeli, phoneNumber, daneshKade, darajeOstadi, shomareOtagh);
     }
 
-    public boolean deleteOstad(String id){//todo if(this.daneshkade == i.getdaneshkade)
+    public boolean deleteOstad(String id){
         for (AzayeDaneshgah i:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
-            if (i.getId().equals(id) && i instanceof Ostad){
+            if (i.getId().equals(id) && i instanceof Ostad && i.getDaneshKade().equals(this.daneshKade)){
                 AzayeDaneshgah.getAzayeDaneshgahs().remove(i);
                 return true;
             }
         }
         return false;
     }
-    public void addOstad(String id, String pass, String name, ImageIcon akskarbar, String email){
-        AzayeDaneshgah ostad= new Ostad(id, pass, name, akskarbar, email);
+    public void addOstad(String id, String pass, String name, ImageIcon akskarbar, String email,String kMeli,String pNumber,DarajeOstadi darajeOstadi1,String shOtagh){
+        AzayeDaneshgah azayeDaneshgah = new Ostad(id, pass, name, akskarbar, email,kMeli,pNumber,this.daneshKade,darajeOstadi1,shOtagh);
     }
 
     public boolean upGradetoMoaven(String id){
@@ -28,13 +28,14 @@ public class RaiisDaneshkade extends Ostad{
         for (AzayeDaneshgah i:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
             if (i instanceof MoavenAmoozeshi){
-                return false;
+                AzayeDaneshgah.getAzayeDaneshgahs().remove(i);
+                break;
             }
         }
         for (AzayeDaneshgah j:
              AzayeDaneshgah.getAzayeDaneshgahs()) {
             if (j.getId().equals(id) && j instanceof Ostad && !(j instanceof RaiisDaneshkade)){
-                moavenAmoozeshi = new MoavenAmoozeshi(j.getId(),j.getPass(),j.getName(),j.getAkskarbar(),j.getEmail());
+                moavenAmoozeshi = new MoavenAmoozeshi(j.getId(),j.getPass(),j.getName(),j.getAkskarbar(),j.getEmail(),j.getKodMeli(),j.getPhoneNumber(),j.getDaneshKade(),((Ostad) j).getDarajeOstadi(),((Ostad) j).getShomareOtagh());
                 AzayeDaneshgah.getAzayeDaneshgahs().remove(j);
                 return true;
             }

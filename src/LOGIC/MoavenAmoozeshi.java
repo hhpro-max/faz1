@@ -8,15 +8,15 @@ public class MoavenAmoozeshi extends Ostad{
     ArrayList<Daneshjoo> daneshjooDarkhastEnseraf = new ArrayList<>();
 
 
-    public MoavenAmoozeshi(String id, String pass, String name, ImageIcon akskarbar, String email) {
-        super(id, pass, name, akskarbar, email);
+    public MoavenAmoozeshi(String id, String pass, String name, ImageIcon akskarbar, String email, String kodMeli, String phoneNumber, DaneshKade daneshKade, DarajeOstadi darajeOstadi, String shomareOtagh) {
+        super(id, pass, name, akskarbar, email, kodMeli, phoneNumber, daneshKade, darajeOstadi, shomareOtagh);
     }
 
-    public void addDaneshjoo(String id, String pass, String name,  ImageIcon aksKarbar,String email , Vazittahsily vazittahsily, AzayeDaneshgah ostadrahnama, boolean mojavezSabtnam, String saatSabtnam ){
-        AzayeDaneshgah azayeDaneshgah = new Daneshjoo(id,pass,name,aksKarbar,email,vazittahsily,ostadrahnama,mojavezSabtnam,saatSabtnam);
+    public void addDaneshjoo(String id, String pass, String name, ImageIcon aksKarbar, String email,String kMeli,String pNumber , Vazittahsily vazittahsily, AzayeDaneshgah ostadrahnama, boolean mojavezSabtnam, String saatSabtnam,String sVorod,MaghtaDars maghtaDars1 ){
+        AzayeDaneshgah azayeDaneshgah = new Daneshjoo(id,pass,name,aksKarbar,email,kMeli,pNumber,this.daneshKade,vazittahsily,ostadrahnama,mojavezSabtnam,saatSabtnam,sVorod,maghtaDars1);
     }
-    public void addOstad(String id, String pass, String name, ImageIcon akskarbar, String email){
-        AzayeDaneshgah azayeDaneshgah = new Ostad(id, pass, name, akskarbar, email);
+    public void addOstad(String id, String pass, String name, ImageIcon akskarbar, String email,String kMeli,String pNumber,DarajeOstadi darajeOstadi1,String shOtagh){
+        AzayeDaneshgah azayeDaneshgah = new Ostad(id, pass, name, akskarbar, email,kMeli,pNumber,this.daneshKade,darajeOstadi1,shOtagh);
     }
     public boolean hazfDars(String id){
         for (Dars i:
@@ -35,9 +35,12 @@ public class MoavenAmoozeshi extends Ostad{
                            DaneshKade daneshkade,
                            String tedadVahed,
                            MaghtaDars maghtaDars,
-                           String zarfiat){
+                           String zarfiat,
+                           ArrayList<RoozayeHafte> roozayeHaftes1,
+                           String saatclass1,
+                           String zamanEmtehanPayanterm){
         try {
-            Dars dars = new Dars(id,name,pishniaz,ostad,daneshkade,tedadVahed,maghtaDars,zarfiat);
+            Dars dars = new Dars(id,name,pishniaz,ostad,daneshkade,tedadVahed,maghtaDars,zarfiat,roozayeHaftes1,saatclass1,zamanEmtehanPayanterm);
             return true;
         }catch (Exception e){
 

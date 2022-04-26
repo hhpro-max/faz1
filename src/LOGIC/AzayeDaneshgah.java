@@ -19,15 +19,16 @@ public class AzayeDaneshgah {
     public String phoneNumber;
     DaneshKade daneshKade;
 
-    public AzayeDaneshgah(String id,String pass,String name,ImageIcon akskarbar,String email){
-        this.id=id;
-        this.pass=pass;
-        this.name=name;
+    public AzayeDaneshgah(String id, String pass, String name, ImageIcon akskarbar, String email, String kodMeli, String phoneNumber, DaneshKade daneshKade) {
+        this.id = id;
+        this.pass = pass;
+        this.name = name;
         this.akskarbar = akskarbar;
         this.email = email;
-        azayeDaneshgahs.add(this);
+        this.kodMeli = kodMeli;
+        this.phoneNumber = phoneNumber;
+        this.daneshKade = daneshKade;
     }
-
 
     public DaneshKade getDaneshKade() {
         return daneshKade;

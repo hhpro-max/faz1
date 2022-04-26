@@ -19,9 +19,10 @@ public class SafheAddDaneshjoo extends JPanel{
     static final Logger logger = LogManager.getLogger(SafheAddDaneshjoo.class);
 
 
-    JTextField id, pass, name, email,saatSabtnam,ostadRahnama;
-    JLabel id1, pass1, name1, email1,saatSabtnam1,ostadRahnama1,chooseFIle,vaziattahsili1,mojavezsabtnam1,aksKarbar1;
+    JTextField id, pass, name, email,saatSabtnam,ostadRahnama,kodeMeli,phoneNumber,saalVorod;
+    JLabel id1, pass1, name1, email1,saatSabtnam1,ostadRahnama1,chooseFIle,vaziattahsili1,mojavezsabtnam1,aksKarbar1,kodeMeli1,phoneNumber1,saalVorod1;
     JComboBox<Vazittahsily> vaziattahsili;
+    JComboBox<MaghtaDars> maghtaDars;
     JButton fileChooser,sabtNam;
     JCheckBox mojavezSabtnam;
     JOptionPane jOptionPane;
@@ -64,6 +65,9 @@ public class SafheAddDaneshjoo extends JPanel{
         email=new JTextField();
         saatSabtnam = new JTextField();
         ostadRahnama=new JTextField();
+        kodeMeli = new JTextField();
+        phoneNumber = new JTextField();
+        saalVorod = new JTextField();
 
         id1= new JLabel("ID :");
         pass1= new JLabel("PASSWORD :");
@@ -74,10 +78,14 @@ public class SafheAddDaneshjoo extends JPanel{
         chooseFIle = new JLabel("ENTEKHAB AKS KARBAR :");
         vaziattahsili1=new JLabel("VAZIATTAHSILI :");
         mojavezsabtnam1=new JLabel("MOJAZ BE SABTNAM :");
+        kodeMeli1 = new JLabel("KODE MELI :");
+        phoneNumber1 = new JLabel("SHOMARE TAMAS :");
+        saalVorod1 = new JLabel("SAAL VOROOD");
 
         sabtNam=new JButton("SABT KARBAR");
 
         vaziattahsili = new JComboBox<>(Vazittahsily.values());
+        maghtaDars = new JComboBox<>(MaghtaDars.values());
         fileChooser = new JButton("CHOOSE FILE");
         mojavezSabtnam = new JCheckBox();
 
@@ -126,6 +134,25 @@ public class SafheAddDaneshjoo extends JPanel{
         this.add(mojavezsabtnam1);
         mojavezSabtnam.setBounds(150,470,30,30);
         this.add(mojavezSabtnam);
+
+        kodeMeli1.setBounds(350,70,200,30);
+        this.add(kodeMeli1);
+        kodeMeli.setBounds(500,70,200,30);
+        this.add(kodeMeli);
+
+
+        phoneNumber1.setBounds(350,120,200,30);
+        this.add(phoneNumber1);
+        phoneNumber.setBounds(500,120,200,30);
+        this.add(phoneNumber);
+
+        saalVorod1.setBounds(350,170,150,30);
+        this.add(saalVorod1);
+        saalVorod.setBounds(500,170,150,30);
+        this.add(saalVorod);
+
+        maghtaDars.setBounds(350,220,200,30);
+        this.add(maghtaDars);
 
         sabtNam.setBounds(500,500,150,30);
         this.add(sabtNam);
@@ -189,15 +216,20 @@ public class SafheAddDaneshjoo extends JPanel{
                 }
                 if (!(ostad2 == null) && !(pass.getText().isEmpty()) && !(id.getText().isEmpty())){
                     try {
-                        moavenAmoozeshi.addDaneshjoo(id.getText(),
+                        moavenAmoozeshi.addDaneshjoo(
+                                id.getText(),
                                 pass.getText(),
                                 name.getText(),
                                 aksKarbar2,
                                 email.getText(),
+                                kodeMeli.getText(),
+                                phoneNumber.getText(),
                                 vazittahsily2,
                                 ostad2,
                                 mojavez,
-                                saatSabtnam.getText()
+                                saatSabtnam.getText(),
+                                saalVorod.getText(),
+                                maghtaDars.getItemAt(maghtaDars.getSelectedIndex())
                         );
                         jOptionPane.showMessageDialog(GuiController.getFrame(),"SAKHTE SHOD");
                         logger.info("Daneshjoo ba id : " + id.getText() + " va pasword : " + pass.getText() + " sakhte shod.");

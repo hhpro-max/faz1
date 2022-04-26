@@ -1,0 +1,33 @@
+{
+  "id": "1",
+  "name": "MOGHAVEMAT MASALEH",
+  "pishniaz": "0",
+  "ostad": {
+    "darajeOstadi": "OSTAD_TAMAM",
+    "shomareOtagh": "1",
+    "DarkhastTosieName": {},
+    "darsha": [],
+    "eterazat": [],
+    "id": "1",
+    "pass": "1",
+    "name": "ali",
+    "akharinzamanvorood": "0",
+    "email": "EMAIL@GMAIL.COM",
+    "kodMeli": "@(*298",
+    "phoneNumber": "096127",
+    "daneshKade": "OMRAN"
+  },
+  "daneshkade": "OMRAN",
+  "tedadVahed": "3",
+  "maghtaDars": "KARSHENASI",
+  "zarfiat": "30",
+  "roozClassDars": [
+    "YEKSHANBE",
+    "SESHANBE"
+  ],
+  "saatClass": "9",
+  "month": 0,
+  "day": 0,
+  "year": 0,
+  "zamanEmtehanPayanterm": "1401 10 2"
+}

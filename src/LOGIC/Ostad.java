@@ -13,9 +13,10 @@ public class Ostad extends AzayeDaneshgah{
     public ArrayList<Dars> darsha = new ArrayList<>();
     public ArrayList<String> eterazat = new ArrayList<>();
 
-    public Ostad(String id, String pass, String name, ImageIcon akskarbar, String email) {
-        super(id, pass, name, akskarbar, email);
-
+    public Ostad(String id, String pass, String name, ImageIcon akskarbar, String email, String kodMeli, String phoneNumber, DaneshKade daneshKade, DarajeOstadi darajeOstadi, String shomareOtagh) {
+        super(id, pass, name, akskarbar, email, kodMeli, phoneNumber, daneshKade);
+        this.darajeOstadi = darajeOstadi;
+        this.shomareOtagh = shomareOtagh;
     }
 
     public ArrayList<ArrayList<String>> getListDaneshjoo(){

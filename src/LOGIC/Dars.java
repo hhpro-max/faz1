@@ -23,29 +23,20 @@ public class Dars {
     Date dateEmtehan;
 
 
-    public Dars(String id,
-    String name,
-    String pishniaz,
-    AzayeDaneshgah ostad,
-    DaneshKade daneshkade,
-                String tedadVahed,
-                MaghtaDars maghtaDars,
-                String zarfiat){
-
-
-        this.id=id;
-        this.pishniaz=pishniaz;
-        this.name=name;
-        this.ostad=ostad;
-        this.daneshkade=daneshkade;
-        this.tedadVahed=tedadVahed;
-        this.maghtaDars=maghtaDars;
-        this.zarfiat=zarfiat;
-
-
-
-        doros.add(this);
+    public Dars(String id, String name, String pishniaz, AzayeDaneshgah ostad, DaneshKade daneshkade, String tedadVahed, MaghtaDars maghtaDars, String zarfiat, ArrayList<RoozayeHafte> roozClassDars, String saatClass, String zamanEmtehanPayanterm) {
+        this.id = id;
+        this.name = name;
+        this.pishniaz = pishniaz;
+        this.ostad = ostad;
+        this.daneshkade = daneshkade;
+        this.tedadVahed = tedadVahed;
+        this.maghtaDars = maghtaDars;
+        this.zarfiat = zarfiat;
+        this.roozClassDars = roozClassDars;
+        this.saatClass = saatClass;
+        this.zamanEmtehanPayanterm = zamanEmtehanPayanterm;
     }
+
     public boolean setTarikhEmtehan(){
         if (!zamanEmtehanPayanterm.isEmpty()){
             String[] tarikh = zamanEmtehanPayanterm.split(" ");
