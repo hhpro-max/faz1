@@ -9,7 +9,7 @@ public class Dars {
     String id;
     String name;
     String pishniaz;
-    AzayeDaneshgah ostad;
+    Ostad ostad;
     DaneshKade daneshkade;
     String tedadVahed;
     MaghtaDars maghtaDars;
@@ -23,7 +23,7 @@ public class Dars {
     Date dateEmtehan;
 
 
-    public Dars(String id, String name, String pishniaz, AzayeDaneshgah ostad, DaneshKade daneshkade, String tedadVahed, MaghtaDars maghtaDars, String zarfiat, ArrayList<RoozayeHafte> roozClassDars, String saatClass, String zamanEmtehanPayanterm) {
+    public Dars(String id, String name, String pishniaz, Ostad ostad, DaneshKade daneshkade, String tedadVahed, MaghtaDars maghtaDars, String zarfiat, ArrayList<RoozayeHafte> roozClassDars, String saatClass, String zamanEmtehanPayanterm) {
         this.id = id;
         this.name = name;
         this.pishniaz = pishniaz;
@@ -148,11 +148,11 @@ public class Dars {
         this.pishniaz = pishniaz;
     }
 
-    public AzayeDaneshgah getOstad() {
+    public Ostad getOstad() {
         return ostad;
     }
 
-    public void setOstad(AzayeDaneshgah ostad) {
+    public void setOstad(Ostad ostad) {
         this.ostad = ostad;
     }
 

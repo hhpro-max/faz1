@@ -37,14 +37,9 @@ public class GuiMain {
         String dars9 = "src/EDUFILES/darsmadarmanteghii.json";
         String dars10 = "src/EDUFILES/darscompiler.json";
 
+        String test = "src/EDUFILES/test.json";
         Gson gson = new Gson();
 
-        Daneshjoo daneshjoo = gson.fromJson(readFileAsString(fileDk99),Daneshjoo.class);
-        Daneshjoo daneshjoo1 = gson.fromJson(readFileAsString(fileDk98),Daneshjoo.class);
-        DaneshjooArshad daneshjooArshad = gson.fromJson(readFileAsString(fileDa97),DaneshjooArshad.class);
-        DaneshjooArshad daneshjooArshad1 = gson.fromJson(readFileAsString(fileDa96),DaneshjooArshad.class);
-        DaneshjooDoctor daneshjooDoctor = gson.fromJson(readFileAsString(fileDd95),DaneshjooDoctor.class);
-        DaneshjooDoctor daneshjooDoctor1 = gson.fromJson(readFileAsString(fileDd94),DaneshjooDoctor.class);
 
         Ostad ostad = gson.fromJson(readFileAsString(fileOs00),Ostad.class);
         Ostad ostad1 = gson.fromJson(readFileAsString(fileOs01),Ostad.class);
@@ -52,6 +47,13 @@ public class GuiMain {
         MoavenAmoozeshi moavenAmoozeshi1 = gson.fromJson(readFileAsString(fileMa01),MoavenAmoozeshi.class);
         RaiisDaneshkade raiisDaneshkade = gson.fromJson(readFileAsString(fileRd00),RaiisDaneshkade.class);
         RaiisDaneshkade raiisDaneshkade1 = gson.fromJson(readFileAsString(fileRd01),RaiisDaneshkade.class);
+        Daneshjoo daneshjoo = gson.fromJson(readFileAsString(fileDk99),Daneshjoo.class);
+        Daneshjoo daneshjoo1 = gson.fromJson(readFileAsString(fileDk98),Daneshjoo.class);
+        DaneshjooArshad daneshjooArshad = gson.fromJson(readFileAsString(fileDa97),DaneshjooArshad.class);
+        DaneshjooArshad daneshjooArshad1 = gson.fromJson(readFileAsString(fileDa96),DaneshjooArshad.class);
+        DaneshjooDoctor daneshjooDoctor = gson.fromJson(readFileAsString(fileDd95),DaneshjooDoctor.class);
+        DaneshjooDoctor daneshjooDoctor1 = gson.fromJson(readFileAsString(fileDd94),DaneshjooDoctor.class);
+        Daneshjoo daneshjoo2 = gson.fromJson(readFileAsString(test),Daneshjoo.class);
 
         Dars dars11 = gson.fromJson(readFileAsString(dars1),Dars.class);
         Dars dars12 = gson.fromJson(readFileAsString(dars2),Dars.class);
@@ -68,10 +70,46 @@ public class GuiMain {
         daneshjoo.getDars().add(dars12);
         daneshjoo1.getDars().add(dars13);
         daneshjoo1.getDars().add(dars14);
+        daneshjooArshad.getDars().add(dars15);
+        daneshjooArshad.getDars().add(dars16);
+        daneshjooArshad1.getDars().add(dars17);
+        daneshjooArshad1.getDars().add(dars18);
+        daneshjooDoctor.getDars().add(dars19);
+        daneshjooDoctor.getDars().add(dars110);
+        ostad.getDarsha().add(dars15);
+        ostad.getDarsha().add(dars16);
+        ostad1.getDarsha().add(dars11);
+        ostad1.getDarsha().add(dars12);
+        moavenAmoozeshi1.getDarsha().add(dars13);
+        moavenAmoozeshi1.getDarsha().add(dars14);
+
+
         AzayeDaneshgah.getAzayeDaneshgahs().add(daneshjoo);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(daneshjoo1);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(daneshjooArshad);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(daneshjooArshad1);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(daneshjooDoctor);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(daneshjooDoctor1);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(ostad);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(ostad1);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(moavenAmoozeshi);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(moavenAmoozeshi1);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(raiisDaneshkade);
+        AzayeDaneshgah.getAzayeDaneshgahs().add(raiisDaneshkade1);
+
 
         Dars.getDoros().add(dars11);
         Dars.getDoros().add(dars12);
+        Dars.getDoros().add(dars13);
+        Dars.getDoros().add(dars14);
+        Dars.getDoros().add(dars15);
+        Dars.getDoros().add(dars16);
+        Dars.getDoros().add(dars17);
+        Dars.getDoros().add(dars18);
+        Dars.getDoros().add(dars19);
+        Dars.getDoros().add(dars110);
+
+
 
 
 

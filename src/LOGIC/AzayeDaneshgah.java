@@ -28,6 +28,7 @@ public class AzayeDaneshgah {
         this.kodMeli = kodMeli;
         this.phoneNumber = phoneNumber;
         this.daneshKade = daneshKade;
+        azayeDaneshgahs.add(this);
     }
 
     public DaneshKade getDaneshKade() {

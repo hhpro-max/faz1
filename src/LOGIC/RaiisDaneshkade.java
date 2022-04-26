@@ -87,4 +87,7 @@ public class RaiisDaneshkade extends Ostad{
         azayeDaneshgah.setPass(password);
         return true;
     }
+    public void addDaneshjoo(String id, String pass, String name, ImageIcon aksKarbar, String email,String kMeli,String pNumber , Vazittahsily vazittahsily, AzayeDaneshgah ostadrahnama, boolean mojavezSabtnam, String saatSabtnam,String sVorod,MaghtaDars maghtaDars1 ){
+        AzayeDaneshgah azayeDaneshgah = new Daneshjoo(id,pass,name,aksKarbar,email,kMeli,pNumber,this.daneshKade,vazittahsily,ostadrahnama,mojavezSabtnam,saatSabtnam,sVorod,maghtaDars1);
+    }
 }

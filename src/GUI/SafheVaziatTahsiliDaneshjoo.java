@@ -39,7 +39,7 @@ public class SafheVaziatTahsiliDaneshjoo extends JPanel {
              data) {
             try {
                 sum = sum + (Double.parseDouble(i.get(3)) * Double.parseDouble(i.get(2)));
-                counter++;
+                counter = counter + Integer.parseInt(i.get(2));
             }catch (Exception e2){
 
 

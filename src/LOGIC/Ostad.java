@@ -73,6 +73,9 @@ public class Ostad extends AzayeDaneshgah{
     }
 
     public Map<Daneshjoo, Vaziat> getDarkhastTosieName() {
+        if (this.DarkhastTosieName == null){
+            DarkhastTosieName = new HashMap<>();
+        }
         return DarkhastTosieName;
     }
 

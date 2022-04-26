@@ -247,7 +247,7 @@ public class SafheVorod extends JPanel {
                         Controller.getInstance().login(sendLoginInfo);
                         if (Controller.getInstance().chekvalidlogin()){
                             Controller.getInstance().initZamanVorood();
-                            System.out.println(Controller.getInstance().getZamanvorood());
+
                             int lasHour = Integer.parseInt(Controller.getInstance().getZamanvorood());
                             if (hour - lasHour >= 3){
                                 Controller.getInstance().setChangedPass(false);

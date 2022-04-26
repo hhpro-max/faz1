@@ -3,18 +3,18 @@
   "vazittahsily": "DARHALTAHSIL",
   "ostadRahnama": {
     "darajeOstadi": "OSTAD_TAMAM",
-    "shomareOtagh": "1",
+    "shomareOtagh": "2",
     "DarkhastTosieName": {},
     "darsha": [],
     "eterazat": [],
-    "id": "000",
-    "pass": "000",
-    "name": "koli moli",
+    "id": "111",
+    "pass": "111",
+    "name": "amir amiry",
     "akharinzamanvorood": "0",
-    "email": "alialiy@GMAIL.COM",
+    "email": "amiramiry@GMAIL.COM",
     "kodMeli": "1234567890",
     "phoneNumber": "096127123",
-    "daneshKade": "OMRAN"
+    "daneshKade": "RIAZI"
   },
   "mojavezSabtnam": true,
   "saatSabtnam": "9",
@@ -27,12 +27,12 @@
   "natijeEteraz": [],
   "darkhastMinorData": [],
   "darkhastEnserafData": [],
-  "id": "666",
-  "pass": "666",
+  "id": "0",
+  "pass": "0",
   "name": "JAVAD KOCHEIY",
   "akharinzamanvorood": "0",
   "email": "",
   "kodMeli": "712674982",
   "phoneNumber": "0812983812",
-  "daneshKade": "OMRAN"
+  "daneshKade": "FIZIK"
 }

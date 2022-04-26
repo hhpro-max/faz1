@@ -31,7 +31,7 @@ public class MoavenAmoozeshi extends Ostad{
     public boolean addDars(String id,
                            String name,
                            String pishniaz,
-                           AzayeDaneshgah ostad,
+                           Ostad ostad,
                            DaneshKade daneshkade,
                            String tedadVahed,
                            MaghtaDars maghtaDars,
@@ -52,7 +52,7 @@ public class MoavenAmoozeshi extends Ostad{
     public boolean virayeshDars(String id,
                                 String name,
                                 String pishniaz,
-                                AzayeDaneshgah ostad,
+                                Ostad ostad,
                                 DaneshKade daneshkade,
                                 String tedadVahed,
                                 MaghtaDars maghtaDars,
@@ -60,7 +60,7 @@ public class MoavenAmoozeshi extends Ostad{
         Dars dars = null;
         String nameDars;
         String pishniazDars;
-        AzayeDaneshgah ostadDars = null;
+        Ostad ostadDars = null;
         DaneshKade daneshKadeDars = null;
         MaghtaDars maghtaDars1 = null;
         String tedadVahedDars;

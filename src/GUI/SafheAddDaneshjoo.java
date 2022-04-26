@@ -27,7 +27,8 @@ public class SafheAddDaneshjoo extends JPanel{
     JCheckBox mojavezSabtnam;
     JOptionPane jOptionPane;
     boolean mojavez=false;
-
+    MoavenAmoozeshi moavenAmoozeshi = null;
+    RaiisDaneshkade raiisDaneshkade = null;
 
     public SafheAddDaneshjoo(){
 
@@ -206,7 +207,11 @@ public class SafheAddDaneshjoo extends JPanel{
                 if (!(aksKarbar1 == null) && !(aksKarbar1.getIcon() == null)){
                     aksKarbar2 = (ImageIcon) aksKarbar1.getIcon();
                 }
-                MoavenAmoozeshi moavenAmoozeshi = (MoavenAmoozeshi) Controller.getInstance().getAzayeDaneshgah();
+                if (Controller.getInstance().getAzayeDaneshgah() instanceof MoavenAmoozeshi) {
+                    moavenAmoozeshi = (MoavenAmoozeshi) Controller.getInstance().getAzayeDaneshgah();
+                }else if(Controller.getInstance().getAzayeDaneshgah() instanceof RaiisDaneshkade){
+                    raiisDaneshkade = (RaiisDaneshkade) Controller.getInstance().getAzayeDaneshgah();
+                }
                 AzayeDaneshgah ostad2 = null;
                 for (AzayeDaneshgah i :
                         AzayeDaneshgah.getAzayeDaneshgahs()) {
@@ -216,21 +221,39 @@ public class SafheAddDaneshjoo extends JPanel{
                 }
                 if (!(ostad2 == null) && !(pass.getText().isEmpty()) && !(id.getText().isEmpty())){
                     try {
-                        moavenAmoozeshi.addDaneshjoo(
-                                id.getText(),
-                                pass.getText(),
-                                name.getText(),
-                                aksKarbar2,
-                                email.getText(),
-                                kodeMeli.getText(),
-                                phoneNumber.getText(),
-                                vazittahsily2,
-                                ostad2,
-                                mojavez,
-                                saatSabtnam.getText(),
-                                saalVorod.getText(),
-                                maghtaDars.getItemAt(maghtaDars.getSelectedIndex())
-                        );
+                        if (!(moavenAmoozeshi == null)) {
+                            moavenAmoozeshi.addDaneshjoo(
+                                    id.getText(),
+                                    pass.getText(),
+                                    name.getText(),
+                                    aksKarbar2,
+                                    email.getText(),
+                                    kodeMeli.getText(),
+                                    phoneNumber.getText(),
+                                    vazittahsily2,
+                                    ostad2,
+                                    mojavez,
+                                    saatSabtnam.getText(),
+                                    saalVorod.getText(),
+                                    maghtaDars.getItemAt(maghtaDars.getSelectedIndex())
+                            );
+                        }else if (!(raiisDaneshkade == null)){
+                            raiisDaneshkade.addDaneshjoo(
+                                    id.getText(),
+                                    pass.getText(),
+                                    name.getText(),
+                                    aksKarbar2,
+                                    email.getText(),
+                                    kodeMeli.getText(),
+                                    phoneNumber.getText(),
+                                    vazittahsily2,
+                                    ostad2,
+                                    mojavez,
+                                    saatSabtnam.getText(),
+                                    saalVorod.getText(),
+                                    maghtaDars.getItemAt(maghtaDars.getSelectedIndex())
+                            );
+                        }
                         jOptionPane.showMessageDialog(GuiController.getFrame(),"SAKHTE SHOD");
                         logger.info("Daneshjoo ba id : " + id.getText() + " va pasword : " + pass.getText() + " sakhte shod.");
 

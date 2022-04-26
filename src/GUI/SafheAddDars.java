@@ -137,7 +137,7 @@ public class SafheAddDars extends JPanel {
                         String idDars = id.getText();
                         String nameDars = name.getText();
                         String pishNiazDars = pishniaz.getText();
-                        AzayeDaneshgah ostadDars = null;
+                        Ostad ostadDars = null;
                         ArrayList<RoozayeHafte> roozayeHaftes = new ArrayList<>();
                         roozayeHaftes.add(roozAval.getItemAt(roozAval.getSelectedIndex()));
                         roozayeHaftes.add(roozDovom.getItemAt(roozDovom.getSelectedIndex()));
@@ -183,7 +183,7 @@ public class SafheAddDars extends JPanel {
                         String idDars = id.getText();
                         String nameDars = name.getText();
                         String pishNiazDars = pishniaz.getText();
-                        AzayeDaneshgah ostadDars = null;
+                        Ostad ostadDars = null;
                         boolean a = Controller.getInstance().checkOstad(ostad.getText());
                         if (a){
                             ostadDars = Controller.controller.getOstad(ostad.getText());

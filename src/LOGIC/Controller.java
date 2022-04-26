@@ -76,7 +76,7 @@ public class Controller {
     public boolean addDars(String id,
                            String name,
                            String pishniaz,
-                           AzayeDaneshgah ostad,
+                           Ostad ostad,
                            DaneshKade daneshkade,
                            String tedadVahed,
                            MaghtaDars maghtaDars,
@@ -112,13 +112,13 @@ public class Controller {
         return false;
     }
 
-    public AzayeDaneshgah getOstad(String id) {
+    public Ostad getOstad(String id) {
         boolean a = checkOstad(id);
         if (a) {
             for (AzayeDaneshgah i :
                     azayeDaneshgahs) {
                 if (i.getId().equals(id) && i instanceof Ostad) {
-                    return i;
+                    return (Ostad) i;
                 }
             }
         }
@@ -128,7 +128,7 @@ public class Controller {
     public boolean virayeshDars(String id,
                                 String name,
                                 String pishniaz,
-                                AzayeDaneshgah ostad,
+                                Ostad ostad,
                                 DaneshKade daneshkade,
                                 String tedadVahed,
                                 MaghtaDars maghtaDars,
@@ -273,7 +273,10 @@ public class Controller {
                         break loop;
                     }
                 }
-                asatid.add((Ostad) i.getOstad());
+                Ostad ostad = i.getOstad();
+                asatid.add(ostad);
+
+
 
             }
             return asatid;
@@ -516,6 +519,7 @@ public class Controller {
                 }
             } catch (Exception e4) {
                 logger.warn("error is : " + e4.getMessage());
+                return false;
             }
 
         }
@@ -523,28 +527,48 @@ public class Controller {
     }
 
     public boolean sendDarkhastMinor(DaneshKade daneshKade) {
+        boolean a = false;
+        boolean b = false;
+        MoavenAmoozeshi moavenAmoozeshi = null;
+        MoavenAmoozeshi moavenAmoozeshi1 = null;
+        Daneshjoo daneshjoo = null;
+        ArrayList<Vaziat> vaziats = new ArrayList<>();
         if (azayeDaneshgah instanceof Daneshjoo) {
+            daneshjoo = (Daneshjoo) azayeDaneshgah;
+
             DaneshKade daneshKadeMabda = ((Daneshjoo) azayeDaneshgah).getDaneshKade();
             DaneshKade daneshKadeMaghsad = daneshKade;
-            ArrayList<Vaziat> vaziats = new ArrayList<>();
+
             vaziats.add(Vaziat.SABTSHODE);
             vaziats.add(Vaziat.SABTSHODE);
 
+
             for (AzayeDaneshgah i :
                     AzayeDaneshgah.getAzayeDaneshgahs()) {
-                if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))) {
-                    ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
+                if (i instanceof MoavenAmoozeshi && daneshKadeMabda.equals(i.getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))) {
+                    moavenAmoozeshi =(MoavenAmoozeshi) i;
+                    a = true;
                     break;
                 }
             }
             for (AzayeDaneshgah i :
                     AzayeDaneshgah.getAzayeDaneshgahs()) {
-                if (i instanceof MoavenAmoozeshi && daneshKadeMaghsad.equals(((MoavenAmoozeshi) i).getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))) {
-                    ((MoavenAmoozeshi) i).getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
-                    ((Daneshjoo) azayeDaneshgah).getDarkhastMinor().put(daneshKadeMaghsad, vaziats);
-                    return true;
+                if (i instanceof MoavenAmoozeshi && daneshKadeMaghsad.equals( i.getDaneshKade()) && !(daneshKadeMabda.equals(daneshKadeMaghsad))) {
+                    moavenAmoozeshi1 =(MoavenAmoozeshi) i;
+
+                    b = true;
+                    break;
                 }
             }
+        }
+        else{
+            return false;
+        }
+        if (a && b && !(moavenAmoozeshi == null) && !(moavenAmoozeshi1 == null)){
+            moavenAmoozeshi.getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
+            moavenAmoozeshi1.getDaneshjooDarkhastMinor().add((Daneshjoo) azayeDaneshgah);
+            daneshjoo.getDarkhastMinor().put(daneshKade, vaziats);
+            return true;
         }
         return false;
     }

@@ -98,9 +98,9 @@ public class SafheAddOstad extends JPanel {
         this.add(phoneNumber1);
         phoneNumber.setBounds(150,320,200,30);
         this.add(phoneNumber);
-        shOtagh1.setBounds(0,370,200,30);
+        shOtagh1.setBounds(0,470,200,30);
         this.add(shOtagh1);
-        shOtagh.setBounds(150,370,200,30);
+        shOtagh.setBounds(150,470,200,30);
         this.add(shOtagh);
         darajeOstadi.setBounds(0,420,200,30);
         this.add(darajeOstadi);

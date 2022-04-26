@@ -75,8 +75,10 @@ public class SafheDarkhastMinor extends JPanel {
                 revalidate();
                 boolean check = Controller.getInstance().checkShartMinor();
                 boolean chek1 = Controller.getInstance().sendDarkhastMinor(jComboBox.getItemAt(jComboBox.getSelectedIndex()));
+
                 if (check && chek1){
                     try {
+
                         data.add(new ArrayList<>());
                         for (ArrayList<String> i:
                                 data) {
@@ -101,6 +103,7 @@ public class SafheDarkhastMinor extends JPanel {
                     }
                     catch (Exception exception){
                         JOptionPane.showMessageDialog(GuiController.getFrame(),"S.TH WENT WRONG");
+                        return;
                     }
                 }
                 else {
