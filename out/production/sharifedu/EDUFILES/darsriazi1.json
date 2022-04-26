@@ -1,0 +1,33 @@
+{
+  "id": "4",
+  "name": "RIAZI 1",
+  "pishniaz": "",
+  "ostad": {
+    "darajeOstadi": "OSTAD_TAMAM",
+    "shomareOtagh": "2",
+    "DarkhastTosieName": {},
+    "darsha": [],
+    "eterazat": [],
+    "id": "111",
+    "pass": "111",
+    "name": "amir amiry",
+    "akharinzamanvorood": "0",
+    "email": "amiramiry@GMAIL.COM",
+    "kodMeli": "1234567890",
+    "phoneNumber": "096127123",
+    "daneshKade": "RIAZI"
+  },
+  "daneshkade": "RIAZI",
+  "tedadVahed": "3",
+  "maghtaDars": "KARSHENASI",
+  "zarfiat": "30",
+  "roozClassDars": [
+    "SHANBE",
+    "DOSHANBE"
+  ],
+  "saatClass": "12",
+  "month": 0,
+  "day": 0,
+  "year": 0,
+  "zamanEmtehanPayanterm": "1401 10 5"
+}
